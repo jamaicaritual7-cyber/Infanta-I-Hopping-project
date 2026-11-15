@@ -1,0 +1,405 @@
+# CODEX — FIX PINAGBANDERAHAN, DESTINATION NAVIGATION, AND HOMEPAGE DISCOVERY
+
+PROJECT: Infanta, I Hopping
+FOLDER: C:\Users\jamaica\Downloads\Infanta_Ihopping
+
+I am still experiencing serious problems with my tourism website.
+
+I want you to IMPLEMENT the fixes directly, not just suggest changes.
+
+You have my authorization to modify the necessary Flask routes, HTML templates, CSS, JavaScript, destination records, and existing image mappings.
+
+Do not ask for approval for each requested change.
+
+Preserve all existing functionality and database records.
+
+## PART 1 — FIX PINAGBANDERAHAN BEACH RESORT'S MISSING DESCRIPTION
+
+CURRENT PROBLEM:
+
+The destination details page displays:
+
+Panukulan, Quezon
+Pinagbanderahan Beach Resort
+About This Destination
+None
+
+THIS IS NOT ACCEPTABLE FOR A PUBLIC TOURISM WEBSITE.
+
+The word "None" must never appear as destination content.
+
+Find the existing Pinagbanderahan Beach Resort record in MySQL.
+
+Inspect the destination description field, the Flask database query, and the template variables.
+
+Determine whether the description is NULL, missing, mapped to the wrong field, or incorrectly rendered.
+
+Update the EXISTING destination record using the content below.
+
+DO NOT CREATE A DUPLICATE DESTINATION.
+
+### EXACT CONTENT TO SAVE
+
+Destination Name:
+Pinagbanderahan Beach Resort
+
+Location:
+Barangay San Juan, Panukulan, Quezon
+
+Tagline:
+Where Coastal Beauty Meets Island Adventure
+
+About This Destination:
+
+Discover Pinagbanderahan Beach Resort, a coastal getaway in Panukulan, Quezon, where peaceful seaside surroundings meet natural rock formations and beautiful ocean views. Located within the Polillo island group, this destination invites travelers to experience a quieter side of island life. Visitors can appreciate the shoreline, explore the resort's coastal scenery, and enjoy a relaxing escape with family or friends. With its natural landscape and connection to Panukulan's local attractions, Pinagbanderahan offers a memorable stop for tourists exploring Quezon's island destinations.
+
+What to Explore:
+- Beach and coastal scenery
+- Natural rock formations
+- Seaside photography
+- Cottage relaxation, subject to availability
+- Boat rides, when offered by the operator
+- Nearby Pinagbanderahan lighthouse viewpoint, subject to access
+
+Before You Go:
+
+Contact the resort or local operator to confirm current access, cottage availability, boat activities, rates, and weather conditions. The lighthouse is a separate attraction, and visiting it may require additional arrangements.
+
+### DATABASE AND TEMPLATE REQUIREMENTS
+
+1. Find the correct existing destination ID.
+2. Save the content into the appropriate database fields.
+3. Confirm the database transaction was committed.
+4. Confirm the destination details query retrieves the new values.
+5. Confirm the template displays the values.
+6. Preserve the destination photograph and existing booking relationships.
+7. Do not overwrite other destination records.
+8. Ensure the admin can edit the information.
+
+Also inspect every other destination for NULL, None, or empty descriptions.
+
+Fix incorrect field mappings globally.
+
+Do not replace valid existing descriptions with generic text.
+
+Never display the literal values "None", "NULL", or "undefined" to tourists.
+
+Use a safe, human-readable fallback when optional information is unavailable.
+
+## PART 2 — REDESIGN THE BACK TO DESTINATIONS BUTTON
+
+CURRENT PROBLEM:
+
+The "Back to Destinations" navigation looks like plain text.
+
+It does not look like a proper button.
+
+I WANT A BEAUTIFUL, CLEAR, CLICKABLE BUTTON.
+
+Button label:
+
+← Back to Destinations
+
+DESIGN:
+
+- Navy-blue outline or soft turquoise background
+- Rounded corners
+- Comfortable padding
+- Clear arrow icon
+- Medium font weight
+- Subtle hover transition
+- Visible focus state
+- Professional spacing
+
+Position the button near the top of each destination details page.
+
+Use a real HTML anchor styled as a button.
+
+Use Flask url_for() to link to the correct Explore Destinations route.
+
+Do not hardcode localhost URLs.
+
+Make sure it works on mobile.
+
+Do not use plain text with an arrow and no styling.
+
+Apply the same button styling to ALL destination details pages.
+
+## PART 3 — FIX THE HOMEPAGE'S THREE DESTINATIONS
+
+CURRENT PROBLEM:
+
+My homepage shows only three destination cards:
+
+- Dero Beach
+- Sabangan Beach
+- Baluti Island
+
+But the section does not explain why only three places are shown.
+
+The cards lack sufficient context and working navigation buttons.
+
+A tourist might think these are the ONLY destinations available on the website.
+
+I WANT THIS SECTION REDESIGNED.
+
+### NEW SECTION TITLE
+
+Featured Destinations
+
+### SECTION SUBTITLE
+
+"A glimpse of the coastal beauty waiting to be discovered."
+
+### SECTION DESCRIPTION
+
+"From peaceful beaches to island escapes, explore some of the destinations around Infanta and nearby Quezon municipalities. These are just a few places from our growing collection—discover more destinations and find the experience that suits your next adventure."
+
+### IMPORTANT LABEL
+
+Display a subtle label:
+
+"Featured from our destination collection"
+
+This should make it clear that these three cards are only a preview.
+
+### FEATURED DESTINATION 1 — DERO BEACH
+
+Location:
+Infanta, Quezon
+
+Tagline:
+Where Infanta Meets the Sea
+
+Short Description:
+"Discover the coastal charm of Dero Beach, where scenic shorelines and peaceful surroundings invite you to experience a quieter side of Infanta."
+
+Button:
+Explore Destination →
+
+Use the existing correct Dero Beach photograph.
+
+### FEATURED DESTINATION 2 — SABANGAN BEACH
+
+Location:
+Use the existing verified location in the database.
+
+Tagline:
+A Hidden Shore Worth Discovering
+
+Short Description:
+"Discover the natural coastal scenery of Sabangan, a destination for travelers who appreciate beautiful shorelines and lesser-known places."
+
+Button:
+Explore Destination →
+
+Use the existing correct Sabangan photograph.
+
+Do not excessively zoom the image.
+
+### FEATURED DESTINATION 3 — BALUTI ISLAND
+
+Location:
+Use the existing verified location in the database.
+
+Tagline:
+An Island Escape Along the REINA Coast
+
+Short Description:
+"Discover Baluti Island and the natural coastal landscapes that make Quezon's eastern shoreline worth exploring."
+
+Button:
+Explore Destination →
+
+Use the correct existing Baluti Island photograph.
+
+### IMPORTANT DESIGN REQUIREMENTS
+
+Each featured destination card must display:
+
+1. Correct destination photograph
+2. Destination name
+3. Location
+4. Tagline
+5. Short description
+6. Explore Destination button
+
+Use the same premium navy-blue and turquoise visual identity as the rest of the website.
+
+Use beautiful landscape images with proper proportions.
+
+Do not stretch, excessively crop, or incorrectly zoom the photographs.
+
+Do not display text-only cards.
+
+Do not use unrelated stock photographs.
+
+## PART 4 — ADD AN EXPLORE ALL DESTINATIONS BUTTON
+
+This is VERY IMPORTANT.
+
+Under the three featured destination cards, add a large, centered, visually appealing button:
+
+Explore All Destinations →
+
+Below or near the button, add the short text:
+
+"There's more to discover beyond these featured places."
+
+The button must navigate to the FULL Explore Destinations page.
+
+It must show ALL existing destinations in the database, not only the three featured places.
+
+Do not create duplicate destination records.
+
+Do not create a separate database for featured destinations.
+
+Use the existing destination records and Flask routes.
+
+If the database already has a featured flag, use it.
+
+Otherwise, reuse the three existing records by ID or an existing stable configuration.
+
+Keep the full destination collection independent from the featured preview.
+
+## PART 5 — MAKE ALL DESTINATION CARDS CLICKABLE
+
+Every destination card on the homepage and Explore Destinations page must have a working:
+
+Explore Destination →
+
+button.
+
+The photograph and destination name should also link to the correct details page.
+
+Use the existing Flask details route.
+
+Ensure each destination opens its own details page.
+
+Do not redirect all cards to one generic destination.
+
+Do not hide the button with CSS.
+
+Do not require login simply to view public destination details.
+
+Preserve the booking flow.
+
+## PART 6 — MAKE THE HOMEPAGE MORE USEFUL TO TOURISTS
+
+The homepage should clearly communicate three things:
+
+1. What the website offers.
+2. Where tourists can explore.
+3. How tourists can proceed to booking.
+
+Use the existing design and improve the content hierarchy.
+
+Recommended order:
+
+HERO SECTION
+- Main tourism message
+- Explore Destinations button
+- Book a Boat button, if supported
+
+FEATURED DESTINATIONS
+- Three featured destinations with photos and context
+- Individual Explore Destination buttons
+- Explore All Destinations button
+
+HOW IT WORKS
+- Explore destinations
+- Choose a boat or tour
+- Submit a booking request
+- Receive booking confirmation according to the existing workflow
+
+OPTIONAL TOURISM MESSAGE
+"Explore more of Quezon, one coastal destination at a time."
+
+Do not invent instant booking confirmation or guaranteed boat availability.
+
+Do not add unnecessary sections that make the homepage crowded.
+
+## PART 7 — PRESERVE EXISTING FUNCTIONALITY
+
+Do not break:
+
+- Flask backend
+- MySQL database
+- Customer registration
+- Customer login
+- Admin authentication
+- Gmail SMTP OTP
+- Sessions
+- Boat rental management
+- Booking system
+- Customer dashboard
+- Admin dashboard
+- Destination CRUD
+- Existing destination images
+- Existing destination records
+- Existing booking records
+- Original Infanta, I Hopping logo
+
+Do not reset the database.
+
+Do not introduce PHP.
+
+Do not rebuild the website.
+
+## PART 8 — TEST EVERYTHING
+
+After implementing the fixes:
+
+1. Open Pinagbanderahan Beach Resort details.
+2. Confirm the description appears instead of None.
+3. Confirm the tagline appears.
+4. Confirm What to Explore appears.
+5. Confirm Before You Go appears.
+6. Confirm the Back to Destinations button is visually styled and clickable.
+7. Confirm the back button works for all destination details pages.
+8. Open the homepage.
+9. Confirm the Featured Destinations section has the new title and explanation.
+10. Confirm all three featured cards display the correct photographs.
+11. Confirm all three featured cards have Explore Destination buttons.
+12. Click each button and verify the correct destination opens.
+13. Confirm Explore All Destinations opens the complete collection.
+14. Confirm the main Explore Destinations page still displays all existing destinations.
+15. Confirm booking functionality still works.
+16. Check mobile and desktop layouts.
+17. Inspect for console errors and broken links.
+
+If screenshots or browser automation are available, inspect the rendered pages.
+
+Do not claim success unless the actual website displays the changes.
+
+## PART 9 — FINAL REPORT
+
+Report:
+
+- Why Pinagbanderahan displayed None
+- Which database fields were updated
+- Which template files were modified
+- Whether Back to Destinations is now a real styled button
+- Whether the homepage cards have photographs and buttons
+- Whether Explore All Destinations opens the full collection
+- Whether all existing destinations remain available
+- Which tests passed
+- Any unresolved problems
+
+FINAL INSTRUCTION:
+
+I HAVE ALREADY AUTHORIZED THESE MODIFICATIONS.
+
+DO NOT ASK FOR PERMISSION FOR EACH CHANGE.
+
+DO NOT STOP AFTER EXPLAINING THE PROBLEM.
+
+IMPLEMENT THE FIXES DIRECTLY.
+
+MAKE THE HOMEPAGE INFORMATIVE, BEAUTIFUL, AND EASY FOR TOURISTS TO UNDERSTAND.
+
+MAKE EVERY DESTINATION ACCESSIBLE THROUGH CLEAR, WORKING BUTTONS.
+
+FIX PINAGBANDERAHAN BEACH RESORT'S MISSING DESCRIPTION AND THE BACK TO DESTINATIONS BUTTON.
+
+VERIFY EVERYTHING BEFORE REPORTING COMPLETION.

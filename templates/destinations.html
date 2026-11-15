@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Explore Destinations | Infanta, I Hopping{% endblock %}
+
+{% block content %}
+<main class="destinations-page py-5">
+    <div class="container">
+        <header class="text-center mb-5 destinations-intro">
+            <span class="eyebrow">YOUR NEXT COASTAL ESCAPE</span>
+            <h1 class="display-5 fw-bold">Explore Destinations</h1>
+            <p class="lead text-muted mx-auto" style="max-width:720px">Discover beaches, islands, caves and mangrove waterways across Infanta and Quezon.</p>
+        </header>
+        {% for group_name, destinations in destination_groups %}
+        <section class="destination-collection mb-5" aria-labelledby="group-{{ loop.index }}">
+            <div class="destination-collection-heading mb-3"><span class="eyebrow">ISLAND-HOPPING COLLECTION</span><h2 id="group-{{ loop.index }}" class="h3 mb-0">{{ group_name }}</h2></div>
+            <div class="row g-4">
+                {% for destination in destinations %}
+                {% set image = destination_image(destination.name) %}
+                {% set copy = destination_content(destination.name) %}
+                {% set details_url = url_for('destinations.details', destination_id=destination.id) %}
+                <div class="col-md-6 col-xl-4">
+                    <article class="destination-card h-100 d-flex flex-column">
+                        <a class="destination-card-media-link" href="{{ details_url }}" aria-label="View details for {{ destination.name }}">
+                            <div class="destination-card-media">
+                                {% if image.local_path %}<img class="destination-image" src="{{ url_for('static', filename=image.local_path, v='20261116-destination-refresh') }}" alt="Scenery at {{ destination.name }}" loading="lazy" decoding="async">
+                                {% else %}<div class="destination-image d-flex align-items-center justify-content-center text-muted">Destination scenery</div>{% endif %}
+                            </div>
+                        </a>
+                        <div class="destination-card-explore px-4 pt-3"><a class="btn btn-primary destination-explore-button w-100" href="{{ details_url }}">Explore Destination <span aria-hidden="true">→</span></a></div>
+                        <div class="destination-card-body p-4 pt-3 d-flex flex-column flex-grow-1">
+                            <p class="small text-uppercase text-muted mb-1">{{ copy.location_display or destination.municipality ~ ', ' ~ destination.province }}</p>
+                            <h3 class="h4 mb-2"><a class="destination-card-title" href="{{ details_url }}">{{ destination.name }}</a></h3>
+                            {% if copy.tagline %}<p class="destination-tagline mb-2">{{ copy.tagline }}</p>{% endif %}
+                            <p class="text-muted mb-4 destination-card-description">{{ (copy.about or destination.description or '')|truncate(145, True) }}</p>
+                            <a class="btn btn-outline-primary mt-auto" href="{{ url_for('booking.book_trip', destination_id=destination.id) }}">Plan Your Trip</a>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

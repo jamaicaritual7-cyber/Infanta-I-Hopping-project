@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark site-navbar" aria-label="Primary navigation">
+    <div class="container">
+        <a class="navbar-brand brand-lockup" href="{{ url_for('home') }}">
+            <img class="brand-logo" src="{{ url_for('static', filename='images/branding/infanta-logo-light.svg') }}" alt="Infanta, I Hopping — Boat Rental &amp; Island Tours">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'home' else '' }}" aria-current="{{ 'page' if request.endpoint == 'home' else '' }}" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint and request.endpoint.startswith('destinations.') else '' }}" aria-current="{{ 'page' if request.endpoint and request.endpoint.startswith('destinations.') else '' }}" href="{{ url_for('destinations.index') }}">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint and request.endpoint.startswith('boats.') else '' }}" aria-current="{{ 'page' if request.endpoint and request.endpoint.startswith('boats.') else '' }}" href="{{ url_for('boats.list_boats') }}">Boat</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint and request.endpoint.startswith('booking.') else '' }}" aria-current="{{ 'page' if request.endpoint and request.endpoint.startswith('booking.') else '' }}" href="{{ url_for('booking.book_trip') }}">Book Now</a></li>
+                {% if current_user.is_authenticated and current_user.role == 'customer' %}
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'customer.my_bookings' else '' }}" aria-current="{{ 'page' if request.endpoint == 'customer.my_bookings' else '' }}" href="{{ url_for('customer.my_bookings') }}">My bookings</a></li>
+                {% elif current_user.is_authenticated and current_user.role == 'admin' %}
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint and request.endpoint.startswith('admin.') else '' }}" aria-current="{{ 'page' if request.endpoint and request.endpoint.startswith('admin.') else '' }}" href="{{ url_for('admin.dashboard') }}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'admin.bookings' else '' }}" aria-current="{{ 'page' if request.endpoint == 'admin.bookings' else '' }}" href="{{ url_for('admin.bookings') }}">Bookings</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'admin.boats' else '' }}" aria-current="{{ 'page' if request.endpoint == 'admin.boats' else '' }}" href="{{ url_for('admin.boats') }}">Boats</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'admin.customers' else '' }}" aria-current="{{ 'page' if request.endpoint == 'admin.customers' else '' }}" href="{{ url_for('admin.customers') }}">Customers</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'admin.reports' else '' }}" aria-current="{{ 'page' if request.endpoint == 'admin.reports' else '' }}" href="{{ url_for('admin.reports') }}">Reports</a></li>
+                {% endif %}
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'main.about' else '' }}" aria-current="{{ 'page' if request.endpoint == 'main.about' else '' }}" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link {{ 'active' if request.endpoint == 'main.contact' else '' }}" aria-current="{{ 'page' if request.endpoint == 'main.contact' else '' }}" href="/contact">Contact</a></li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item"><a class="btn btn-outline-light btn-sm px-3" href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="btn btn-outline-light btn-sm px-3" href="{{ url_for('auth.login') }}">Login</a></li>
+                <li class="nav-item"><a class="btn btn-aqua btn-sm px-3" href="{{ url_for('auth.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+

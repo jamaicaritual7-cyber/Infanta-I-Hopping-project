@@ -1,0 +1,2009 @@
+“The prompt file is ready.”# MASTER FINAL SYSTEM DEVELOPMENT PROMPT
+# INFANTA, I HOPPING
+## Boat Rental and Reservation Management System
+### Homepage: Explore Beyond Infanta
+
+---
+
+# 1. YOUR ROLE AND MAIN INSTRUCTIONS
+
+Act as an experienced full-stack developer, Python Flask specialist, MySQL database architect, UI/UX designer, software tester, and college project mentor.
+
+Help me develop my final college project:
+
+**INFANTA, I HOPPING: BOAT RENTAL AND RESERVATION MANAGEMENT SYSTEM**
+
+The system promotes tourism in Infanta, Quezon, and nearby coastal destinations while allowing customers to request boat rentals and island-hopping reservations.
+
+This must be a real, functional, database-connected web application, not just a static website or visual demonstration.
+
+Follow the professor's uploaded Final Project Guidelines. Review the actual document before implementation, identify every required feature, and prepare a requirement-compliance checklist. If a requirement conflicts with this prompt, explain the conflict before proceeding.
+
+**IMPORTANT INSTRUCTIONS:**
+
+1. Do not change my approved website design unnecessarily.
+2. Do not rename my project.
+3. Do not replace my approved logo.
+4. Do not invent business information, sailing routes, distances, or safety certifications.
+5. Keep the source code clean, organized, beginner-understandable, and separated by function.
+6. All frontend, backend, and database components must work together.
+7. Explain important implementation decisions in simple language.
+8. Develop and test the system module by module.
+9. Do not generate the entire project in one untested step.
+10. Do not create the final ZIP until the system has been implemented and tested.
+11. Ask for approval before major changes or implementing uncertain business rules.
+12. Do not remove required features merely to make the project easier.
+
+---
+
+# 2. PROJECT IDENTITY
+
+**Official project title:**
+
+Infanta, I Hopping: Boat Rental and Reservation Management System
+
+**Website name:**
+
+Infanta, I Hopping
+
+**Business description:**
+
+Boat Rental & Island Tours
+
+**Homepage headline:**
+
+Explore Beyond Infanta
+
+**Homepage subtitle:**
+
+"Discover stunning beaches, islands, and coastal spots from Infanta, Quezon."
+
+**Project purpose:**
+
+Develop a web-based reservation and boat rental management system that promotes tourism in Infanta and surrounding areas of Quezon Province.
+
+The system should make it easier for tourists to explore destinations, request boat rentals, review prices, understand safety requirements, and manage their reservations.
+
+It should also help the boat operator organize schedules, customer information, boats, destinations, booking requests, prices, and safety notices.
+
+---
+
+# 3. BUSINESS INFORMATION
+
+Business name: Infanta, I Hopping
+
+Boat owner/client: Raffy Conchada
+
+Business location:
+
+Purok Daungan, Barangay Abiawin, Infanta, Quezon, Philippines
+
+Boat departure reference:
+
+https://maps.app.goo.gl/1JXDTUaigqqnCRUf7
+
+Previously extracted departure coordinates:
+
+Latitude: 14.737679
+
+Longitude: 121.679196
+
+These coordinates must be checked against the original Google Maps pin before being treated as final.
+
+Contact number: 09765942597
+
+Contact email: jamaicaritual7@gmail.com
+
+Boat fuel: Diesel
+
+Previously stated capacity: Up to 10 passengers per boat.
+
+Previously discussed boat names:
+- Habagat
+- Amihan
+
+The number of active boats remains subject to confirmation. Do not invent a second operational vessel or advertise an unavailable boat.
+
+Design the database to support multiple boats, even if only one is active initially.
+
+The captain or owner must confirm the certified passenger capacity, boat availability, route suitability, and operational conditions.
+
+---
+
+# 4. REQUIRED TECHNOLOGIES
+
+Use the following technology stack:
+
+## Backend
+- Python 3
+- Flask
+- Flask Blueprints
+- Python Object-Oriented Programming
+- SQLAlchemy or Flask-SQLAlchemy
+- Flask-Login for session management
+- Flask-WTF or equivalent CSRF-protected validation
+
+## Frontend
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+- Responsive layouts
+- Accessible forms and navigation
+
+## Database
+- MySQL
+- XAMPP for local MySQL service
+- phpMyAdmin for database inspection
+- SQLAlchemy models and database migrations
+
+## Email
+- SMTP email service
+- Six-digit email verification OTP
+- Password reset emails
+- Booking status notifications
+
+## Development environment
+- Visual Studio Code
+- Codex coding extension
+- Python virtual environment
+- Git and GitHub
+- Local Flask development server
+
+XAMPP is used for MySQL management; Flask runs through Python, not as a PHP application.
+
+Do not use PHP as the main backend.
+
+---
+
+# 5. PROFESSOR'S PROJECT REQUIREMENTS
+
+Implement the project requirements discussed for my final project:
+
+1. Original system branding and business identity.
+2. Functional public homepage.
+3. User registration.
+4. Secure user login and logout.
+5. Session management.
+6. Email functionality using real SMTP.
+7. Customer and administrator dashboards.
+8. User profile management.
+9. Database-connected CRUD operations.
+10. Responsive HTML, CSS, and Bootstrap interface.
+11. JavaScript interactions and validation.
+12. Secure backend and database handling.
+13. Python OOP implementation.
+
+Also prepare:
+- Client interview documentation
+- Project objectives and scope
+- Functional and nonfunctional requirements
+- System flowchart
+- Database ERD
+- User journey
+- Testing documentation
+- GitHub repository
+- README
+- Installation instructions
+- Presentation and live demonstration
+
+Check these against the original professor-provided document and add any requirements that the document actually specifies.
+
+Do not falsely claim compliance without testing.
+
+---
+
+# 6. APPROVED WEBSITE DESIGN
+
+I already have a final approved Figma-style mockup.
+
+Use my uploaded approved mockup image as the main visual reference.
+
+Do not create a completely different design.
+
+## Color palette
+
+Deep navy blue: #103B63
+
+Ocean blue: #087CA3
+
+Turquoise: #00B4B8
+
+Deep teal: #008B95
+
+Light aqua: #DFF5F7
+
+Soft blue: #E8F5FA
+
+White: #FFFFFF
+
+## Typography
+
+Use professional, moderately weighted typography.
+
+Recommended:
+- Poppins for headings and navigation
+- Inter for body text and forms
+- Elegant italic or serif-inspired display type for the hero headline
+
+Font weights:
+- Main headings: 600
+- Section headings: 600
+- Navigation: 500
+- Buttons: 500–600
+- Body text: 400
+- Form labels: 500
+
+Do not make all text bold.
+
+Do not use oversized typography unnecessarily.
+
+## Overall appearance
+
+Maintain:
+- Ocean-blue background
+- Turquoise accents
+- Navy navigation
+- Soft aqua panels
+- Rounded corners
+- Subtle shadows
+- Clean cards
+- Elegant typography
+- Coastal imagery
+- Professional spacing
+- Responsive design
+
+Avoid:
+- Excessively white backgrounds
+- Very bold fonts
+- Crowded layouts
+- Unnecessary animations
+- Excessive glass effects
+- Random colors
+- Complicated decorative elements
+- Generic AI-looking components
+
+## Logo
+
+Use the approved minimalist navy-blue boat and turquoise-waves logo.
+
+If the original logo asset is available, preserve it exactly.
+
+Do not substitute a palm tree, sunset, badge, or unrelated boat illustration.
+
+## Hero section
+
+Place the boat image prominently on the right side.
+
+Place the headline on the left:
+
+**Explore Beyond Infanta**
+
+Subtitle:
+
+"Discover stunning beaches, islands, and coastal spots from Infanta, Quezon."
+
+Buttons:
+- Book a Trip
+- Explore Destinations
+
+Use a subtle dark overlay to keep the text readable.
+
+## Feature section
+
+Display:
+- Boat Rental
+- Island Hopping
+- Easy Booking
+- Safe & Reliable Trip
+
+**Do not place these features inside a solid white strip.**
+
+Blend them into the ocean background using a softly translucent turquoise panel with subtle blur.
+
+Keep the panel visually connected to the hero section.
+
+## Website navigation
+
+- Home
+- Destinations
+- Boat
+- Book Now
+- About
+- Contact
+- Login
+- Register
+
+Provide mobile hamburger navigation.
+
+---
+
+# 7. DESTINATION CATALOG
+
+The system must include all nine destination packages.
+
+There are six nearby experiences and three extended packages containing two attractions each.
+
+## Nearby destinations
+
+### Infanta, Quezon
+
+1. Dero Beach / Dero Island
+   - Proposed private charter: ₱4,500
+
+2. Sabangan Beach
+   - Proposed private charter: ₱4,000
+
+3. BIPCO Mangrove Eco-Park
+   - Proposed private charter: ₱3,500
+
+### Real, Quezon
+
+4. Baluti Island
+   - Proposed private charter: ₱4,500
+
+### General Nakar, Quezon
+
+5. Tulaog Beach & Cave
+   - Proposed private charter: ₱5,500
+
+6. Sulok Beach
+   - Proposed private charter: ₱4,500
+
+## Extended packages
+
+### Polillo, Quezon
+
+7. Polillo Island-Hopping Package
+   - Pulong Kukok / Snake Island
+   - Bato Beach
+   - Proposed package price: ₱10,000
+
+### Panukulan, Quezon
+
+8. Panukulan Island-Hopping Package
+   - Gumatong Shoal
+   - Pinagbanderahan Beach
+   - Proposed package price: ₱12,000
+
+### Burdeos, Quezon
+
+9. Burdeos Island-Hopping Package
+   - Isla Puting Bato
+   - Anilon Island
+   - Proposed package price: ₱15,000
+
+**Exclude Jomalig.**
+
+All prices are provisional academic estimates.
+
+Do not present them as verified real-world operator fares.
+
+The administrator must be able to edit, activate, deactivate, or replace prices.
+
+Extended trips must require an operator quotation and route-suitability review before booking confirmation.
+
+Some nearby destinations may not be suitable for direct access using the business's main boat. Verify access and any required partner vessel before advertising boat service.
+
+---
+
+# 8. GOOGLE MAPS AND LOCATION LINKS
+
+The system must include Google Maps links.
+
+## Departure location
+
+Purok Daungan, Brgy. Abiawin, Infanta, Quezon
+
+https://maps.app.goo.gl/1JXDTUaigqqnCRUf7
+
+## Previously supplied destination links
+
+Dero Beach:
+
+https://maps.app.goo.gl/8wu4kERPgz8EiaW99
+
+Sabangan Beach:
+
+https://maps.app.goo.gl/gD5m9CY3uhNieqd38
+
+Tulaog Beach:
+
+https://maps.app.goo.gl/KCGg2AiqF1R4CHHfA
+
+Pulong Kukok:
+
+https://www.google.com/search?kgmid=%2Fg%2F11fjmn7p5t
+
+Bato Beach:
+
+https://www.google.com/search?kgmid=%2Fg%2F11sxy7h3z_
+
+Gumatong Shoal:
+
+https://www.google.com/search?kgmid=%2Fg%2F11js_8mj7f
+
+Pinagbanderahan Beach:
+
+https://www.google.com/search?kgmid=%2Fg%2F11jgt61q72
+
+Isla Puting Bato:
+
+https://www.google.com/search?kgmid=%2Fg%2F11c7wff3sm
+
+The Google Search links above are location references, not confirmed direct Google Maps pins. Resolve and verify the actual attraction before saving its final map URL.
+
+The following still require verified exact destination pins:
+- BIPCO Mangrove Eco-Park
+- Baluti Island landing point
+- Sulok Beach
+- Anilon Island
+- Any additional landing or boarding points
+
+## Required map functionality
+
+Each destination detail page must contain:
+- Destination name
+- Municipality
+- Province
+- Verified location link
+- View on Google Maps button
+- Departure area
+- Approximate distance, if verified
+- Travel duration, if verified
+- Safety information
+- Booking button
+
+Google Maps links must open the correct location in a new browser tab or supported maps application.
+
+Do not create a fake marine navigation system.
+
+Do not treat driving directions as sailing routes.
+
+---
+
+# 9. DISTANCE INFORMATION — KILOMETERS AND NAUTICAL MILES
+
+The boat's previously extracted departure coordinates are:
+
+14.737679, 121.679196
+
+The following approximate straight-line distances were calculated during project planning.
+
+They are preliminary reference values and must be rechecked against the actual map coordinates before publication.
+
+| Destination | Straight-line distance | Nautical miles | Verification |
+|---|---:|---:|---|
+| Dero Beach | 5.0 km | 2.7 NM | Preliminary |
+| Sabangan Beach | 4.4 km | 2.4 NM | Preliminary |
+| Tulaog Beach | 14.7 km | 7.9 NM | Preliminary |
+| Baluti Island | 8.9 km | 4.8 NM | Preliminary |
+| BIPCO Mangrove Eco-Park | Unknown | Unknown | Exact pin needed |
+| Sulok Beach | Unknown | Unknown | Exact pin needed |
+| Pulong Kukok | 31.2 km | 16.8 NM | Provisional third-party location |
+| Bato Beach | Unknown | Unknown | Exact pin needed |
+| Gumatong Shoal | Unknown | Unknown | Exact pin needed |
+| Pinagbanderahan Beach | Unknown | Unknown | Exact pin needed |
+| Isla Puting Bato | Unknown | Unknown | Exact pin needed |
+| Anilon Island | Unknown | Unknown | Exact pin needed |
+
+**CRITICAL DISTANCE RULES**
+
+These values represent approximate geographic straight-line distances, NOT actual sailing distances.
+
+Do not display them as confirmed boat routes.
+
+Do not invent missing distances.
+
+Do not calculate estimated travel time without a verified route and realistic cruising speed.
+
+Do not calculate fuel cost using straight-line distance alone.
+
+Do not automatically assume that every location is safely accessible from Abiawin.
+
+The system must store geographic distances separately from operator-verified sailing distances.
+
+## Distance conversion
+
+1 nautical mile = 1.852 kilometers.
+
+1 kilometer = approximately 0.539957 nautical miles.
+
+1 kilometer = approximately 0.621371 statute miles.
+
+If coordinates are available, the system may calculate great-circle distance using the Haversine formula.
+
+The calculation must be clearly labeled as straight-line distance.
+
+## Website display
+
+Example:
+
+**Approximate straight-line distance from Abiawin: 5.0 km / 2.7 NM**
+
+Below it:
+
+"Actual sailing route, travel duration, and availability are subject to operator confirmation."
+
+For unverified destinations, display:
+
+"Distance and estimated travel time will be confirmed by the boat operator."
+
+## Database distance fields
+
+Store:
+- Departure latitude
+- Departure longitude
+- Destination latitude
+- Destination longitude
+- Straight-line distance in kilometers
+- Straight-line distance in nautical miles
+- Verified sailing distance
+- Estimated travel duration
+- Distance verification status
+- Verification source
+- Verification date
+
+Do not populate verified sailing fields using assumptions.
+
+---
+
+# 10. BOAT ROUTES AND TRAVEL PACKAGES
+
+The system must support route planning records for administrative purposes.
+
+This is not a live navigation feature.
+
+## Nearby route concepts
+
+Route A:
+Purok Daungan → Dero Beach → Return
+
+Route B:
+Purok Daungan → Sabangan Beach → Return
+
+Route C:
+Purok Daungan → BIPCO Mangrove Eco-Park → Return
+
+Route D:
+Purok Daungan → Baluti Island → Return
+
+Route E:
+Purok Daungan → Tulaog Beach & Cave → Return
+
+Route F:
+Purok Daungan → Sulok Beach → Return
+
+These are proposed itinerary sequences, not verified navigable paths.
+
+## Extended route concepts
+
+### Polillo
+Purok Daungan → Pulong Kukok → Bato Beach → Return
+
+### Panukulan
+Purok Daungan → Gumatong Shoal → Pinagbanderahan Beach → Return
+
+### Burdeos
+Purok Daungan → Isla Puting Bato → Anilon Island → Return
+
+Do not automatically advertise these extended routes as operational.
+
+Before activation, the owner and qualified captain must confirm:
+- Whether the vessel is suitable
+- Permitted operating area
+- Navigation conditions
+- Departure and landing points
+- Fuel requirements
+- Expected travel duration
+- Applicable permits
+- Passenger capacity
+- Weather limitations
+- Whether overnight arrangements are needed
+- Whether a partner vessel is required
+
+The administrator must be able to disable a route or mark it as unavailable.
+
+Do not include live GPS tracking or automatic marine navigation.
+
+---
+
+# 11. AUTHENTICATION AND USER MANAGEMENT
+
+The system must have two main roles:
+
+1. Customer
+2. Administrator
+
+## Registration
+
+Customer enters:
+- Full name
+- Email address
+- Contact number
+- Password
+- Confirm password
+
+Validate all fields.
+
+Use secure password hashing.
+
+Do not store plain-text passwords.
+
+## Email verification
+
+After registration, send a six-digit OTP through SMTP.
+
+OTP requirements:
+- Six numeric digits
+- Five-minute expiration
+- Single-use verification
+- Resend cooldown
+- Limited attempts
+- Secure hashed OTP storage
+- Expired OTP rejection
+- Clear error messages
+
+Do not expose OTP values in logs or user-facing URLs.
+
+## Login
+
+Customers and administrators must authenticate securely.
+
+Use:
+- Flask-Login
+- Session management
+- Secure cookies
+- CSRF protection
+- Role-based access restrictions
+- Login rate limiting
+
+## Forgot password
+
+Provide email-based password reset using secure, expiring tokens.
+
+## Logout
+
+Clear the authenticated session safely.
+
+## Account security
+
+Do not hardcode demo accounts or passwords.
+
+Do not expose SMTP credentials or database passwords.
+
+Use environment variables.
+
+---
+
+# 12. CUSTOMER WEBSITE FUNCTIONS
+
+## Public pages
+
+- Home
+- Destinations
+- Destination Details
+- Boat Information
+- About
+- Contact
+- Safety Guidelines
+- Login
+- Register
+
+## Authenticated customer pages
+
+- Customer Dashboard
+- Book a Trip
+- My Bookings
+- Booking Details
+- Profile Settings
+- Change Password
+- Booking Notifications
+
+## Customer dashboard
+
+Display:
+- Welcome message
+- Upcoming reservations
+- Pending bookings
+- Confirmed bookings
+- Completed trips
+- Cancelled bookings
+- Safety notices
+
+Customers must only access their own information.
+
+## Profile management
+
+Allow customers to edit:
+- Full name
+- Contact number
+- Profile information
+
+Email changes should require verification.
+
+## Social sharing
+
+Allow customers to share public destination links through:
+- Messenger
+- Facebook
+- Copy Link
+- Native mobile sharing when supported
+
+Do not share private booking or account information.
+
+---
+
+# 13. BOOKING AND RESERVATION PROCESS
+
+The booking system is one of the most important parts of the project.
+
+## Customer booking flow
+
+1. Customer visits the website.
+2. Customer explores destinations.
+3. Customer selects a destination or package.
+4. Customer views price and trip information.
+5. Customer selects Book a Trip.
+6. Customer logs in or registers if necessary.
+7. Customer selects the trip date.
+8. Customer selects an available eligible boat.
+9. Customer enters the passenger count.
+10. Customer enters additional requests.
+11. System validates booking information.
+12. Customer reviews the booking summary.
+13. Customer reads safety guidelines.
+14. Customer acknowledges the safety requirements.
+15. Customer submits the reservation request.
+16. System saves the booking in MySQL.
+17. Customer receives a pending-booking notification.
+18. Administrator reviews the request.
+19. Administrator confirms, rejects, or postpones it.
+20. Customer receives a booking status update.
+
+## Required booking fields
+
+- Booking ID
+- Customer ID
+- Destination/package ID
+- Boat ID
+- Trip date
+- Passenger count
+- Additional requests
+- Quoted price
+- Booking status
+- Payment status
+- Safety acknowledgment
+- Date created
+- Date updated
+
+## Booking validation
+
+- Date cannot be in the past.
+- Passenger count must be positive.
+- Passenger count cannot exceed the boat's certified capacity.
+- Boat must be active and eligible for the destination.
+- Boat must not already be reserved for an overlapping schedule.
+- Destination must be available.
+- Customer must be authenticated.
+- Required fields must not be blank.
+- Extended routes require quotation approval.
+
+Prevent double-booking using database-backed availability checks and transactions.
+
+## Booking statuses
+
+- Pending
+- Awaiting Quotation
+- Confirmed
+- Rejected
+- Postponed Due to Weather
+- Cancelled
+- Completed
+
+The administrator must be able to record a reason for rejection or postponement.
+
+Booking confirmation does not guarantee that the vessel will depart if conditions become unsafe.
+
+---
+
+# 14. PRICING AND PAYMENT
+
+All prices must be stored in MySQL.
+
+Do not hardcode prices into HTML.
+
+The administrator can:
+- Add prices
+- Edit prices
+- Disable prices
+- Set package rates
+- Set promotional rates
+- Review quotation requests
+
+## Proposed promotion
+
+Optional Barkada Discount:
+5% discount for 8–10 passengers.
+
+Do not activate this promotion until the owner confirms it is financially acceptable.
+
+## Payment scope
+
+Do not integrate GCash, Maya, credit card processing, or a live payment gateway in Version 1.
+
+Allow simple payment-status tracking:
+- Unpaid
+- Partially Paid
+- Paid
+- Refunded, if applicable
+
+Pay-on-arrival may be enabled only if the owner approves it.
+
+Do not collect card information.
+
+---
+
+# 15. ADMINISTRATOR DASHBOARD
+
+The administrator dashboard must match the approved navy-and-turquoise design.
+
+## Sidebar
+
+- Dashboard
+- Bookings
+- Destinations
+- Boats
+- Customers
+- Pricing
+- Reports
+- Safety Notices
+- Settings
+- Logout
+
+## Dashboard summary
+
+Display:
+- Total Bookings
+- Confirmed Bookings
+- Pending Bookings
+- Cancelled Bookings
+
+Use database-generated counts, not hardcoded statistics.
+
+## Booking management
+
+Administrator can:
+- View bookings
+- Search bookings
+- Filter by date and status
+- Review passenger count
+- Review boat availability
+- Confirm booking
+- Reject booking
+- Postpone booking
+- Mark completed
+- Record notes
+
+## Boat management
+
+Administrator can:
+- Add boat
+- Edit boat
+- Upload boat photograph
+- Update capacity
+- Update availability
+- Disable boat
+- Assign boat to booking
+
+## Destination management
+
+Administrator can:
+- Add destination
+- Edit destination
+- Upload verified image
+- Add Google Maps link
+- Update distance information
+- Update description
+- Update price
+- Activate/deactivate destination
+
+## Customer management
+
+Administrator can view customer records and booking history subject to appropriate access controls.
+
+## Reports
+
+Generate simple reports:
+- Total reservations
+- Bookings by destination
+- Monthly bookings
+- Confirmed trips
+- Cancelled trips
+- Revenue based on recorded payments, when applicable
+
+Do not invent report values.
+
+---
+
+# 16. SAFETY MANAGEMENT SYSTEM
+
+Safety is a required part of the system.
+
+Create a dedicated Safety Guidelines page and an administrator safety-notice module.
+
+## Passenger safety guidelines
+
+Display:
+- Wear required lifejackets.
+- Follow the captain's instructions.
+- Do not exceed passenger capacity.
+- Board and disembark carefully.
+- Supervise children.
+- Avoid dangerous movement on the boat.
+- Follow emergency procedures.
+- Respect weather-related trip restrictions.
+- Do not travel when the operator declares conditions unsafe.
+
+## Before booking
+
+Customers must read and acknowledge the safety guidelines.
+
+## Before departure
+
+The captain or qualified crew must check:
+- Passenger manifest
+- Passenger count
+- Required safety equipment
+- Lifejackets
+- Vessel condition
+- Weather advisories
+- Route suitability
+- Emergency preparedness
+
+## Safety briefing
+
+The captain or crew conducts the actual passenger safety briefing.
+
+The website may record that a briefing was completed, but it must not replace the real briefing.
+
+## Weather notices
+
+The administrator can manually post:
+- Advisory title
+- Source
+- Advisory date and time
+- Affected destinations
+- Safety instructions
+- Booking impact
+
+Use official weather and maritime advisories as references.
+
+Do not invent weather conditions.
+
+## Unsafe weather
+
+If conditions are unsafe:
+- Administrator marks the booking as postponed or cancelled.
+- Customer receives a notification.
+- Reason is recorded.
+- Rebooking instructions are provided.
+
+The captain and authorized maritime authorities retain operational safety authority.
+
+Do not include live GPS, automatic marine route guidance, or complicated weather APIs.
+
+---
+
+# 17. DATABASE DESIGN
+
+Use a relational MySQL database named:
+
+`infanta_i_hopping_db`
+
+Recommended tables:
+
+## users
+- id
+- full_name
+- email
+- phone
+- password_hash
+- role
+- is_verified
+- is_active
+- created_at
+- updated_at
+
+## email_otps
+- id
+- user_id
+- otp_hash
+- purpose
+- expires_at
+- attempts
+- used_at
+- created_at
+
+## boats
+- id
+- boat_name
+- description
+- fuel_type
+- passenger_capacity
+- photo_path
+- status
+- created_at
+- updated_at
+
+## destinations
+- id
+- destination_name
+- municipality
+- province
+- description
+- image_path
+- maps_url
+- latitude
+- longitude
+- straight_line_km
+- straight_line_nm
+- distance_status
+- verification_source
+- verified_at
+- is_active
+
+## packages
+- id
+- package_name
+- description
+- proposed_price
+- quotation_required
+- is_active
+
+## package_destinations
+- id
+- package_id
+- destination_id
+- stop_order
+
+## routes
+- id
+- route_name
+- departure_location
+- departure_latitude
+- departure_longitude
+- verified_sailing_distance_km
+- estimated_duration_minutes
+- route_status
+- captain_notes
+- verification_source
+- verified_at
+
+## route_stops
+- id
+- route_id
+- destination_id
+- stop_order
+
+## boat_route_eligibility
+- id
+- boat_id
+- route_id
+- is_eligible
+- verification_notes
+
+## prices
+- id
+- destination_id
+- package_id
+- amount
+- price_type
+- effective_date
+- is_active
+
+## bookings
+- id
+- booking_reference
+- customer_id
+- boat_id
+- destination_id
+- package_id
+- trip_date
+- departure_time
+- estimated_return_time
+- passenger_count
+- additional_request
+- quoted_price
+- booking_status
+- payment_status
+- safety_acknowledged_at
+- created_at
+- updated_at
+
+## booking_status_history
+- id
+- booking_id
+- previous_status
+- new_status
+- changed_by
+- reason
+- created_at
+
+## safety_notices
+- id
+- title
+- description
+- advisory_source
+- advisory_datetime
+- status
+- created_by
+- created_at
+
+## safety_checklists
+- id
+- booking_id
+- checked_by
+- manifest_checked
+- equipment_checked
+- weather_checked
+- briefing_completed
+- notes
+- checked_at
+
+## contact_messages
+- id
+- name
+- email
+- subject
+- message
+- created_at
+
+## notifications
+- id
+- user_id
+- title
+- message
+- is_read
+- created_at
+
+## audit_logs
+- id
+- user_id
+- action
+- entity_type
+- entity_id
+- created_at
+
+Use proper foreign keys, unique constraints, indexes, and relationships.
+
+A booking must refer to either a single destination or a package according to validated business rules.
+
+Use database migrations instead of manually modifying production tables.
+
+---
+
+# 18. COMPLETE ORGANIZED PROJECT FOLDER STRUCTURE
+
+Create the following project structure.
+
+Every file must have a clear purpose.
+
+Do not mix unrelated functions into one file.
+
+```text
+Infanta_I_Hopping/
+│
+├── app.py
+├── config.py
+├── extensions.py
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── README.md
+│
+├── models/
+│   ├── __init__.py
+│   ├── user.py
+│   ├── otp.py
+│   ├── boat.py
+│   ├── destination.py
+│   ├── package.py
+│   ├── route.py
+│   ├── pricing.py
+│   ├── booking.py
+│   ├── booking_history.py
+│   ├── safety.py
+│   ├── notification.py
+│   ├── contact.py
+│   └── audit_log.py
+│
+├── routes/
+│   ├── __init__.py
+│   ├── main_routes.py
+│   ├── auth_routes.py
+│   ├── customer_routes.py
+│   ├── booking_routes.py
+│   ├── destination_routes.py
+│   ├── boat_routes.py
+│   └── admin_routes.py
+│
+├── services/
+│   ├── __init__.py
+│   ├── email_service.py
+│   ├── otp_service.py
+│   ├── auth_service.py
+│   ├── booking_service.py
+│   ├── availability_service.py
+│   ├── pricing_service.py
+│   ├── distance_service.py
+│   ├── route_service.py
+│   ├── safety_service.py
+│   └── notification_service.py
+│
+├── forms/
+│   ├── __init__.py
+│   ├── auth_forms.py
+│   ├── profile_forms.py
+│   ├── booking_forms.py
+│   ├── boat_forms.py
+│   ├── destination_forms.py
+│   └── admin_forms.py
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── destinations.html
+│   ├── destination_details.html
+│   ├── boats.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── safety.html
+│   ├── 403.html
+│   ├── 404.html
+│   ├── 500.html
+│   │
+│   ├── components/
+│   │   ├── navbar.html
+│   │   ├── footer.html
+│   │   ├── destination_card.html
+│   │   ├── boat_card.html
+│   │   ├── alerts.html
+│   │   └── booking_status.html
+│   │
+│   ├── auth/
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   ├── verify_otp.html
+│   │   ├── forgot_password.html
+│   │   └── reset_password.html
+│   │
+│   ├── customer/
+│   │   ├── dashboard.html
+│   │   ├── profile.html
+│   │   ├── book_trip.html
+│   │   ├── booking_summary.html
+│   │   ├── my_bookings.html
+│   │   ├── booking_details.html
+│   │   └── notifications.html
+│   │
+│   └── admin/
+│       ├── base_admin.html
+│       ├── dashboard.html
+│       ├── bookings.html
+│       ├── booking_details.html
+│       ├── boats.html
+│       ├── boat_form.html
+│       ├── destinations.html
+│       ├── destination_form.html
+│       ├── packages.html
+│       ├── routes.html
+│       ├── pricing.html
+│       ├── customers.html
+│       ├── safety_notices.html
+│       ├── safety_checklists.html
+│       ├── reports.html
+│       └── settings.html
+│
+├── static/
+│   │
+│   ├── css/
+│   │   ├── variables.css
+│   │   ├── main.css
+│   │   ├── navbar.css
+│   │   ├── homepage.css
+│   │   ├── destinations.css
+│   │   ├── booking.css
+│   │   ├── auth.css
+│   │   ├── customer.css
+│   │   ├── admin.css
+│   │   └── responsive.css
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── navbar.js
+│   │   ├── auth.js
+│   │   ├── otp.js
+│   │   ├── validation.js
+│   │   ├── destinations.js
+│   │   ├── booking.js
+│   │   ├── maps.js
+│   │   └── admin.js
+│   │
+│   └── images/
+│       ├── branding/
+│       │   ├── logo.png
+│       │   └── favicon.png
+│       │
+│       ├── boats/
+│       │   └── actual_boat_photo.jpg
+│       │
+│       ├── destinations/
+│       │   └── README.md
+│       │
+│       └── backgrounds/
+│           └── README.md
+│
+├── database/
+│   ├── schema.sql
+│   ├── seed_destinations.sql
+│   ├── seed_packages.sql
+│   └── README.md
+│
+├── migrations/
+│   └── README.md
+│
+├── tests/
+│   ├── conftest.py
+│   ├── test_auth.py
+│   ├── test_otp.py
+│   ├── test_bookings.py
+│   ├── test_availability.py
+│   ├── test_pricing.py
+│   ├── test_distances.py
+│   ├── test_permissions.py
+│   └── test_safety.py
+│
+└── docs/
+    ├── project_requirements.md
+    ├── system_flowchart.md
+    ├── database_erd.md
+    ├── api_routes.md
+    ├── testing_checklist.md
+    ├── client_interview.md
+    └── deployment_guide.md
+```
+
+The `migrations/` folder may be populated automatically by Flask-Migrate.
+
+Use placeholder assets only where necessary and clearly label them. Do not pretend a placeholder is a verified photograph.
+
+## Folder responsibilities
+
+### models/
+Defines database tables and relationships.
+
+### routes/
+Handles incoming browser requests and returns pages or responses.
+
+### services/
+Contains reusable business logic such as booking validation, OTP delivery, pricing, distance calculation, and safety handling.
+
+### forms/
+Validates submitted information on the server.
+
+### templates/
+Contains HTML pages.
+
+### static/css/
+Contains design and responsive styling.
+
+### static/js/
+Contains browser interactions.
+
+### static/images/
+Contains the approved logo, real boat photos, and verified destination images.
+
+### database/
+Contains SQL schema and initial destination/package records.
+
+### tests/
+Contains automated tests.
+
+### docs/
+Contains documentation needed for the project and final defense.
+
+---
+
+# 19. FILE CONNECTION AND ARCHITECTURE RULES
+
+Use Flask Blueprints to organize routes.
+
+Use shared extensions for:
+- Database
+- Login manager
+- Mail
+- CSRF protection
+- Migrations
+- Rate limiting, if installed
+
+Use reusable HTML templates.
+
+Use `url_for()` for Flask routes and static assets.
+
+Avoid hardcoded localhost links inside HTML.
+
+Use environment variables for secrets.
+
+Keep JavaScript separate from HTML where practical.
+
+Keep CSS separate from HTML.
+
+Do not duplicate booking calculations across multiple files.
+
+All important booking validation must happen on the server, even if JavaScript also validates the form.
+
+Use transactions for reservation approval and conflict prevention.
+
+Do not trust prices submitted by the browser.
+
+Store prices and booking totals on the server.
+
+---
+
+# 20. EMAIL NOTIFICATIONS
+
+Send email notifications for:
+- Registration OTP
+- Password reset
+- Booking request received
+- Booking confirmed
+- Booking rejected
+- Booking postponed
+- Booking cancelled
+
+Use professional, readable email templates.
+
+Do not expose customer passwords or OTP codes in application logs.
+
+If SMTP is unavailable, show an appropriate error and allow safe retrying.
+
+Do not claim an email was delivered unless the sending operation succeeded.
+
+---
+
+# 21. WEBSITE SECURITY
+
+Implement:
+- Password hashing
+- CSRF protection
+- Secure sessions
+- Role-based authorization
+- Input validation
+- SQL injection prevention through parameterized ORM queries
+- Output escaping
+- OTP expiration and rate limiting
+- Login rate limiting
+- Secure password reset
+- Environment-based secrets
+- Safe file upload validation
+- Error handling
+- Logging without sensitive credentials
+
+Use HTTPS and secure cookie settings for production deployment.
+
+Do not commit `.env` files or private keys to GitHub.
+
+Do not expose private customer records through public routes.
+
+---
+
+# 22. RESPONSIVE DESIGN REQUIREMENTS
+
+The website must work on:
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+## Desktop
+
+Use the approved multi-column layout.
+
+## Mobile
+
+Use:
+- Hamburger navigation
+- Compact hero
+- Readable headline
+- Touch-friendly buttons
+- Responsive destination cards
+- Full-width booking forms
+- Collapsible admin sidebar
+
+Prevent horizontal overflow.
+
+Make the destination gallery, booking form, login, OTP, and dashboard usable on small screens.
+
+---
+
+# 23. TESTING REQUIREMENTS
+
+Test the following:
+
+## Authentication
+- Successful registration
+- Invalid registration
+- Duplicate email
+- Correct OTP
+- Incorrect OTP
+- Expired OTP
+- OTP resend
+- Login
+- Invalid password
+- Logout
+- Password reset
+
+## Authorization
+- Customer cannot access admin pages
+- Unauthenticated users cannot access private pages
+- Customer cannot view another customer's booking
+
+## Booking
+- Valid reservation
+- Missing fields
+- Past date
+- Excess passenger count
+- Inactive boat
+- Inactive destination
+- Overlapping reservations
+- Pending approval
+- Confirmation
+- Rejection
+- Cancellation
+- Weather postponement
+
+## Pricing
+- Correct database price
+- Correct package price
+- Optional discount calculation
+- Administrator price changes
+- Server-side price validation
+
+## Distance
+- Haversine calculation
+- Kilometer conversion
+- Nautical-mile conversion
+- Missing coordinates
+- Unverified route handling
+
+## Safety
+- Safety acknowledgment required
+- Safety notice display
+- Booking postponement
+- Administrator checklist
+- Unauthorized safety-record changes
+
+## Interface
+- Desktop responsiveness
+- Mobile responsiveness
+- Working navigation
+- Working buttons
+- Working forms
+- Correct image paths
+- Correct Google Maps links
+- Accessible form labels
+
+Do not describe untested features as tested.
+
+---
+
+# 24. DEVELOPMENT PHASES
+
+Build the system in the following order.
+
+## Phase 1 — Requirements and planning
+
+- Review professor's guidelines
+- Confirm business information
+- Confirm active boats
+- Confirm project scope
+- Prepare requirements checklist
+- Prepare sitemap
+- Prepare flowchart
+- Prepare ERD
+
+## Phase 2 — Project setup
+
+- Create organized folder structure
+- Configure Flask
+- Configure MySQL
+- Configure environment variables
+- Install dependencies
+- Test database connection
+
+## Phase 3 — Frontend foundation
+
+- Recreate approved homepage
+- Implement navbar and footer
+- Implement responsive CSS
+- Add logo and verified imagery
+- Create destination cards
+
+## Phase 4 — Authentication
+
+- Registration
+- Login
+- Logout
+- Sessions
+- OTP
+- Password reset
+- Role restrictions
+
+## Phase 5 — Destination and boat management
+
+- Destination database
+- Destination details
+- Google Maps links
+- Distance fields
+- Boat profiles
+- Admin CRUD
+
+## Phase 6 — Booking system
+
+- Booking form
+- Availability checks
+- Passenger validation
+- Price calculation
+- Booking status
+- Booking history
+
+## Phase 7 — Administrator dashboard
+
+- Dashboard statistics
+- Reservation approval
+- Boat management
+- Destination management
+- Pricing management
+- Customer management
+
+## Phase 8 — Safety and notifications
+
+- Safety page
+- Safety acknowledgment
+- Weather notices
+- Safety checklist
+- Booking emails
+
+## Phase 9 — Testing and refinement
+
+- Unit tests
+- Integration tests
+- Database testing
+- Responsive testing
+- Security checks
+- Bug fixing
+
+## Phase 10 — Final delivery
+
+- Complete README
+- Complete database setup instructions
+- Prepare GitHub repository
+- Prepare project documentation
+- Prepare demonstration data without exposing real credentials
+- Verify every required feature
+- Create final ZIP
+- Prepare presentation and live demonstration
+
+---
+
+# 25. INSTALLATION REQUIREMENTS
+
+The README must explain how to:
+
+1. Install Python.
+2. Install Visual Studio Code.
+3. Install XAMPP.
+4. Start MySQL in XAMPP.
+5. Create the MySQL database.
+6. Open the project folder in VS Code.
+7. Create a Python virtual environment.
+8. Install requirements.
+9. Configure `.env`.
+10. Configure SMTP.
+11. Apply database migrations.
+12. Load initial destinations and packages.
+13. Create the first administrator securely.
+14. Run the Flask application.
+15. Open the website in the browser.
+16. Test customer registration.
+17. Test OTP delivery.
+18. Test the booking process.
+19. Test administrator functions.
+
+Provide Windows PowerShell commands suitable for VS Code.
+
+Explain each command clearly.
+
+Do not require unnecessary tools.
+
+---
+
+# 26. FINAL ZIP REQUIREMENTS
+
+The final ZIP must contain:
+
+- Complete Flask source code
+- All required HTML templates
+- All required CSS files
+- All required JavaScript files
+- Approved branding assets
+- Authorized destination photographs
+- Database models
+- Database schema
+- Database migrations
+- Initial destination/package data
+- Automated tests
+- Requirements file
+- Environment example
+- README
+- Setup instructions
+- Project documentation
+
+The ZIP must not contain:
+- Real passwords
+- SMTP credentials
+- Private secret keys
+- Customer personal data
+- Virtual environment folder
+- Unnecessary temporary files
+- Database dumps containing private records
+
+All included files must be connected correctly.
+
+Do not deliver empty placeholder functionality as though it were complete.
+
+---
+
+# 27. FINAL QUALITY REQUIREMENTS
+
+The finished system must be:
+
+**Functional:** Real bookings, authentication, dashboards, and database operations.
+
+**Organized:** Separate files for separate responsibilities.
+
+**Secure:** Proper validation, sessions, access controls, and password protection.
+
+**Responsive:** Usable on desktop and mobile.
+
+**Professional:** Closely follows the approved design.
+
+**Maintainable:** Easy to edit without breaking unrelated functions.
+
+**Accurate:** No invented boat routes, distances, photographs, or commercial prices.
+
+**Safe:** Includes safety guidelines, operator review, and weather postponement.
+
+**Appropriate for college:** Demonstrates Flask, MySQL, HTML, CSS, JavaScript, OOP, CRUD, and other verified professor requirements.
+
+---
+
+# 28. STRICT INSTRUCTIONS FOR CODEX
+
+You are my coding assistant, but I want to understand and control the project.
+
+Do not immediately generate every file.
+
+First:
+
+1. Inspect the current VS Code workspace.
+2. Read this master prompt.
+3. Review the uploaded professor's guidelines.
+4. Review my approved website mockup.
+5. Compare the requirements against the planned system.
+6. Identify any missing business information.
+7. Present the final folder structure.
+8. Present the database ERD.
+9. Present the implementation sequence.
+10. Wait for my approval.
+
+When I approve coding:
+
+- Build one module at a time.
+- Explain which files you will create or modify.
+- Keep all functions properly separated.
+- Avoid unnecessary dependencies.
+- Do not rewrite working modules without reason.
+- Run tests after each major module.
+- Fix errors before continuing.
+- Preserve my approved design.
+- Do not remove functionality without asking.
+- Keep a clear record of completed and pending requirements.
+
+If a requirement cannot be implemented safely or accurately, explain why and propose a practical alternative.
+
+Never invent test results.
+
+Never claim a feature is complete unless it works.
+
+---
+
+# 29. FINAL PROJECT OBJECTIVE
+
+Build a professional and functional boat rental and reservation management system that promotes tourism in Infanta, Quezon, and nearby coastal destinations.
+
+The website should allow customers to discover destinations, view verified location information, understand provisional prices, submit reservations, receive email notifications, and monitor booking status.
+
+The administrator should be able to manage boats, destinations, customers, reservations, prices, schedules, and safety notices through one organized dashboard.
+
+The system must prioritize customer convenience, accurate travel information, booking organization, maintainability, and passenger safety.
+
+The final website must follow the approved **Infanta, I Hopping — Explore Beyond Infanta** design.
+
+**FIRST RESPONSE REQUIRED FROM CODEX:**
+
+Before creating or modifying any source files, give me:
+
+1. A summary of your understanding of my project.
+2. A checklist mapping my professor's instructions to system features.
+3. The complete proposed folder structure.
+4. The database tables and their relationships.
+5. The customer and administrator workflows.
+6. The proposed development phases.
+7. Any business information that still requires verification.
+
+# FINAL LOCATION, DISTANCE AND ROUTE REQUIREMENTS
+## Infanta, I Hopping — Explore Beyond Infanta
+
+Use the exact departure reference supplied by the boat owner:
+
+**Purok Daungan, Barangay Abiawin, Infanta, Quezon, Philippines**
+
+Google Maps:
+https://maps.app.goo.gl/1JXDTUaigqqnCRUf7
+
+Latitude: 14.737679
+Longitude: 121.679196
+
+## Required destination records
+
+Create all 12 attraction records in the MySQL database.
+
+Each record must store the destination name, municipality, province, latitude, longitude, Google Maps URL, geographic distance in kilometers, geographic distance in nautical miles, source, and verification status.
+
+Use these preliminary geographic reference coordinates and one-way distances:
+
+| Destination | Latitude | Longitude | Distance km | Distance NM |
+|---|---:|---:|---:|---:|
+| Dero Beach | 14.6934099 | 121.6725540 | 5.0 | 2.7 |
+| Sabangan Beach | 14.6999359 | 121.6908671 | 4.4 | 2.4 |
+| BIPCO Bat Sanctuary Watch Tower | 14.6836590 | 121.6368560 | 7.5 | 4.1 |
+| Baluti Island | 14.6839600 | 121.6177300 | 8.9 | 4.8 |
+| Tulaog Beach | 14.8533574 | 121.6129500 | 14.7 | 7.9 |
+| Sulok Beach | 14.7944433 | 121.6236620 | 8.7 | 4.7 |
+| Pulong Kukok | 14.7060000 | 121.9670000 | 31.2 | 16.8 |
+| Bato Beach | 14.6286375 | 121.9318594 | 29.8 | 16.1 |
+| Gumatong Shoal | 15.0591625 | 121.8541719 | 40.4 | 21.8 |
+| Pinagbanderahan Beach Resort | 14.9245875 | 121.8065469 | 24.9 | 13.4 |
+| Puting Bato Beach Camp | 14.9162125 | 122.0015781 | 39.9 | 21.6 |
+| Anilon Island | 14.9140665 | 122.0281469 | 42.3 | 22.9 |
+
+These are geographic straight-line distances only. Some coordinates represent Plus Code centers, tourist landmarks, or provisional references rather than actual boat landing points.
+
+Do not misrepresent them as verified sailing distances.
+
+## Destination package structure
+
+Keep six nearby experiences:
+
+1. Dero Beach — ₱4,500
+2. Sabangan Beach — ₱4,000
+3. BIPCO Mangrove Eco-Park — ₱3,500
+4. Baluti Island — ₱4,500
+5. Tulaog Beach & Cave — ₱5,500
+6. Sulok Beach — ₱4,500
+
+Keep three extended packages:
+
+7. Polillo: Pulong Kukok + Bato Beach — ₱10,000
+8. Panukulan: Gumatong Shoal + Pinagbanderahan Beach — ₱12,000
+9. Burdeos: Puting Bato Beach Camp / Isla Puting Bato + Anilon Island — ₱15,000
+
+All prices are provisional and subject to owner confirmation.
+
+## Marine route management
+
+Store the planned itinerary sequence for each package.
+
+For nearby experiences, use:
+
+Departure → Destination → Return
+
+For extended packages, use:
+
+Departure → First Attraction → Second Attraction → Return
+
+Do not confuse the distance from Abiawin to an individual attraction with the total package distance.
+
+Do not add straight-line segments together and label the result as a verified sailing route.
+
+Actual marine routes must be reviewed by the boat owner or qualified captain.
+
+## Website display
+
+Each destination details page must show:
+
+- Authentic destination photograph
+- Name and municipality
+- Google Maps button
+- Approximate straight-line distance in kilometers and nautical miles
+- Starting charter price
+- Package inclusions
+- Boat eligibility and availability
+- Safety reminders
+- Request Booking button
+
+Include this note:
+
+"Distances shown are approximate straight-line measurements from Purok Daungan, Abiawin, Infanta. Actual boat travel distances and durations may differ depending on the approved route, sea conditions, and landing location."
+
+For extended packages, display Request Quotation until the operator confirms the route and price.
+
+## Database and administrator requirements
+
+The administrator must be able to:
+
+- Edit destination coordinates
+- Edit Google Maps links
+- Recalculate geographic distances
+- Record the coordinate source
+- Record whether a landing point is verified
+- Add or edit boat routes
+- Change route status
+- Set a destination as unavailable
+- Edit prices
+- Review safety and weather notices
+- Approve or reject reservations
+
+Use a separate `distance_service.py` for geographic calculations and `route_service.py` for itinerary management.
+
+Use `seed_destinations.sql` or an equivalent database seed process to load all 12 attraction records.
+
+Keep the code organized according to the previously approved Flask project folder structure.
+
+Do not include live GPS tracking, Google Maps driving directions as marine routes, or automatic navigation.
+
+Do not remove any previously approved system requirements.
+
+## Safety requirements
+
+Before a route can be marked operational, the owner or qualified captain must verify:
+
+- Vessel suitability
+- Permitted operating area
+- Certified passenger capacity
+- Required safety equipment
+- Fuel and range requirements
+- Boarding and landing arrangements
+- Weather and maritime advisories
+- Availability of safe alternative arrangements
+- Required permissions
+
+Booking approval must remain subject to operator review.
+
+The captain retains the final decision about safe departure.
+
+## Final development instruction
+
+Include all 12 attractions and all nine packages in the system.
+
+Use the supplied Google Maps links and geographic reference values.
+
+Do not leave destination records missing merely because their sailing routes have not yet been verified.
+
+Instead, clearly distinguish geographic information from operationally verified marine routes.
+
+Preserve the approved Infanta, I Hopping website design and the homepage heaAdline Explore Beyond Infanta.
+
+Wait for approval before modifying source code.

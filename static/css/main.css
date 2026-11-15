@@ -1,0 +1,144 @@
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--blue-soft); font-family: 'Inter', sans-serif; }
+h1, h2, h3, .navbar-brand, .nav-link { font-family: 'Poppins', sans-serif; }
+.site-navbar { background: var(--navy); padding: .9rem 0; }
+.site-navbar { box-shadow: 0 3px 18px rgba(11, 47, 77, .16); }
+.brand-lockup { color: var(--white); display: inline-flex; align-items: center; gap: .6rem; line-height: 1.05; }
+.brand-lockup:hover { color: var(--white); }
+.brand-logo { display: block; width: 248px; height: auto; max-width: 100%; }
+.brand-lockup small { display: block; font: 600 .48rem 'Inter', sans-serif; letter-spacing: .08em; margin-top: .25rem; }
+.brand-mark { color: var(--turquoise); font-size: 2rem; transform: rotate(-8deg); }
+.nav-link { color: rgba(255,255,255,.86); font-size: .85rem; }
+.nav-link:hover, .nav-link.active { color: var(--white); }
+.nav-link:hover, .nav-link.active { background: rgba(255,255,255,.12); color: #bffcff !important; }
+.btn-aqua { color: var(--white); border: 0; background: linear-gradient(135deg, var(--turquoise), var(--teal)); }
+.btn-aqua:hover { color: var(--white); filter: brightness(.95); }
+.site-footer { padding: 1.25rem 0; background: var(--navy); color: rgba(255,255,255,.8); font-size: .8rem; }
+.footer-brand { display: inline-flex; align-items: center; max-width: 230px; }
+.footer-brand img { display: block; width: 210px; height: auto; }
+.section-pad { padding: 5rem 0; }
+.eyebrow { letter-spacing: .14em; font-size: .72rem; font-weight: 600; }
+.text-teal { color: var(--teal); }
+.section-lead { max-width: 620px; color: #587185; }
+.destination-card { overflow: hidden; padding-bottom: 1.3rem; border-radius: 1rem; background: var(--white); box-shadow: 0 12px 30px rgba(16,59,99,.1); }
+.destination-card h3, .destination-card p, .price-note { margin-left: 1.2rem; margin-right: 1.2rem; }
+.destination-card h3 { margin-top: 1rem; margin-bottom: .25rem; }
+.destination-card p { color: #688196; margin-bottom: .75rem; }
+.price-note { color: var(--teal); font-size: .75rem; font-weight: 600; }
+.destination-image { height: 175px; background: linear-gradient(135deg, #45bdd0, #0c5b83 60%, #e1b960); }
+.image-sabangan { background: linear-gradient(145deg, #74cfe0, #176f9c 58%, #b3d27d); }
+.image-baluti { background: linear-gradient(145deg, #8ad8df, #107a9d 55%, #e4d28e); }
+
+.site-navbar { box-shadow: 0 3px 18px rgba(11, 47, 77, .16); }
+.nav-link { border-radius: .55rem; padding-inline: .8rem !important; transition: background .2s ease, color .2s ease; }
+.nav-link:hover, .nav-link.active { background: rgba(255,255,255,.12); color: #bffcff !important; }
+main { min-height: 68vh; }
+.btn { border-radius: .65rem; font-weight: 700; padding: .65rem 1.05rem; transition: transform .15s ease, box-shadow .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-aqua { box-shadow: 0 7px 16px rgba(8, 174, 180, .2); }
+.btn-primary, .btn-info { --bs-btn-bg: var(--turquoise); --bs-btn-border-color: var(--turquoise); --bs-btn-hover-bg: var(--teal); --bs-btn-hover-border-color: var(--teal); }
+.btn-outline-primary { --bs-btn-color: var(--navy); --bs-btn-border-color: var(--navy); --bs-btn-hover-bg: var(--navy); --bs-btn-hover-border-color: var(--navy); }
+.card, .booking-card { border: 1px solid #d8e7ee; border-radius: 1rem; box-shadow: 0 14px 34px rgba(18, 63, 102, .1); background: #fff; }
+.form-control, .form-select { border-color: #d8e7ee; border-radius: .65rem; min-height: 2.85rem; color: var(--ink); }
+.form-control:focus, .form-select:focus { border-color: var(--turquoise); box-shadow: 0 0 0 .2rem rgba(8, 174, 180, .16); }
+label, .form-label { color: var(--navy); font-weight: 650; }
+.table { --bs-table-color: var(--ink); --bs-table-border-color: #d8e7ee; vertical-align: middle; }
+.table thead th { background: var(--navy); color: #fff; border: 0; }
+.table tbody tr:hover { background: var(--aqua-light); }
+.alert { border: 0; border-radius: .75rem; }
+.badge { border-radius: 999px; padding: .5em .75em; font-weight: 700; }
+@media (max-width: 767.98px) {
+    .nav-link { margin: .12rem 0; }
+    .brand-logo { width: 220px; }
+    .footer-brand img { width: 190px; }
+    .section-pad { padding: 3.5rem 0; }
+    .table-responsive { border-radius: 1rem; box-shadow: 0 14px 34px rgba(18, 63, 102, .1); }
+}
+/* Destination imagery: responsive full-bleed frames with no black letterboxing. */
+.destination-card-media { height: clamp(190px, 18vw, 250px); overflow: hidden; background: #eaf7f8; }
+.destination-image { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; display: block; background: #eaf7f8; transition: transform .5s ease; }
+.destination-details-hero { height: clamp(280px, 48vw, 560px); overflow: hidden; background: #eaf7f8; }
+.destination-details-hero .destination-image { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: center; }
+.destination-tagline { color: #087f8c; font-weight: 700; }
+.destination-highlights { display: grid; gap: .65rem; padding-left: 1.15rem; }
+.destination-before-you-go { border-left: 4px solid #11b8bd; background: #effbfd; }
+@media (max-width: 575.98px) { .destination-card-media { height: 220px; } .destination-details-hero { height: 300px; } }
+/* Destination card actions remain prominent and clickable above the card artwork. */
+.destination-card-body .btn { position: relative; z-index: 2; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-weight: 700; text-decoration: none; }
+.destination-card-body .btn-primary { color: #fff; background: #00b4b8; border-color: #00b4b8; }
+.destination-card-body .btn-primary:hover, .destination-card-body .btn-primary:focus-visible { color: #fff; background: #087f8c; border-color: #087f8c; }
+.destination-card-body .btn-outline-primary { color: #087f8c; border-color: #087f8c; background: #fff; }
+.destination-card-body .btn-outline-primary:hover, .destination-card-body .btn-outline-primary:focus-visible { color: #fff; background: #087f8c; }
+.destination-image[alt="Scenery at Bato Beach"] { object-position: 58% 48%; }
+.destination-image[alt="Scenery at Anilon Island"] { object-position: 50% 52%; }
+@media (max-width: 575.98px) { .destination-card-body .btn { width: 100%; } }
+/* Destination cards: make media and titles usable links without nesting anchors. */
+.destination-card { overflow: hidden; border-radius: 1.15rem; transition: transform .2s ease, box-shadow .2s ease; }
+.destination-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2rem rgba(5, 48, 78, .14); }
+.destination-card-media-link { display: block; line-height: 0; }
+.destination-card-media-link:focus-visible, .destination-card-title:focus-visible, .destination-card-body .btn:focus-visible { outline: 3px solid #f4bd3f; outline-offset: 3px; }
+.destination-card-title { color: inherit; text-decoration: none; }
+.destination-card-title:hover { color: #087f8c; }
+.destination-card-media-link .destination-image { transition: transform .35s ease; }
+.destination-card:hover .destination-card-media-link .destination-image { transform: scale(1.025); }
+
+/* Portrait source photos get a calm light frame instead of black letterboxing. */
+.destination-image[alt="Scenery at Bato Beach"], .destination-image[alt="Scenery at Sabangan Beach"] { object-fit: contain; background: #eaf7f8; }
+.destination-image[alt="Scenery at Bato Beach"] { object-position: center center; }
+.destination-image[alt="Scenery at Sabangan Beach"] { object-position: center center; }
+.destination-image[alt="Scenery at Anilon Island"] { object-fit: cover; object-position: center center; background: #eaf7f8; }
+.homepage-destination-card .destination-card-media { height: 210px; }
+.homepage-destination-card .card-description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; min-height: 4.5em; }
+.homepage-destination-card .destination-card-body { gap: .15rem; }
+
+/* Keep the main destination action immediately below every photo. */
+.destination-card-explore { background: #fff; }
+.destination-explore-button { min-height: 46px; border-radius: .8rem; letter-spacing: .01em; }
+.destination-card-body { min-width: 0; }
+.destination-card-description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+.destination-collection-heading { border-left: 4px solid #00b4b8; padding-left: 1rem; }
+.destinations-intro { max-width: 900px; margin-inline: auto; }
+@media (max-width: 575.98px) {
+  .destination-card-explore { padding-inline: 1rem !important; }
+  .destination-card-body { padding-inline: 1rem !important; }
+}
+
+/* The owner-supplied replacements are landscape assets; display their full scenic frame cleanly. */
+.destination-image[src*="bato-beach-new"],
+.destination-image[src*="sabangan-island-infanta"] {
+  object-fit: cover;
+  object-position: center;
+  background: #eaf7f8;
+}
+
+/* Details-page navigation is presented as a real, keyboard-accessible button. */
+.back-link { display: inline-flex; align-items: center; gap: .55rem; margin-bottom: .25rem; padding: .7rem 1rem; border: 1px solid #087f8c; border-radius: .75rem; color: #075377; background: #effbfd; font-weight: 600; text-decoration: none; transition: color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.back-link:hover { color: #fff; background: #087f8c; transform: translateY(-1px); box-shadow: 0 .35rem .8rem rgba(8,127,140,.2); }
+.back-link:focus-visible { outline: 3px solid #f4bd3f; outline-offset: 3px; }
+
+/* Public About and Contact pages */
+.about-hero, .contact-intro { background: linear-gradient(135deg, #eefbfd, #ffffff 58%, #dff5f7); }
+.about-hero h1, .contact-intro h1 { color: var(--navy); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.08; }
+.about-hero-photo { height: clamp(250px, 35vw, 430px); overflow: hidden; border-radius: 1.25rem; box-shadow: 0 1.2rem 2.5rem rgba(16, 59, 99, .18); }
+.about-hero-photo img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.about-offer { background: #f7fcfd; }
+.about-offer-card, .contact-info-card, .contact-form-card { height: 100%; padding: 2rem; border: 1px solid #d8e7ee; border-radius: 1.15rem; background: #fff; box-shadow: 0 14px 34px rgba(18, 63, 102, .1); }
+.about-offer-card { transition: transform .2s ease, box-shadow .2s ease; }
+.about-offer-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2rem rgba(5, 48, 78, .14); }
+.about-offer-card h3, .contact-info-card h2, .contact-form-card h2 { color: var(--navy); }
+.about-offer-card p, .about-story p, .contact-details dd, .contact-help p { color: #587185; line-height: 1.7; }
+.about-icon { display: inline-grid; width: 3rem; height: 3rem; place-items: center; margin-bottom: 1rem; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--turquoise), var(--teal)); font-size: 1.55rem; }
+.about-story { max-width: 760px; padding: 2.5rem; border-left: 4px solid var(--turquoise); background: #effbfd; border-radius: 0 1rem 1rem 0; }
+.about-cta { color: #fff; background: linear-gradient(135deg, var(--navy), #075377); }
+.about-cta h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); }
+.about-cta .eyebrow { color: #a9f5f2; }
+.contact-intro h1 { max-width: 800px; margin-inline: auto; }
+.contact-details { margin-top: 1.5rem; }
+.contact-details > div { padding: .9rem 0; border-bottom: 1px solid #e4eff2; }
+.contact-details dt { color: var(--navy); font-weight: 700; }
+.contact-details dd { margin: .25rem 0 0; }
+.contact-details a { color: var(--teal); font-weight: 700; }
+.contact-help { margin-top: 1.5rem; padding: 1rem; border-radius: .85rem; background: #effbfd; color: var(--navy); }
+.contact-form-card .form-control, .contact-form-card .form-select { background-color: #fbfeff; }
+.privacy-note { color: #667c8c; font-size: .84rem; }
+@media (max-width: 767.98px) { .about-hero-photo { height: 260px; } .about-offer-card, .contact-info-card, .contact-form-card { padding: 1.35rem; } .about-story { padding: 1.5rem; } }

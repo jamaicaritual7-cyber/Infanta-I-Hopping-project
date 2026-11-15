@@ -1,0 +1,960 @@
+# FINAL CONSOLIDATED MASTER PROMPT FOR CODEX
+## INFANTA, I HOPPING — PROFESSOR'S VALIDATION STANDARDS, SECURITY, AND SAFE INTEGRATION
+
+### PROJECT DETAILS
+
+**Project name:** Infanta, I Hopping — Boat Rental and Reservation Management System
+
+**Project location:**
+`C:\Users\jamaica\Downloads\Infanta_Ihopping`
+
+**Required programming languages and technologies:**
+- Python Flask — backend
+- Flask-SQLAlchemy — database integration
+- MySQL — existing database
+- XAMPP/phpMyAdmin — local database management
+- HTML5 — page structure
+- CSS3 and Bootstrap 5 — existing interface
+- JavaScript — frontend validation
+- Gmail SMTP — existing six-digit email OTP verification
+
+## MAIN OBJECTIVE
+
+I need you to implement comprehensive input validation in my EXISTING Infanta, I Hopping web application, following the validation standards from my professor's PHP activity.
+
+The reference file is:
+
+`index_email_validation_updated.php`
+
+Read the entire reference file if it is available in my VS Code workspace. If it is not available, tell me rather than inventing its contents.
+
+**THE PHP FILE IS FOR REFERENCE ONLY.**
+
+DO NOT copy, import, execute, embed, or inject PHP code into my Flask application.
+
+Translate the applicable validation behavior into Python Flask and JavaScript, using the existing HTML and Bootstrap 5 interface.
+
+I want correct validation that works on both the frontend and backend, not merely decorative error messages.
+
+My existing web application has working functionality. Protect it.
+
+**YOUR FIRST TASK IS INSPECTION ONLY. DO NOT MODIFY FILES UNTIL I APPROVE YOUR PLAN.**
+
+---
+
+# PART 1 — STRICT PROJECT PROTECTION
+
+## 1.1 PROTECT MY WORKING GMAIL OTP
+
+My existing six-digit Gmail OTP verification already works.
+
+I have successfully tested email delivery.
+
+Preserve this workflow:
+
+**Register → Receive OTP → Verify Email → Login**
+
+DO NOT MODIFY:
+
+- Sender Gmail address
+- Google App Password
+- `.env` file
+- SMTP configuration
+- Email-sending functions
+- OTP generation
+- OTP verification
+- OTP expiration
+- OTP email template
+- OTP database records
+- Existing email verification statuses
+- Working OTP-related routes
+
+You may inspect the OTP integration to understand where registration validation belongs.
+
+However, do not change the working OTP implementation.
+
+If a necessary change requires modifying OTP-related code, STOP and request separate approval.
+
+Do not expose secrets in your report, logs, screenshots, or generated code.
+
+## 1.2 PROTECT MY MYSQL DATABASE
+
+DO NOT:
+
+- Delete existing `.sql` files
+- Overwrite SQL files
+- Drop tables
+- Truncate tables
+- Reset the database
+- Recreate existing tables
+- Delete customer accounts
+- Delete boat records
+- Delete destinations
+- Delete packages
+- Delete reservations
+- Delete OTP records
+- Change verified account statuses
+- Reset existing passwords
+- Run migrations without permission
+- Modify SQLAlchemy models or relationships without approval
+- Run destructive database initialization scripts
+
+Use existing SQLAlchemy models for validation queries.
+
+Do not create JSON account storage.
+
+If a database schema change is necessary, explain it and request separate approval.
+
+## 1.3 PROTECT MY EXISTING WEBSITE
+
+Preserve the existing navy, turquoise, and aqua visual design.
+
+DO NOT:
+
+- Rebuild the application
+- Redesign the homepage
+- Replace login or registration pages
+- Redesign customer or admin dashboards
+- Change the existing navigation unnecessarily
+- Remove working features
+- Replace Flask with PHP
+- Introduce another authentication system
+- Introduce unnecessary frameworks
+- Modify unrelated files
+
+Keep existing routes, templates, models, and UI components wherever possible.
+
+---
+
+# PART 2 — INSPECT EVERYTHING BEFORE EDITING
+
+Inspect my actual project structure.
+
+Find:
+
+1. Flask application entry point
+2. Flask configuration
+3. Registration routes
+4. Login and logout routes
+5. User model
+6. Existing validation functions
+7. Gmail OTP integration
+8. Customer dashboard
+9. Administrator dashboard
+10. Boat models
+11. Package models
+12. Destination models
+13. Reservation models and routes
+14. Existing JavaScript
+15. HTML templates
+16. CSS and Bootstrap components
+17. Session handling
+18. CSRF protection
+19. Existing error and success modals
+20. Existing database access patterns
+
+Determine which requirements already work and which are missing.
+
+Do not replace correct code merely because you prefer another implementation.
+
+Do not assume that example filenames below exist in my project.
+
+---
+
+# PART 3 — VALIDATION ARCHITECTURE
+
+Recommend a reusable validation structure.
+
+If my project does not already have an appropriate validation module, propose adding:
+
+`validators.py`
+
+If an existing validation module is present, reuse it instead.
+
+Recommended Python validation functions:
+
+- `validate_name`
+- `validate_username`
+- `validate_email`
+- `validate_password`
+- `validate_phone`
+- `validate_passengers`
+- `validate_booking_date`
+- `validate_booking_availability`
+- `validate_url`, only if needed
+
+For JavaScript, propose a reusable module such as:
+
+`static/js/validation.js`
+
+Only create this file if it fits the actual project structure.
+
+Avoid duplicate validation code, duplicate event listeners, and conflicting form handlers.
+
+The Flask backend must remain the authority for accepting or rejecting submissions.
+
+---
+
+# PART 4 — STRICT EMAIL VALIDATION
+
+**THIS IS ONE OF MY PROFESSOR'S MOST IMPORTANT REQUIREMENTS.**
+
+My PHP reference contains `validateEmailProvider()`.
+
+Translate its validation behavior into Python Flask and JavaScript.
+
+## 4.1 REQUIRED EMAIL SYNTAX VALIDATION
+
+Check:
+
+1. Email cannot be empty.
+2. Email cannot contain whitespace.
+3. Email must not exceed 254 characters.
+4. Email must contain exactly one `@` separator.
+5. The local part before `@` must exist.
+6. The domain after `@` must exist.
+7. Reject consecutive periods.
+8. Reject a local part beginning with a period.
+9. Reject a local part ending with a period.
+10. Reject a domain beginning with a period.
+11. Reject a domain ending with a period.
+12. Reject malformed domain labels.
+13. Reject domain labels starting with a hyphen.
+14. Reject domain labels ending with a hyphen.
+15. Reject domain labels longer than 63 characters.
+16. Require a properly structured domain.
+17. Reject duplicate registered emails.
+18. Show specific, understandable error messages.
+
+Use an appropriate existing email-validation library if available.
+
+Do not rely only on a simplistic regex.
+
+## 4.2 APPROVED EMAIL PROVIDERS
+
+My PHP reference contains this exact approved-provider list:
+
+```python
+APPROVED_EMAIL_DOMAINS = {
+    "gmail.com", "googlemail.com",
+    "yahoo.com", "yahoo.com.ph",
+    "ymail.com", "rocketmail.com",
+    "outlook.com", "outlook.ph",
+    "hotmail.com", "hotmail.ph",
+    "live.com", "live.com.ph",
+    "msn.com", "icloud.com",
+    "me.com", "mac.com", "aol.com",
+    "proton.me", "protonmail.com", "pm.me",
+    "zoho.com", "zohomail.com",
+    "mail.com", "gmx.com", "gmx.net",
+    "fastmail.com", "tutanota.com", "tuta.com",
+    "lu.edu.ph", "lspu.edu.ph",
+    "deped.gov.ph", "deped.edu.ph",
+    "adamson.edu.ph"
+}
+```
+
+My professor's reference also rejects:
+
+- Email providers not on the approved list
+- Domains ending in `.co`
+- Domains without valid MX records
+
+These restrictions are assignment-specific and may reject legitimate tourist email addresses.
+
+**Inspect their effect on my existing accounts and tourism use case. Report your findings and wait for my approval before enabling these restrictions.**
+
+If approved, make them configurable instead of hardcoding them into every authentication route.
+
+## 4.3 MX DNS VALIDATION
+
+My PHP file uses:
+
+`checkdnsrr($domain, 'MX')`
+
+For the Python equivalent:
+
+- Use an appropriate DNS library, if approved.
+- Check MX records on the server.
+- Handle DNS timeouts.
+- Handle unavailable network connections.
+- Avoid blocking the application indefinitely.
+- Do not treat an MX record as proof that an individual mailbox exists.
+- Do not add dependencies without approval.
+
+## 4.4 EMAIL VALIDATION IN REGISTRATION
+
+When a new customer registers:
+
+1. Validate required email input.
+2. Validate email syntax.
+3. Apply approved provider restrictions if enabled.
+4. Apply approved MX checking if enabled.
+5. Check duplicates using the existing MySQL user model.
+6. Display appropriate errors.
+7. If all registration requirements pass, continue into the EXISTING OTP workflow.
+
+Do not replace OTP verification.
+
+## 4.5 EMAIL VALIDATION IN LOGIN
+
+Validate that the login email field is present and reasonably formatted.
+
+Do not apply newly introduced provider or DNS restrictions in a way that locks out existing legitimate accounts.
+
+Preserve existing verified-user login behavior.
+
+## 4.6 EMAIL VALIDATION IN OTHER FORMS
+
+If a form collects a registered customer's email, validate it appropriately.
+
+Where a field is intended to represent the customer's registered email, verify ownership using the authenticated account rather than trusting a user-submitted email.
+
+Do not force unrelated contact-email fields to match the registered email unless the business requirement specifically calls for it.
+
+---
+
+# PART 5 — PYTHON VALIDATION REFERENCE IMPLEMENTATIONS
+
+The following are starting implementations for the applicable rules.
+
+Inspect the actual project before using them.
+
+Do not overwrite existing validators.
+
+## 5.1 NAME VALIDATION
+
+```python
+import re
+
+def validate_name(value, field_name="Name"):
+    if not isinstance(value, str) or not value.strip():
+        return f"{field_name} is required."
+
+    value = value.strip()
+
+    if len(value) > 100:
+        return f"{field_name} is too long."
+
+    parts = re.split(r"[ '-]", value)
+
+    if not all(
+        part and all(character.isalpha() for character in part)
+        for part in parts
+    ):
+        return (
+            f"{field_name} may contain letters, spaces, "
+            "apostrophes, and hyphens only."
+        )
+
+    return None
+```
+
+## 5.2 USERNAME VALIDATION
+
+```python
+def validate_username(username):
+    if not isinstance(username, str):
+        return "Username is required."
+
+    if not re.fullmatch(
+        r"[A-Za-z0-9_.-]{3,30}",
+        username.strip()
+    ):
+        return (
+            "Username must contain 3–30 characters using "
+            "letters, numbers, periods, underscores, or hyphens."
+        )
+
+    return None
+```
+
+Only use this if the existing system has usernames.
+
+## 5.3 PASSWORD VALIDATION
+
+```python
+def validate_password(password, confirmation=None):
+    if not isinstance(password, str):
+        return "Password is required."
+
+    if len(password) < 8:
+        return "Password must contain at least 8 characters."
+
+    if not re.search(r"[A-Z]", password):
+        return "Password must contain an uppercase letter."
+
+    if not re.search(r"[a-z]", password):
+        return "Password must contain a lowercase letter."
+
+    if not re.search(r"[0-9]", password):
+        return "Password must contain a number."
+
+    if confirmation is not None and password != confirmation:
+        return "Passwords do not match."
+
+    return None
+```
+
+Use this for new passwords, not to reject existing passwords during login.
+
+## 5.4 PHILIPPINE MOBILE NUMBER VALIDATION
+
+```python
+def validate_phone(phone):
+    if not isinstance(phone, str):
+        return "Phone number is required."
+
+    phone = phone.strip()
+
+    if not re.fullmatch(r"09\d{9}", phone):
+        return (
+            "Enter an 11-digit Philippine mobile "
+            "number starting with 09."
+        )
+
+    if re.search(r"(\d)\1{4}", phone):
+        return (
+            "Phone number cannot contain five "
+            "identical consecutive digits."
+        )
+
+    return None
+```
+
+Preserve any existing `+63` support unless I approve a change.
+
+## 5.5 PASSENGER COUNT VALIDATION
+
+```python
+def validate_passengers(value, boat_capacity):
+    if isinstance(value, bool):
+        return "Passenger count must be a whole number."
+
+    text = str(value).strip()
+
+    if not re.fullmatch(r"[0-9]+", text):
+        return "Passenger count must be a whole number."
+
+    passengers = int(text)
+
+    if passengers < 1:
+        return "At least one passenger is required."
+
+    if passengers > boat_capacity:
+        return "Passenger count exceeds boat capacity."
+
+    return None
+```
+
+Use the actual boat capacity from the database.
+
+Do not trust a client-submitted capacity.
+
+## 5.6 EMAIL VALIDATION
+
+Implement a complete Python email validator using an appropriate existing library and the rules from Part 4.
+
+Do not use an incomplete regex-only validator as the final implementation.
+
+Keep provider allowlisting and DNS checks configurable and disabled until I approve their use.
+
+## 5.7 BOOKING DATE AND AVAILABILITY
+
+Implement these against the existing booking models and business rules.
+
+Do not create generic date checks that ignore actual reservation times, time zones, booking statuses, or availability.
+
+## 5.8 WEBSITE URL VALIDATION
+
+My PHP reference requires:
+
+- Valid URL syntax
+- Valid hostname
+- `.com` domain
+- DNS record checking
+- Automatic HTTPS prefix where appropriate
+- HTTP, HTTPS, or FTP support
+
+Only implement this if my current application has a relevant website URL field.
+
+Do not introduce a website field unnecessarily.
+
+---
+
+# PART 6 — JAVASCRIPT LIVE VALIDATION
+
+Use JavaScript to provide immediate validation feedback.
+
+These functions are starting examples:
+
+```javascript
+function validateName(value) {
+    return /^\p{L}+(?:[ '-]\p{L}+)*$/u.test(value.trim());
+}
+
+function validateUsername(value) {
+    return /^[A-Za-z0-9_.-]{3,30}$/.test(value.trim());
+}
+
+function validatePassword(value) {
+    return {
+        length: value.length >= 8,
+        uppercase: /[A-Z]/.test(value),
+        lowercase: /[a-z]/.test(value),
+        number: /[0-9]/.test(value)
+    };
+}
+
+function validatePhone(value) {
+    return /^09\d{9}$/.test(value) &&
+           !/(\d)\1{4}/.test(value);
+}
+
+function validateConfirmPassword(password, confirmation) {
+    return password === confirmation;
+}
+```
+
+For email validation, implement frontend syntax and approved-provider checks consistently with the backend configuration.
+
+Do not attempt DNS lookups directly from JavaScript.
+
+Use existing form IDs and HTML structure.
+
+Use Bootstrap classes:
+
+- `is-valid`
+- `is-invalid`
+
+Show understandable feedback below each field.
+
+Use accessible error messages.
+
+Preserve valid form values after errors, except passwords and other secrets.
+
+Avoid silently removing characters from user input.
+
+Avoid duplicate event listeners.
+
+---
+
+# PART 7 — FIX REFERENCE BUGS INSTEAD OF COPYING THEM
+
+The PHP reference has a JavaScript scope issue.
+
+Its final signup script calls `isApprovedEmail()` from a separate function scope where that function is not defined.
+
+Do not reproduce this mistake.
+
+Use a shared, properly scoped email-validation function.
+
+Also check that frontend and backend rules are consistent.
+
+Do not copy unnecessary PHP-specific features such as:
+
+- JSON account storage
+- PHP session variables
+- PHP dashboard
+- PHP routing
+- PHP password functions
+- PHP file-writing functions
+
+Translate the intended behavior using Flask-compatible features.
+
+---
+
+# PART 8 — REGISTRATION VALIDATION
+
+Apply validation to the existing registration route.
+
+Validate:
+
+1. Required fields
+2. First name
+3. Last name
+4. Username, if applicable
+5. Email syntax
+6. Approved email provider, if enabled
+7. MX DNS records, if enabled
+8. Duplicate email
+9. Duplicate username, if applicable
+10. Password strength
+11. Confirm password
+
+If validation fails, display errors without creating a new account.
+
+If validation succeeds, continue through the existing registration and OTP process.
+
+Do not create a second registration route or authentication system.
+
+---
+
+# PART 9 — LOGIN VALIDATION
+
+Apply validation to the existing login route.
+
+Requirements:
+
+- Email required
+- Password required
+- Appropriate email syntax
+- Secure password verification
+- Generic incorrect-credentials error
+- Existing email verification requirements
+- Secure sessions
+- Appropriate rate limiting, if safely compatible
+- Existing account compatibility
+
+Do not enforce new password complexity rules during login.
+
+Do not reset existing accounts.
+
+Do not change working OTP behavior.
+
+---
+
+# PART 10 — CUSTOMER INFORMATION VALIDATION
+
+For existing profile or customer-information forms, validate relevant fields:
+
+- Full name
+- First name
+- Last name
+- Phone number
+- Email, where editable
+- Other existing required fields
+
+If the form represents the registered customer's identity, use authenticated account information where appropriate.
+
+Do not create an unnecessary separate validation dashboard.
+
+Do not impose the PHP activity's one-submission-per-account restriction on customer profiles or boat reservations.
+
+---
+
+# PART 11 — BOAT RENTAL AND BOOKING VALIDATION
+
+Inspect my existing reservation process.
+
+## PASSENGER COUNT
+
+- Required
+- Positive whole number
+- No zero
+- No negative values
+- No decimals
+- Cannot exceed actual boat capacity
+
+## BOOKING DATE AND TIME
+
+- Required
+- Valid date/time
+- No past dates
+- Respect existing booking windows
+- Reject unavailable schedules
+- Detect overlapping bookings for the same boat
+- Respect existing booking statuses
+
+## BOAT AND PACKAGE
+
+- Selected boat exists
+- Selected package exists
+- Boat/package relationship is valid
+- Selected option is available
+- Price comes from trusted database records
+- Reject manipulated prices
+
+## CUSTOMER DETAILS
+
+- Required names
+- Valid mobile number
+- Valid email where applicable
+- Appropriate input length limits
+
+## AUTHORIZATION
+
+- Customers can access their own bookings.
+- Customers cannot access another customer's bookings.
+- Administrators can manage reservations according to existing roles.
+
+Do not modify existing booking records, prices, boats, or packages.
+
+---
+
+# PART 12 — CUSTOMER AND ADMIN DASHBOARDS
+
+Inspect both dashboards.
+
+Do not automatically delete the customer dashboard.
+
+Determine whether any administrator functionality is accidentally visible to customers.
+
+Verify server-side authorization.
+
+Customers should access only their permitted information.
+
+Administrators should access management functions according to their roles.
+
+Prevent unauthorized access through manually entered URLs.
+
+Preserve existing dashboard designs and navigation.
+
+---
+
+# PART 13 — SECURITY STANDARDS
+
+Review the existing implementation of:
+
+- CSRF protection
+- Secure password hashing
+- Password verification
+- Session security
+- Logout session invalidation
+- SQLAlchemy query safety
+- HTML output escaping
+- Role-based authorization
+- Input length limits
+- Error handling
+- Login rate limiting
+
+Use Flask-compatible implementations.
+
+Do not replace working security components unnecessarily.
+
+Do not expose secrets or private customer information.
+
+If a security improvement requires touching protected OTP or database components, request separate approval.
+
+---
+
+# PART 14 — BOOTSTRAP VALIDATION FEEDBACK
+
+Preserve the existing design.
+
+Implement where appropriate:
+
+- Live input feedback
+- Clear messages below fields
+- Password requirement indicators
+- Password show/hide controls
+- Password confirmation feedback
+- Existing success/error modals
+- Logout confirmation, if suitable
+- Mobile-friendly form validation
+- Accessible feedback
+
+Do not copy the visual appearance of my PHP validation portal.
+
+Do not add a separate validation dashboard.
+
+Do not create unnecessary popups for every keystroke.
+
+Use inline feedback for live validation and existing modals for appropriate submission results.
+
+---
+
+# PART 15 — COMPLETE TESTING REQUIREMENTS
+
+After approval, test using isolated data or mocks.
+
+## REGISTRATION TESTS
+
+1. Empty first name
+2. Invalid first name
+3. Empty last name
+4. Invalid last name
+5. Invalid username
+6. Duplicate username
+7. Empty email
+8. Missing `@`
+9. Missing local part
+10. Missing domain
+11. Consecutive periods
+12. Invalid domain label
+13. Unsupported provider, if enabled
+14. `.co` domain, if enabled
+15. MX DNS failure, if enabled
+16. Duplicate email
+17. Password under 8 characters
+18. Missing uppercase letter
+19. Missing lowercase letter
+20. Missing number
+21. Password mismatch
+22. Valid registration
+
+## LOGIN TESTS
+
+23. Empty email
+24. Empty password
+25. Incorrect password
+26. Unknown account
+27. Unverified account restrictions
+28. Verified account login
+29. Existing account compatibility
+
+## PHONE TESTS
+
+30. Too few digits
+31. Too many digits
+32. Wrong prefix
+33. Letters
+34. Symbols
+35. Five consecutive identical digits
+36. Valid Philippine mobile number
+
+## BOOKING TESTS
+
+37. Zero passengers
+38. Negative passengers
+39. Decimal passengers
+40. Passenger count exceeds capacity
+41. Past booking date
+42. Invalid date
+43. Conflicting reservation
+44. Unavailable boat
+45. Invalid package
+46. Manipulated price
+47. Unauthorized booking access
+
+## SECURITY TESTS
+
+48. JavaScript disabled
+49. Direct invalid POST requests
+50. Missing or invalid CSRF token
+51. Customer accessing admin routes
+52. Customer accessing another customer's booking
+53. Guest accessing protected pages
+54. Unsafe HTML input
+55. Session/logout behavior
+
+## OTP REGRESSION TESTS
+
+56. Existing OTP configuration unchanged
+57. Existing OTP functions unchanged
+58. Existing OTP email template unchanged
+59. Existing verification statuses unchanged
+60. Registration-to-OTP integration preserved
+
+Do not send real OTP emails without permission.
+
+Do not alter real customer data.
+
+Report which tests passed, failed, or were not executed.
+
+---
+
+# PART 16 — REQUIRED IMPLEMENTATION WORKFLOW
+
+## PHASE 1 — INSPECT ONLY
+
+Read the actual project files.
+
+Do not edit code.
+
+Do not install packages.
+
+Do not execute migrations.
+
+Do not run scripts that modify database records.
+
+Do not send emails.
+
+## PHASE 2 — REPORT YOUR FINDINGS
+
+Provide this table:
+
+| Existing file | Current behavior | Missing validation | Proposed change | Risk level |
+|---|---|---|---|---|
+
+Also explain:
+
+1. Existing validation that already works
+2. Missing professor-required validation
+3. Exact Python files to modify
+4. Exact JavaScript files to modify
+5. Exact HTML templates to modify
+6. Whether a new validation module is necessary
+7. Whether any dependency is necessary
+8. Whether database changes are necessary
+9. Whether OTP files would be affected
+10. Whether existing accounts could be affected
+11. Whether the website design would be affected
+12. How strict email provider rules should be configured
+13. Which tests can be performed safely
+
+## PHASE 3 — WAIT FOR APPROVAL
+
+**STOP HERE. DO NOT MODIFY ANY FILES UNTIL I EXPLICITLY APPROVE THE PLAN.**
+
+## PHASE 4 — IMPLEMENT APPROVED CHANGES
+
+After approval:
+
+- Modify only approved files.
+- Reuse existing functions.
+- Make small, targeted changes.
+- Preserve working functionality.
+- Do not modify protected OTP code without separate approval.
+- Do not change SQL files or schema without separate approval.
+- Do not redesign the website.
+
+## PHASE 5 — TEST SAFELY
+
+Run non-destructive tests.
+
+Use isolated or mocked data.
+
+Do not send real emails without permission.
+
+Do not alter existing accounts or bookings.
+
+## PHASE 6 — FINAL REPORT
+
+Provide:
+
+1. Exact modified files
+2. New or updated Python validators
+3. New or updated JavaScript validators
+4. Flask routes integrated
+5. HTML feedback implemented
+6. Security improvements
+7. Tests passed
+8. Tests failed
+9. Tests not executed
+10. Remaining issues
+11. Confirmation that protected OTP code and configuration were unchanged
+12. Confirmation that SQL files and existing MySQL records were preserved
+13. Instructions for running the application in VS Code
+
+---
+
+# FINAL NON-NEGOTIABLE INSTRUCTIONS
+
+I am a BSIT student, and my professor requires strict validation.
+
+My previous PHP file is a reference for the standards I need to demonstrate.
+
+**DO NOT INJECT PHP INTO MY FLASK APPLICATION.**
+
+**DO NOT REBUILD MY WEB APPLICATION.**
+
+**DO NOT MODIFY MY WORKING GMAIL OTP.**
+
+**DO NOT CHANGE MY MYSQL DATABASE OR SQL FILES WITHOUT PERMISSION.**
+
+**DO NOT DELETE OR REPLACE WORKING FEATURES.**
+
+**DO NOT REDESIGN MY WEBSITE.**
+
+**DO NOT ADD UNNECESSARY FILES OR FRAMEWORKS.**
+
+**DO NOT GUESS MY PROJECT STRUCTURE.**
+
+**DO NOT CLAIM TESTS PASSED IF THEY WERE NOT EXECUTED.**
+
+**INSPECT FIRST, PRESENT YOUR PLAN, AND WAIT FOR MY APPROVAL BEFORE EDITING ANYTHING.**
+
+If a validation rule conflicts with existing functionality, explain the conflict and ask me first.
+
+My priority is a secure, organized, properly validated Flask application that follows my professor's requirements while preserving everything I have already built.

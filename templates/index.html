@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Explore Beyond Infanta | Infanta, I Hopping{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">{% endblock %}
+{% block content %}
+<section class="hero-section"><div class="container hero-content"><div class="hero-copy"><p class="eyebrow">BOAT RENTAL &amp; ISLAND TOURS</p><h1>Explore<br><em>Beyond Infanta</em></h1><p class="hero-subtitle">Discover stunning beaches, islands, and coastal spots from <strong>Infanta, Quezon.</strong></p><div class="d-flex flex-wrap gap-3"><a class="btn btn-aqua btn-lg" href="{{ url_for('booking.book_trip') }}">Book a Trip <span aria-hidden="true">→</span></a><a class="btn btn-outline-light btn-lg" href="{{ url_for('destinations.index') }}">Explore Destinations</a></div></div></div></section>
+<section class="feature-panel container" aria-label="Our services"><div><span class="feature-icon">⚓</span><strong>Boat Rental</strong></div><div><span class="feature-icon">⌁</span><strong>Island Hopping</strong></div><div><span class="feature-icon">▣</span><strong>Easy Booking</strong></div><div><span class="feature-icon">♢</span><strong>Safe &amp; Reliable Trip</strong></div></section>
+
+<section class="section-pad" id="destinations" aria-labelledby="featured-destinations-title">
+    <div class="container">
+        <div class="featured-heading text-center">
+            <p class="eyebrow text-teal mb-2">FEATURED FROM OUR DESTINATION COLLECTION</p>
+            <h2 id="featured-destinations-title">Featured Destinations</h2>
+            <p class="section-lead">A glimpse of the coastal beauty waiting to be discovered.</p>
+            <p class="featured-description mx-auto">From peaceful beaches to island escapes, explore some of the destinations around Infanta and nearby Quezon municipalities. These are just a few places from our growing collection—discover more destinations and find the experience that suits your next adventure.</p>
+        </div>
+        <div class="row g-4 mt-2">
+            {% for destination in featured_destinations %}
+            {% set image = destination_image(destination.name) %}
+            {% set copy = destination_content(destination.name) %}
+            {% set details_url = url_for('destinations.details', destination_id=destination.id) %}
+            <div class="col-md-4">
+                <article class="destination-card homepage-destination-card h-100 d-flex flex-column">
+                    <a class="destination-card-media-link" href="{{ details_url }}" aria-label="View details for {{ destination.name }}"><div class="destination-card-media">{% if image.local_path %}<img class="destination-image" src="{{ url_for('static', filename=image.local_path, v='20261116-destination-refresh') }}" alt="Scenery at {{ destination.name }}" loading="lazy" decoding="async">{% else %}<div class="destination-image d-flex align-items-center justify-content-center text-muted">Destination scenery</div>{% endif %}</div></a>
+                    <div class="destination-card-explore px-4 pt-3"><a class="btn btn-primary destination-explore-button w-100" href="{{ details_url }}">Explore Destination <span aria-hidden="true">→</span></a></div>
+                    <div class="destination-card-body p-4 pt-3 d-flex flex-column flex-grow-1"><p class="small text-uppercase text-muted mb-1">{% if destination.name == 'Dero Beach' %}Infanta, Quezon{% else %}{{ copy.location_display or destination.municipality ~ ', ' ~ destination.province }}{% endif %}</p><h3 class="h4"><a class="destination-card-title" href="{{ details_url }}">{{ destination.name }}</a></h3>{% if destination.name == 'Dero Beach' %}<p class="destination-tagline mb-2">Where Infanta Meets the Sea</p><p class="text-muted card-description">Discover the coastal charm of Dero Beach, where scenic shorelines and peaceful surroundings invite you to experience a quieter side of Infanta.</p>{% elif destination.name == 'Sabangan Beach' %}<p class="destination-tagline mb-2">A Hidden Shore Worth Discovering</p><p class="text-muted card-description">Discover the natural coastal scenery of Sabangan, a destination for travelers who appreciate beautiful shorelines and lesser-known places.</p>{% elif destination.name == 'Baluti Island' %}<p class="destination-tagline mb-2">An Island Escape Along the REINA Coast</p><p class="text-muted card-description">Discover Baluti Island and the natural coastal landscapes that make Quezon's eastern shoreline worth exploring.</p>{% else %}<p class="destination-tagline mb-2">{{ copy.tagline }}</p><p class="text-muted card-description">{{ (copy.about or destination.description or 'Discover this coastal destination in Quezon.')|truncate(120, True) }}</p>{% endif %}</div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center featured-all-destinations"><a class="btn btn-aqua btn-lg" href="{{ url_for('destinations.index') }}">Explore All Destinations <span aria-hidden="true">→</span></a><p class="small text-muted mt-3 mb-0">There's more to discover beyond these featured places.</p></div>
+    </div>
+</section>
+
+<section class="how-it-works section-pad pt-0" aria-labelledby="how-it-works-title"><div class="container"><div class="text-center mb-4"><p class="eyebrow text-teal">PLAN WITH CONFIDENCE</p><h2 id="how-it-works-title">How it works</h2></div><div class="row g-4"><div class="col-md-3"><div class="how-step"><span>01</span><h3>Explore destinations</h3><p>Browse coastal places and find a route that matches your adventure.</p></div></div><div class="col-md-3"><div class="how-step"><span>02</span><h3>Choose your boat</h3><p>Review the available boats and passenger capacity for your trip.</p></div></div><div class="col-md-3"><div class="how-step"><span>03</span><h3>Submit a request</h3><p>Send your preferred date, destination, and passenger details.</p></div></div><div class="col-md-3"><div class="how-step"><span>04</span><h3>Await confirmation</h3><p>The operator reviews availability, safety, and route suitability.</p></div></div></div></div></section>
+<section class="booking-callout" id="booking"><div class="container text-center"><p class="eyebrow">PLAN YOUR NEXT ADVENTURE</p><h2>Ready to go island hopping?</h2><p>Reservation requests will be reviewed by the boat operator for availability, safety, and route suitability.</p><a class="btn btn-aqua btn-lg" href="{{ url_for('booking.book_trip') }}">Request a Booking</a></div></section>
+{% endblock %}

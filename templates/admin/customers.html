@@ -1,0 +1,34 @@
+{% extends "admin/base_admin.html" %}
+{% block title %}Customers | Infanta, I Hopping{% endblock %}
+{% block page_heading %}Customers{% endblock %}
+{% block admin_content %}
+        <p class="eyebrow text-teal mb-2">Administration</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <div>
+                <h1 class="mb-2">Customers</h1>
+                <p class="section-lead mb-0">Review registered customer accounts and verification status.</p>
+            </div>
+            <span class="badge text-bg-light border">{{ customers|length }} account{{ '' if customers|length == 1 else 's' }}</span>
+        </div>
+
+        <div class="admin-panel mt-4">
+            <div class="table-responsive">
+                <table class="table admin-table align-middle mb-0">
+                    <thead><tr><th>Name</th><th>Email</th><th>Contact</th><th>Verification</th><th>Account</th></tr></thead>
+                    <tbody>
+                    {% for customer in customers %}
+                        <tr>
+                            <td class="fw-semibold">{{ customer.full_name }}</td>
+                            <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+                            <td>{{ customer.contact_number }}</td>
+                            <td>{% if customer.is_verified %}<span class="badge text-bg-success">Verified</span>{% else %}<span class="badge text-bg-warning">Pending</span>{% endif %}</td>
+                            <td>{% if customer.is_active %}<span class="badge text-bg-success">Active</span>{% else %}<span class="badge text-bg-secondary">Inactive</span>{% endif %}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="5" class="text-center py-5 text-muted">No customer accounts yet.</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+{% endblock %}

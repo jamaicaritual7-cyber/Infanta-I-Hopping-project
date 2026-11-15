@@ -1,0 +1,487 @@
+# FINAL CODEX PROMPT — FIX PHONE, EMAIL, DATE VALIDATION AND BOOKING NAVIGATION
+
+**Project:** Infanta, I Hopping — Boat Rental and Reservation Management System
+
+**Project directory:** `C:\Users\jamaica\Downloads\Infanta_Ihopping`
+
+**Technology stack:** Python Flask, Flask-SQLAlchemy, MySQL, HTML5, CSS3, Bootstrap 5, and JavaScript.
+
+**Reference file:** `index_email_validation_updated.php`
+
+## MAIN INSTRUCTIONS
+
+I want you to inspect and correct FOUR specific problems in my existing Infanta, I Hopping application:
+
+1. Weak Philippine mobile-number validation.
+2. Incomplete or incorrect email validation.
+3. Trip Day Schedule rejecting valid calendar dates.
+4. Booking navigation incorrectly highlighting Home.
+
+Follow the applicable validation standards from my professor's PHP reference file.
+
+**IMPORTANT: The PHP file is for reference only. Do not inject, import, execute, or copy PHP code into my Flask application. Translate applicable rules into Python and JavaScript.**
+
+Do not rebuild my application or make unnecessary changes.
+
+---
+
+## ISSUE 1 — STRICT PHILIPPINE MOBILE-NUMBER VALIDATION
+
+### Current problem
+
+My application accepts unrealistic phone numbers such as:
+
+- `09000000000`
+- `09111111111`
+
+These numbers must be rejected by the required validation rules.
+
+### Requirements
+
+1. A local Philippine mobile number must contain exactly 11 digits.
+2. It must begin with `09`.
+3. Reject missing or incomplete numbers.
+4. Reject letters, spaces, and invalid symbols in local format.
+5. Reject five or more identical consecutive digits.
+6. Reject obvious placeholder numbers.
+7. Preserve `+63` support if already implemented.
+8. Show immediate, understandable feedback beneath the phone field.
+9. Validate again in Flask before saving or processing.
+10. Do not claim that a format-valid number is an active or verified phone number.
+
+### Python reference
+
+```python
+import re
+
+def validate_phone(phone):
+    if not isinstance(phone, str):
+        return "Phone number is required."
+
+    phone = phone.strip()
+
+    if not re.fullmatch(r"09\d{9}", phone):
+        return "Enter an 11-digit Philippine mobile number starting with 09."
+
+    if re.search(r"(\d)\1{4,}", phone):
+        return "Phone number contains an invalid repeated-digit pattern."
+
+    return None
+```
+
+Adapt this reference to the existing validation architecture. If the project already accepts `+63`, normalize that format safely rather than removing support.
+
+### Required phone tests
+
+- `09000000000` → Reject
+- `09111111111` → Reject
+- `09123456789` → Pass the specified format and repetition checks, subject to existing prefix rules
+- `0912345678` → Reject
+- `08123456789` → Reject
+- `09123ABCDE` → Reject
+
+---
+
+## ISSUE 2 — STRICT EMAIL VALIDATION
+
+### Current problem
+
+Email validation must follow my professor's reference standards instead of checking only whether the address contains `@`.
+
+Inspect `validateEmailProvider()` in `index_email_validation_updated.php`.
+
+### Required email validation
+
+1. Email is required.
+2. Maximum 254 characters.
+3. Exactly one `@` separator.
+4. Valid local part.
+5. Valid domain.
+6. No whitespace.
+7. No consecutive periods.
+8. No periods at the beginning or end of the local part.
+9. No malformed domain labels.
+10. Domain labels must not start or end with hyphens.
+11. Domain labels must not exceed 63 characters.
+12. Reject duplicate registered email addresses.
+13. Display clear error messages.
+14. Validate on both the frontend and backend.
+
+### Approved providers from my PHP reference
+
+```python
+APPROVED_EMAIL_DOMAINS = {
+    "gmail.com", "googlemail.com",
+    "yahoo.com", "yahoo.com.ph",
+    "ymail.com", "rocketmail.com",
+    "outlook.com", "outlook.ph",
+    "hotmail.com", "hotmail.ph",
+    "live.com", "live.com.ph",
+    "msn.com", "icloud.com",
+    "me.com", "mac.com", "aol.com",
+    "proton.me", "protonmail.com", "pm.me",
+    "zoho.com", "zohomail.com",
+    "mail.com", "gmx.com", "gmx.net",
+    "fastmail.com", "tutanota.com", "tuta.com",
+    "lu.edu.ph", "lspu.edu.ph",
+    "deped.gov.ph", "deped.edu.ph",
+    "adamson.edu.ph"
+}
+```
+
+The PHP reference also requires:
+
+- Rejecting unsupported email providers.
+- Rejecting email domains ending in `.co`.
+- Checking MX DNS records.
+
+These restrictions may reject legitimate tourist email addresses. Inspect their impact and request my approval before enforcing them.
+
+### Email integration
+
+Apply appropriate validation to registration and relevant email-update forms.
+
+During login, do not introduce restrictions that lock out existing legitimate accounts.
+
+Use the existing SQLAlchemy user model to check duplicate emails.
+
+Do not create JSON account storage.
+
+### Preserve existing Gmail OTP
+
+My six-digit Gmail SMTP OTP already works.
+
+Preserve:
+
+**Register → Receive OTP → Verify Email → Login**
+
+Do not modify:
+
+- Gmail SMTP settings
+- `.env`
+- Google App Password
+- OTP generator
+- OTP verification
+- OTP expiration
+- OTP email template
+- Existing verified-account records
+
+Approved email validation should occur before the existing OTP registration step.
+
+Do not send real test emails without permission.
+
+### Required email tests
+
+- `sample@gmail.com` → Valid syntax and approved provider
+- `samplegmail.com` → Reject
+- `sample@@gmail.com` → Reject
+- `sample..name@gmail.com` → Reject
+- `.sample@gmail.com` → Reject
+- `sample@gmail.co` → Reject if the professor-specific rule is enabled
+- `sample@unknown-example.com` → Reject if the provider allowlist is enabled
+- Already registered email → Reject during registration
+
+A valid email format does not prove that the mailbox exists. Preserve OTP as the email-ownership verification mechanism.
+
+---
+
+## ISSUE 3 — FIX TRIP DAY SCHEDULE DATE VALIDATION
+
+### Current problem
+
+My Trip Day Schedule rejects valid standard dates.
+
+For example:
+
+`12/02/2026`
+
+I intend this as **December 2, 2026 (MM/DD/YYYY)**.
+
+The equivalent ISO date is:
+
+`2026-12-02`
+
+These represent the same calendar date.
+
+Fix the root cause without disabling date validation or reservation availability checks.
+
+### Required behavior
+
+1. Require a trip date.
+2. Accept valid calendar dates.
+3. Reject impossible dates.
+4. Reject past dates.
+5. Accept future dates, subject to booking availability.
+6. Apply existing same-day booking rules.
+7. Use Philippine local time (`Asia/Manila`).
+8. Handle the actual input format correctly.
+9. Preserve the selected date after unrelated form errors.
+10. Show specific errors instead of a generic "Invalid date" message.
+11. Keep the existing calendar picker and booking design.
+12. Preserve boat availability and conflicting-reservation checks.
+
+### Important HTML rule
+
+If the booking form uses:
+
+```html
+<input type="date">
+```
+
+The submitted value is normally `YYYY-MM-DD`, even when the browser displays `MM/DD/YYYY`.
+
+Do not parse a native date input using `%m/%d/%Y`.
+
+If the application intentionally uses a text-based MM/DD/YYYY field, parse that format explicitly.
+
+Do not guess ambiguous dates.
+
+### Python reference
+
+```python
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+PH_TIMEZONE = ZoneInfo("Asia/Manila")
+
+def validate_trip_date(value, input_format="%Y-%m-%d"):
+    if not isinstance(value, str) or not value.strip():
+        return None, "Please select a trip date."
+
+    value = value.strip()
+
+    try:
+        selected_date = datetime.strptime(
+            value, input_format
+        ).date()
+
+        if selected_date.strftime(input_format) != value:
+            return None, "Please enter a valid date format."
+
+    except ValueError:
+        return None, "Please enter a valid calendar date."
+
+    today = datetime.now(PH_TIMEZONE).date()
+
+    if selected_date < today:
+        return None, "Trip date cannot be in the past."
+
+    return selected_date, None
+```
+
+Use `%Y-%m-%d` for native date inputs.
+
+Only use `%m/%d/%Y` when the actual field requires MM/DD/YYYY text input.
+
+### JavaScript requirements
+
+- Validate empty dates.
+- Reject impossible dates.
+- Reject past dates.
+- Accept valid future dates.
+- Use Philippine local time.
+- Avoid ambiguous `new Date("12/02/2026")` parsing.
+- Do not use UTC ISO strings as a substitute for the Philippine local date.
+- Display inline Bootstrap validation feedback.
+- Do not clear a valid selected date.
+
+### Distinguish date validity from availability
+
+A future date may still be unavailable because of:
+
+- Existing reservations
+- Boat unavailability
+- Booking cutoff rules
+- Scheduling restrictions
+
+Display the actual reason.
+
+Do not label a valid calendar date as invalid merely because a boat is unavailable.
+
+### Required date tests
+
+- `2026-12-02` → Valid ISO calendar date
+- `12/02/2026` → Valid MM/DD/YYYY date when supported
+- `2026-02-30` → Reject
+- `2026-13-02` → Reject
+- `2026-12-32` → Reject
+- Empty input → Reject
+- Yesterday → Reject
+- Tomorrow → Pass future-date check
+- Leap-year February 29 → Accept
+- Non-leap-year February 29 → Reject
+- Existing reservation conflict → Show availability-specific error
+
+Use the actual Philippine date when running the tests.
+
+---
+
+## ISSUE 4 — FIX BOOKING NAVIGATION HIGHLIGHT
+
+### Current problem
+
+When I open the Booking page, the navigation bar still highlights Home.
+
+### Expected behavior
+
+- Home page → Home active
+- Booking page → Booking active
+- Destinations page → Destinations active
+- Other pages → Appropriate navigation item active
+
+### Requirements
+
+1. Inspect the shared navbar template.
+2. Inspect the actual Flask endpoint names.
+3. Identify why Home remains active.
+4. Determine the active item using the current route or endpoint.
+5. Apply Bootstrap's `active` class to the correct item.
+6. Apply `aria-current="page"` correctly.
+7. Preserve the existing navigation appearance.
+8. Preserve mobile responsiveness.
+9. Avoid duplicate navbars.
+10. Test direct URL access and browser refresh.
+
+Do not hardcode Booking as active on every page.
+
+---
+
+## FRONTEND VALIDATION REQUIREMENTS
+
+Use the existing HTML, CSS, Bootstrap, and JavaScript architecture.
+
+Implement:
+
+- Immediate field validation
+- Clear error messages beneath inputs
+- Bootstrap `is-valid` and `is-invalid` classes
+- Accessible feedback
+- Appropriate submission-error modals
+- Retention of valid input after unrelated errors
+
+Do not silently remove user-entered characters.
+
+Do not create duplicate event listeners.
+
+Do not copy the PHP reference's JavaScript scope errors.
+
+Keep frontend and Flask backend validation consistent.
+
+---
+
+## SECURITY AND DATABASE REQUIREMENTS
+
+Use existing SQLAlchemy models.
+
+Do not:
+
+- Replace MySQL with JSON
+- Delete records
+- Reset accounts
+- Modify existing reservations
+- Change boat prices
+- Recreate tables
+- Run migrations without approval
+- Introduce PHP
+- Rebuild authentication
+
+Preserve existing CSRF protection, sessions, password hashing, and role-based access.
+
+---
+
+## MANDATORY WORKFLOW
+
+### PHASE 1 — INSPECT ONLY
+
+Read the actual relevant files for:
+
+- Phone validation
+- Email validation
+- Registration
+- OTP integration
+- Trip schedule
+- Booking routes
+- Reservation availability
+- Navigation template
+
+Do not modify anything yet.
+
+### PHASE 2 — PRESENT INSPECTION REPORT
+
+Provide:
+
+| Issue | Root cause | Exact file | Proposed correction | Risk |
+|---|---|---|---|---|
+
+Also show the proposed Python, JavaScript, and HTML changes.
+
+Explain whether the fixes affect existing users, OTP, booking records, or website design.
+
+### PHASE 3 — WAIT FOR MY APPROVAL
+
+**STOP. DO NOT EDIT ANY FILES UNTIL I EXPLICITLY APPROVE YOUR PLAN.**
+
+### PHASE 4 — IMPLEMENT APPROVED CHANGES
+
+After approval:
+
+- Make only the approved corrections.
+- Reuse existing code.
+- Avoid unnecessary files.
+- Preserve existing functionality.
+- Do not modify OTP or database schema without separate approval.
+
+### PHASE 5 — TEST SAFELY
+
+Test frontend and backend validation.
+
+Use isolated or mocked data.
+
+Do not modify real customer records.
+
+Do not send real OTP emails without permission.
+
+Report actual test results.
+
+### PHASE 6 — FINAL REPORT
+
+Provide:
+
+1. Root cause of each issue
+2. Exact files modified
+3. Validation functions added or updated
+4. Navigation correction
+5. Date-format correction
+6. Tests passed, failed, or not executed
+7. Remaining issues
+8. Confirmation that Gmail OTP was preserved
+9. Confirmation that existing MySQL records were preserved
+10. Confirmation that the website design was preserved
+
+---
+
+# FINAL INSTRUCTIONS
+
+**DO NOT INJECT PHP INTO MY FLASK APPLICATION.**
+
+**DO NOT REBUILD MY WEBSITE.**
+
+**DO NOT BREAK MY WORKING GMAIL OTP.**
+
+**DO NOT MODIFY MY MYSQL RECORDS OR SQL FILES WITHOUT PERMISSION.**
+
+**DO NOT REMOVE MY EXISTING FEATURES.**
+
+**DO NOT CHANGE MY WEBSITE DESIGN.**
+
+**DO NOT REMOVE BOOKING AVAILABILITY CHECKS.**
+
+**DO NOT ACCEPT INVALID PHONE NUMBERS OR MALFORMED EMAILS.**
+
+**DO NOT REJECT VALID CALENDAR DATES BECAUSE OF INCORRECT PARSING.**
+
+**DO NOT HIGHLIGHT HOME WHEN THE USER IS ON BOOKING.**
+
+**INSPECT FIRST, SHOW ME THE PROPOSED FIXES, AND WAIT FOR MY APPROVAL.**
+
+My priority is to make these four features work correctly and consistently without damaging my existing Infanta, I Hopping system.

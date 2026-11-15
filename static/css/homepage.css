@@ -1,0 +1,22 @@
+.hero-section { min-height: 520px; display: flex; align-items: center; color: var(--white); background: linear-gradient(90deg, rgba(5,38,70,.84), rgba(6,100,132,.3)), linear-gradient(135deg, #0d8eb2, #075377 65%, #27b9c2); }
+.hero-content { width: 100%; }
+.hero-copy { max-width: 560px; padding: 5rem 0; }
+.hero-copy h1 { font-size: clamp(3rem, 7vw, 5.4rem); line-height: .98; margin: .8rem 0 1.2rem; }
+.hero-copy h1 em { font-family: 'Playfair Display', serif; font-weight: 600; }
+.hero-subtitle { max-width: 470px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; }
+.feature-panel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: -42px; position: relative; padding: 1.35rem; color: var(--white); border: 1px solid rgba(255,255,255,.35); border-radius: 1.2rem; background: rgba(0,139,149,.68); box-shadow: 0 16px 34px rgba(5,65,90,.18); backdrop-filter: blur(8px); }
+.feature-panel > div { display: flex; align-items: center; justify-content: center; gap: .65rem; padding: .7rem; border-right: 1px solid rgba(255,255,255,.35); }
+.feature-panel > div:last-child { border-right: 0; }
+.feature-icon { font-size: 1.55rem; }
+.booking-callout { padding: 4rem 0; color: var(--white); background: var(--navy); }
+.booking-callout p:not(.eyebrow) { color: rgba(255,255,255,.75); }
+.featured-heading { max-width: 900px; margin-inline: auto; }
+.featured-description { max-width: 780px; color: #688196; line-height: 1.75; }
+.featured-all-destinations { margin-top: 2.75rem; }
+.featured-all-destinations .btn { min-width: min(100%, 300px); }
+.how-step { height: 100%; padding: 1.35rem; border: 1px solid rgba(16,59,99,.1); border-radius: 1rem; background: #fff; box-shadow: 0 10px 26px rgba(16,59,99,.07); }
+.how-step > span { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; margin-bottom: .8rem; border-radius: 50%; color: #fff; background: var(--teal); font-weight: 700; }
+.how-step h3 { color: var(--navy); font-size: 1.05rem; }
+.how-step p { margin-bottom: 0; color: #688196; font-size: .95rem; line-height: 1.6; }
+@media (max-width: 767px) { .feature-panel { grid-template-columns: repeat(2, 1fr); margin: -25px 1rem 0; } .feature-panel > div:nth-child(2) { border-right: 0; } .feature-panel > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.35); } .hero-copy { padding: 4rem 1rem 6rem; } }
+

@@ -1,0 +1,16 @@
+{% extends "admin/base_admin.html" %}
+{% block title %}Settings / Profile | Infanta, I Hopping{% endblock %}
+{% block page_heading %}Settings / Profile{% endblock %}
+{% block admin_content %}
+<div class="row g-4"><div class="col-xl-8"><div class="admin-panel"><div class="admin-panel-header"><h2>Administrator profile</h2></div><div class="admin-panel-body">
+    <p class="text-muted">Update your own contact details or change your password. Your email remains the administrator login identifier.</p>
+    <form method="post" novalidate>{{ form.hidden_tag() }}
+        <div class="mb-3">{{ form.full_name.label(class="form-label") }}{{ form.full_name(class="form-control") }}{% for error in form.full_name.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+        <div class="mb-3">{{ form.contact_number.label(class="form-label") }}{{ form.contact_number(class="form-control") }}{% for error in form.contact_number.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+        <hr class="my-4"><h3 class="h6">Change password</h3>
+        <div class="mb-3">{{ form.password.label(class="form-label") }}{{ form.password(class="form-control", autocomplete="new-password") }}{% for error in form.password.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+        <div class="mb-4">{{ form.confirm_password.label(class="form-label") }}{{ form.confirm_password(class="form-control", autocomplete="new-password") }}{% for error in form.confirm_password.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div></div></div></div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Booking Summary | Infanta, I Hopping{% endblock %}
+
+{% block content %}
+<section class="page-hero py-5">
+    <div class="container">
+        <p class="eyebrow">Request received</p>
+        <h1>Booking summary</h1>
+        <p class="lead">Your booking request has been submitted. Reference: <strong>{{ booking.booking_reference }}</strong></p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="card border-0 shadow-sm p-4 p-md-5">
+            {% if booking.status == 'pending' %}
+            <div class="alert alert-warning" role="status">Your reservation request is waiting for operator review.</div>
+            {% elif booking.status == 'confirmed' %}
+            <div class="alert alert-success" role="status">Your reservation is confirmed. Please keep this reference for your trip.</div>
+            {% elif booking.status == 'completed' %}
+            <div class="alert alert-primary" role="status">This reservation has been completed. Thank you for travelling with us.</div>
+            {% elif booking.status == 'cancelled' %}
+            <div class="alert alert-danger" role="status">This reservation was cancelled and is no longer scheduled.</div>
+            {% endif %}
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Destination</dt>
+                <dd class="col-sm-8">{{ booking.destination.name }}</dd>
+
+                <dt class="col-sm-4">Boat</dt>
+                <dd class="col-sm-8">{{ booking.boat.name }}</dd>
+
+                <dt class="col-sm-4">Trip date</dt>
+                <dd class="col-sm-8">{{ booking.trip_date.strftime('%m/%d/%Y') }}</dd>
+
+                <dt class="col-sm-4">Passengers</dt>
+                <dd class="col-sm-8">{{ booking.passenger_count }}</dd>
+
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">
+                    <span class="badge {% if booking.status == 'confirmed' %}text-bg-success{% elif booking.status == 'cancelled' %}text-bg-danger{% elif booking.status == 'completed' %}text-bg-primary{% else %}text-bg-warning{% endif %}">{{ booking.status|replace('_', ' ')|title }}</span>
+                </dd>
+
+                {% if booking.special_request %}
+                <dt class="col-sm-4">Additional request</dt>
+                <dd class="col-sm-8">{{ booking.special_request }}</dd>
+                {% endif %}
+            </dl>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-primary" href="{{ url_for('customer.my_bookings') }}">View my bookings</a>
+                <a class="btn btn-outline-primary" href="{{ url_for('boats.list_boats') }}">View our boats</a>
+                {% if booking.status == 'pending' %}
+                <form method="post" action="{{ url_for('booking.cancel_booking', booking_id=booking.id) }}" class="ms-md-auto" onsubmit="return confirm('Cancel this booking request?');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="btn btn-outline-danger" type="submit">Cancel request</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

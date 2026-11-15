@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Admin Login | Infanta, I Hopping{% endblock %}
+{% block content %}
+<section class="section-pad"><div class="container"><div class="row justify-content-center"><div class="col-md-6 col-lg-5"><div class="destination-card p-4 p-md-5">
+    <p class="eyebrow text-teal">OPERATIONS PORTAL</p><h1 class="h2">Administrator login</h1>
+    <p class="text-muted">This portal is reserved for authorized Infanta, I Hopping administrators and operators.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="alert alert-{{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+    <form method="post" action="{{ url_for('auth.login', portal='admin') }}" novalidate>{{ form.hidden_tag() }}<div class="mb-3">{{ form.email.label(class="form-label") }}{{ form.email(class="form-control", autocomplete="username") }}{% for error in form.email.errors %}<small class="text-danger">{{ error }}</small>{% endfor %}</div><div class="mb-3">{{ form.password.label(class="form-label") }}{{ form.password(class="form-control", autocomplete="current-password") }}{% for error in form.password.errors %}<small class="text-danger">{{ error }}</small>{% endfor %}</div>{{ form.submit(class="btn btn-aqua w-100") }}</form>
+    <p class="small text-muted mt-3 mb-0">Customers should use the regular customer login.</p>
+</div></div></div></div></section>
+{% endblock %}

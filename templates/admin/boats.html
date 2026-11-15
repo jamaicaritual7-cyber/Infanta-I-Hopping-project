@@ -1,0 +1,57 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Manage Boats | Infanta, I Hopping{% endblock %}
+
+{% block page_heading %}Manage boats{% endblock %}
+{% block admin_content %}
+        <p class="text-muted mb-4">Keep the customer boat catalogue accurate without deleting reservation history.</p>
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-primary" href="{{ url_for('admin.create_boat') }}">Add boat</a>
+        </div>
+        <div class="admin-panel"><div class="table-responsive">
+            <table class="table admin-table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Boat</th>
+                        <th>Capacity</th>
+                        <th>Active</th>
+                        <th>Availability</th>
+                        <th class="text-end">Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for boat in boats %}
+                    <tr>
+                        <td>{{ boat.name }}</td>
+                        <td>{{ boat.passenger_capacity }} passengers</td>
+                        <td>
+                            {% if boat.is_active %}
+                            <span class="badge text-bg-success">Active</span>
+                            {% else %}
+                            <span class="badge text-bg-secondary">Inactive</span>
+                            {% endif %}
+                        </td>
+                        <td><span class="badge {% if boat.availability_status == 'available' %}text-bg-success{% elif boat.availability_status == 'maintenance' %}text-bg-warning{% else %}text-bg-danger{% endif %}">{{ boat.availability_status|capitalize }}</span></td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.edit_boat', boat_id=boat.id) }}">Edit</a>
+                            <form method="post" action="{{ url_for('admin.update_boat_availability', boat_id=boat.id, status='available') }}" class="d-inline">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-sm btn-outline-success" type="submit" {% if boat.availability_status == 'available' %}disabled{% endif %}>Available</button>
+                            </form>
+                            <form method="post" action="{{ url_for('admin.update_boat_availability', boat_id=boat.id, status='maintenance') }}" class="d-inline">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-sm btn-outline-warning" type="submit" {% if boat.availability_status == 'maintenance' %}disabled{% endif %}>Maintenance</button>
+                            </form>
+                            <form method="post" action="{{ url_for('admin.update_boat_availability', boat_id=boat.id, status='unavailable') }}" class="d-inline">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <button class="btn btn-sm btn-outline-danger" type="submit" {% if boat.availability_status == 'unavailable' %}disabled{% endif %}>Unavailable</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="5" class="text-center py-4">No boats found.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div></div>
+{% endblock %}

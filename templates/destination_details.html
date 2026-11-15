@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }} | Infanta, I Hopping{% endblock %}
+
+{% block content %}
+{% set copy = destination_content %}
+<main class="destination-details-page py-4 py-lg-5">
+    <div class="container">
+        <a class="back-link" href="{{ url_for('destinations.index') }}"><span aria-hidden="true">←</span> Back to Destinations</a>
+        <article class="destination-details-card mt-3">
+            <div class="destination-details-hero">
+                {% if image_record.local_path %}
+                <img class="destination-image" src="{{ url_for('static', filename=image_record.local_path, v='20261116-destination-refresh') }}" alt="Scenery at {{ destination.name }}">
+                {% else %}
+                <div class="destination-image d-flex align-items-center justify-content-center text-muted">Destination scenery</div>
+                {% endif %}
+            </div>
+            <div class="p-4 p-lg-5">
+                <p class="small text-uppercase text-muted mb-2">{{ copy.location_display or destination.municipality ~ ', ' ~ destination.province }}</p>
+                <h1 class="display-6 fw-bold mb-2">{{ destination.name }}</h1>
+                {% if copy.tagline %}<p class="destination-tagline fs-5 mb-4">{{ copy.tagline }}</p>{% endif %}
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <section aria-labelledby="about-title"><h2 id="about-title" class="h4">About This Destination</h2><p class="text-muted">{{ copy.about or destination.description or 'Destination information is being updated. Please contact the local operator for current details.' }}</p></section>
+                        {% if copy.highlights %}<section class="mt-4" aria-labelledby="highlights-title"><h2 id="highlights-title" class="h4">What to Explore</h2><ul class="destination-highlights text-muted">{% for highlight in copy.highlights %}<li>{{ highlight }}</li>{% endfor %}</ul></section>{% endif %}
+                        {% if copy.before_you_go %}<div class="destination-before-you-go rounded-3 p-3 mt-4"><strong>Before You Go</strong><p class="mb-0 mt-1 text-muted">{{ copy.before_you_go }}</p></div>{% endif %}
+                    </div>
+                    <aside class="col-lg-4"><div class="destination-info-card p-4 rounded-3"><h2 class="h5">Plan Your Visit</h2><p class="small text-muted">Straight-line distance: {{ destination.straight_line_distance_km or '—' }} km</p><a class="btn btn-primary w-100 mt-2" href="{{ url_for('booking.book_trip', destination_id=destination.id) }}">Book a Trip</a></div></aside>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+{% endblock %}

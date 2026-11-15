@@ -1,0 +1,645 @@
+# CODEX MASTER PROMPT
+## Infanta, I Hopping — Registration, Login, Dashboard, and Booking Validation Improvements
+
+### PROJECT INFORMATION
+
+**Project Name:** Infanta, I Hopping: Boat Rental and Reservation Management System
+
+**Existing Technology Stack:**
+- Python Flask — Backend
+- HTML5 — Website structure
+- CSS3 — Styling
+- Bootstrap 5 — Responsive interface
+- JavaScript — Interactive features and frontend validation
+- MySQL — Database
+- SQLAlchemy — Database integration
+- XAMPP/phpMyAdmin — Local database management
+- Gmail SMTP — Existing working six-digit email OTP verification
+
+I need you to inspect and improve my existing system because my professor will carefully test the registration, login, input validation, and dashboard security.
+
+**Do not create a new project. Work only within my existing Infanta_Ihopping project.**
+
+---
+
+# PART 1 — MOST IMPORTANT: PROTECT MY EXISTING WORK
+
+Before making any changes, understand these restrictions.
+
+## A. DO NOT CHANGE MY WORKING GMAIL OTP VERIFICATION
+
+My six-digit email OTP verification is already working successfully.
+
+I have tested it and received the OTP verification email in another Gmail account.
+
+**Do not modify, replace, remove, reset, or reconfigure my working OTP implementation.**
+
+Specifically:
+
+1. Do not change my sender Gmail account.
+2. Do not replace or regenerate my Google App Password.
+3. Do not modify my existing SMTP configuration.
+4. Do not overwrite, delete, or recreate my `.env` file.
+5. Do not change my working email-sending functions.
+6. Do not change my six-digit OTP generation logic.
+7. Do not change OTP expiration or verification logic.
+8. Do not modify my existing OTP email template.
+9. Do not delete existing OTP records.
+10. Do not reset existing email verification statuses.
+11. Do not remove email verification from registration.
+12. Do not bypass OTP verification to make login easier.
+13. Do not change the sender email or recipient handling unnecessarily.
+
+You may inspect how registration and login connect to OTP verification, but do not edit OTP-related files or functions.
+
+If any necessary improvement requires modifying OTP-related code, stop and ask for my approval first.
+
+**My existing process must remain:**
+
+Register → Receive six-digit OTP → Enter OTP → Verify email → Log in.
+
+## B. DO NOT CHANGE MY EXISTING SQL FILES OR DATABASE WITHOUT PERMISSION
+
+My project already has SQL files, MySQL tables, registered users, and existing booking data.
+
+Protect all of them.
+
+1. Do not delete, replace, overwrite, or rewrite existing `.sql` files.
+2. Do not drop, truncate, or recreate MySQL tables.
+3. Do not reset my database.
+4. Do not delete existing accounts.
+5. Do not delete existing bookings.
+6. Do not change existing password hashes.
+7. Do not reset verified email statuses.
+8. Do not delete OTP records.
+9. Do not execute database migrations without my approval.
+10. Do not modify SQLAlchemy models or relationships without explaining the proposed changes first.
+11. Do not automatically add, rename, or remove database columns.
+12. Do not modify existing database constraints without permission.
+13. Do not execute database initialization scripts that could overwrite existing data.
+
+If a database modification is genuinely necessary, explain why and show me the proposed migration or SQL changes before executing anything.
+
+Prefer implementing validation improvements in my existing Python Flask and JavaScript files when possible.
+
+## C. DO NOT RECREATE OR REDESIGN MY WEBSITE
+
+1. Do not recreate the project.
+2. Do not redesign my homepage.
+3. Do not replace my existing color scheme.
+4. Do not remove existing features.
+5. Do not change my existing navigation unnecessarily.
+6. Do not replace Flask with PHP.
+7. Do not create or add PHP files.
+8. Do not change MySQL to JSON.
+9. Do not introduce unnecessary frameworks.
+10. Do not modify unrelated functionality.
+
+Keep my existing Infanta, I Hopping design and improve only what is necessary.
+
+---
+
+# PART 2 — INSPECT MY EXISTING CODE FIRST
+
+Before editing, inspect the actual project structure.
+
+Review the relevant:
+
+- `app.py`
+- Configuration files
+- Registration routes
+- Login routes
+- User models
+- Customer dashboard
+- Administrator dashboard
+- Booking routes and models
+- Existing validation functions
+- JavaScript validation files
+- HTML templates
+- CSS files
+- Authentication and session handling
+
+These are examples of files to inspect. Use the actual filenames in my project.
+
+Identify:
+
+1. Which validation rules already exist.
+2. Which validation rules are missing.
+3. Which inputs can bypass validation.
+4. Why a dashboard is appearing on the customer side.
+5. Whether administrator-only pages are accessible to customers.
+6. Whether login and registration have proper server-side validation.
+7. Which files require modification.
+8. Whether any proposed change could affect my working OTP or existing database.
+
+**First provide an inspection report and proposed modification plan. Wait for my approval before editing files.**
+
+---
+
+# PART 3 — FIX CUSTOMER AND ADMINISTRATOR DASHBOARD ACCESS
+
+My website currently displays a dashboard on the client side.
+
+Please investigate whether this is the intended customer dashboard or whether administrator-only features are incorrectly visible.
+
+## Customer permissions
+
+Customers may access appropriate features such as:
+
+- Their own profile
+- Their own bookings
+- Their own booking history
+- Available boats
+- Destinations
+- Tour packages
+- Booking status
+- Customer notifications
+
+Customers must not access:
+
+- Administrator reports
+- User management
+- Boat management controls
+- Destination management controls
+- Package management controls
+- Pricing administration
+- Other customers' reservations
+- Administrator settings
+
+## Administrator permissions
+
+Only authorized administrators should access the administrator dashboard and its management functions.
+
+## Security requirements
+
+1. Implement proper server-side role-based authorization.
+2. Separate customer and administrator access.
+3. Protect administrator routes.
+4. Prevent customers from accessing administrator URLs manually.
+5. Prevent unauthenticated users from accessing protected pages.
+6. Prevent customers from accessing another customer's bookings.
+7. Verify authorization for both page routes and API endpoints.
+8. Do not rely only on hiding buttons with HTML or JavaScript.
+9. Do not hardcode administrator credentials.
+10. Preserve the existing navigation and design where possible.
+
+**Do not automatically remove the customer dashboard. First identify what is wrong and explain the appropriate correction.**
+
+---
+
+# PART 4 — STRICT REGISTRATION VALIDATION
+
+Improve the existing registration form.
+
+My professor will test whether invalid inputs are properly rejected.
+
+All important validation must work in both JavaScript and Python Flask.
+
+## 4.1 First Name and Last Name
+
+Requirements:
+
+1. Required fields.
+2. Reject empty input.
+3. Reject whitespace-only input.
+4. Reject numbers.
+5. Reject inappropriate special characters.
+6. Accept legitimate names containing letters, spaces, apostrophes, and hyphens.
+7. Support reasonable international name characters.
+8. Apply reasonable length limits.
+9. Trim unnecessary leading and trailing whitespace.
+10. Validate again on the Flask server.
+
+Display clear error messages below the relevant fields.
+
+## 4.2 Username — Only If My Existing System Uses One
+
+Requirements:
+
+1. Required.
+2. Minimum 3 characters.
+3. Maximum 30 characters.
+4. Allow letters, numbers, underscores, periods, and hyphens.
+5. Reject inappropriate symbols.
+6. Reject whitespace-only input.
+7. Reject duplicate usernames.
+8. Validate on both frontend and backend.
+
+Do not add a username field if my existing registration form does not require one.
+
+## 4.3 Email Address Validation
+
+**Email validation is one of my highest priorities.**
+
+Requirements:
+
+1. Email is required.
+2. Reject empty input.
+3. Reject whitespace-only input.
+4. Reject missing `@`.
+5. Reject missing local part.
+6. Reject missing domain.
+7. Reject malformed email addresses.
+8. Reject embedded spaces.
+9. Reject invalid domain syntax.
+10. Apply reasonable email length limits.
+11. Normalize email addresses consistently.
+12. Reject duplicate registered email addresses.
+13. Use existing database uniqueness constraints where available.
+14. Validate email syntax on the frontend and backend.
+15. Show clear error messages below the email field.
+
+Do not restrict valid emails to Gmail or Yahoo only.
+
+**IMPORTANT:** Email format validation must remain separate from my existing working Gmail OTP verification.
+
+A valid email format does not automatically mean the email is verified.
+
+Keep my existing OTP process unchanged.
+
+## 4.4 Password Validation
+
+Implement password requirements suitable for my professor's validation testing.
+
+Requirements:
+
+1. Password is required.
+2. Minimum 8 characters.
+3. Support long passwords.
+4. Require at least one uppercase letter.
+5. Require at least one lowercase letter.
+6. Require at least one number.
+7. Allow special characters.
+8. Allow spaces inside passwords.
+9. Reject passwords that fail the configured requirements.
+10. Reject commonly used or compromised passwords where feasible.
+11. Never store passwords in plain text.
+12. Preserve secure password hashing.
+13. Never print passwords in logs.
+14. Never silently trim or alter passwords.
+15. Clearly display password requirements during registration.
+
+Add a simple password strength indicator if appropriate.
+
+Do not clutter or redesign my registration page.
+
+## 4.5 Confirm Password Validation
+
+Requirements:
+
+1. Required field.
+2. Must exactly match the password.
+3. Reject mismatched passwords.
+4. Display a clear error message.
+5. Validate on both frontend and backend.
+6. Never create an account with mismatched passwords.
+
+## 4.6 Duplicate Account Validation
+
+1. Check whether an email is already registered.
+2. Prevent duplicate customer accounts.
+3. Handle database uniqueness errors safely.
+4. Preserve existing customer accounts.
+5. Do not delete unverified accounts.
+6. Do not modify the existing OTP verification system.
+
+If an account already exists but is unverified, preserve the existing verification flow rather than creating a duplicate account.
+
+---
+
+# PART 5 — STRICT LOGIN VALIDATION
+
+Improve the existing login system.
+
+Requirements:
+
+1. Email is required.
+2. Password is required.
+3. Reject empty submissions.
+4. Reject invalid email syntax.
+5. Verify passwords against securely stored password hashes.
+6. Reject incorrect credentials.
+7. Reject unverified accounts from protected pages.
+8. Preserve the existing working OTP verification requirement.
+9. Use secure Flask sessions.
+10. Prevent unauthorized access through manually entered URLs.
+11. Prevent authentication bypass by disabling JavaScript.
+12. Prevent authentication bypass by modifying HTML inputs.
+13. Apply reasonable login rate limiting.
+14. Use safe, understandable error messages.
+15. Do not expose whether an account exists unnecessarily.
+16. Prevent customers from being redirected to administrator-only pages.
+
+Do not change my existing Gmail OTP configuration.
+
+---
+
+# PART 6 — STRICT BOOKING AND CUSTOMER INPUT VALIDATION
+
+Inspect the existing booking and customer forms.
+
+Implement appropriate server-side validation.
+
+## 6.1 Philippine Mobile Number
+
+For local Philippine mobile numbers:
+
+1. Require exactly 11 digits.
+2. Require the number to start with `09`.
+3. Reject letters.
+4. Reject incomplete numbers.
+5. Reject excessively long numbers.
+6. Reject invalid symbols.
+7. Reject obviously invalid placeholder numbers.
+8. Display a clear validation message.
+
+If my existing system supports `+63` numbers, normalize them consistently without unnecessarily rejecting valid supported formats.
+
+## 6.2 Passenger Count
+
+Requirements:
+
+1. Must be a positive integer.
+2. Reject zero.
+3. Reject negative numbers.
+4. Reject decimal values.
+5. Reject letters.
+6. Reject passenger counts exceeding boat capacity.
+7. Retrieve boat capacity from trusted database records.
+8. Validate on the server.
+
+## 6.3 Booking Date
+
+Requirements:
+
+1. Required field.
+2. Must be a valid date.
+3. Reject past dates.
+4. Reject unavailable dates.
+5. Prevent overlapping bookings for the same boat.
+6. Respect existing booking statuses.
+7. Validate on the server.
+
+## 6.4 Boat and Package Selection
+
+Requirements:
+
+1. Verify the selected boat exists.
+2. Verify the selected package exists.
+3. Reject unavailable selections.
+4. Reject inactive records.
+5. Retrieve authoritative prices from the database.
+6. Do not trust prices submitted through the browser.
+7. Prevent unauthorized changes to booking status.
+8. Prevent customers from modifying other customers' bookings.
+
+## 6.5 Other Input Fields
+
+Apply appropriate checks for:
+
+- Required values
+- Correct data types
+- Valid formats
+- Reasonable lengths
+- Invalid characters
+- Unauthorized changes
+
+Use safe SQLAlchemy queries and escape user-generated output appropriately.
+
+---
+
+# PART 7 — FRONTEND VALIDATION AND USER EXPERIENCE
+
+Keep my existing Infanta, I Hopping design.
+
+Improve validation feedback without redesigning the website.
+
+Requirements:
+
+1. Show error messages below invalid fields.
+2. Validate fields when appropriate, such as on blur or form submission.
+3. Use JavaScript for immediate feedback.
+4. Use Flask for final server-side validation.
+5. Highlight invalid fields using Bootstrap styles.
+6. Clearly display password requirements.
+7. Add show/hide password functionality if suitable.
+8. Do not erase valid form inputs unnecessarily.
+9. Never automatically refill password fields after failed submissions.
+10. Keep validation messages simple and understandable.
+11. Maintain mobile responsiveness.
+12. Preserve the existing CSS and layout.
+
+Example validation messages:
+
+- "First name is required."
+- "Please enter a valid email address."
+- "This email address is already registered."
+- "Password must contain at least 8 characters, including uppercase, lowercase, and a number."
+- "Passwords do not match."
+- "Please enter a valid Philippine mobile number."
+- "Passenger count exceeds the boat's capacity."
+
+**Frontend validation is for user experience. Flask server-side validation is mandatory for security.**
+
+---
+
+# PART 8 — SECURITY IMPROVEMENTS
+
+Review the existing system for:
+
+1. Server-side input validation.
+2. Secure password hashing.
+3. CSRF protection.
+4. Secure session handling.
+5. Role-based access control.
+6. SQL injection protection.
+7. Cross-site scripting protection.
+8. Unauthorized record access.
+9. Login rate limiting.
+10. Safe error handling.
+
+Do not modify my working OTP system while implementing these improvements.
+
+If a security improvement requires changes to OTP-related code, explain the dependency and request my approval first.
+
+---
+
+# PART 9 — VALIDATION AND SECURITY TESTING
+
+Test the following cases without deleting existing data.
+
+## Registration tests
+
+1. Empty registration form.
+2. Missing first name.
+3. Missing last name.
+4. Numbers entered in name fields.
+5. Invalid email without `@`.
+6. Email without a valid domain.
+7. Duplicate email address.
+8. Password shorter than eight characters.
+9. Password without uppercase letters.
+10. Password without lowercase letters.
+11. Password without numbers.
+12. Mismatched passwords.
+13. Valid registration.
+
+## Login tests
+
+14. Empty login form.
+15. Invalid email format.
+16. Incorrect password.
+17. Unverified account login.
+18. Verified account login.
+
+## Dashboard tests
+
+19. Customer attempting to access administrator routes.
+20. Unauthenticated user attempting to access protected pages.
+21. Customer attempting to access another customer's booking.
+22. Correct dashboard visibility for each role.
+
+## Booking tests
+
+23. Invalid Philippine mobile number.
+24. Zero passengers.
+25. Negative passenger count.
+26. Passenger count exceeding capacity.
+27. Past booking date.
+28. Unavailable boat.
+29. Conflicting booking.
+30. Manipulated booking price.
+
+## Validation bypass tests
+
+31. Disable JavaScript and submit invalid inputs.
+32. Modify browser form values.
+33. Submit invalid requests directly to Flask endpoints.
+34. Attempt unauthorized API requests.
+
+All invalid or unauthorized requests must be rejected by the server.
+
+## OTP regression tests — READ ONLY / NON-DESTRUCTIVE
+
+My OTP system already works.
+
+Confirm that the changes have not broken:
+
+35. Registration-to-OTP integration.
+36. Existing Gmail sender configuration.
+37. Existing OTP email delivery.
+38. Six-digit OTP verification.
+39. Verified account login.
+40. Unverified account restrictions.
+
+Do not modify OTP files to make these tests pass.
+
+Do not send real OTP emails automatically during testing without my approval.
+
+Do not claim real Gmail delivery was tested unless an actual authorized test was performed.
+
+---
+
+# PART 10 — PROTECT MY SQL FILES AND MYSQL DATA
+
+Before editing, identify whether the proposed work affects:
+
+- Existing `.sql` files
+- SQLAlchemy models
+- Database migrations
+- MySQL tables
+- Registered users
+- Existing bookings
+- OTP records
+- Email verification statuses
+
+**Do not modify any of these without my explicit approval.**
+
+If a database change is required:
+
+1. Explain the reason.
+2. Identify the affected tables.
+3. Show the proposed SQL or migration.
+4. Explain possible risks.
+5. Recommend a backup.
+6. Wait for my approval before executing it.
+
+Do not run destructive commands.
+
+Do not overwrite existing database records.
+
+---
+
+# PART 11 — IMPLEMENTATION WORKFLOW
+
+Follow these phases.
+
+### PHASE 1 — INSPECT
+
+Read the existing project files.
+
+Identify missing validation, dashboard access issues, and security weaknesses.
+
+### PHASE 2 — REPORT
+
+Explain:
+
+1. The problems found.
+2. Which files need modification.
+3. Which features already work.
+4. Whether SQL or database changes are necessary.
+5. Whether any changes could affect my OTP system.
+
+### PHASE 3 — WAIT FOR APPROVAL
+
+Before editing files, show me the proposed modification plan.
+
+Do not proceed until I approve it.
+
+### PHASE 4 — IMPLEMENT
+
+After approval, make only the necessary changes.
+
+Preserve existing features and design.
+
+### PHASE 5 — TEST
+
+Run relevant automated tests and non-destructive checks.
+
+Do not modify real customer records.
+
+Do not automatically send real OTP emails.
+
+### PHASE 6 — EXPLAIN
+
+After completing the approved changes, provide:
+
+1. A list of modified files.
+2. The validation rules implemented.
+3. Dashboard access corrections.
+4. Security improvements.
+5. Test results.
+6. Any remaining issues.
+7. Confirmation that Gmail OTP files and settings were not modified.
+8. Confirmation that existing SQL files and MySQL records were not modified without approval.
+9. Exact commands for running my Flask project in VS Code.
+
+---
+
+# FINAL NON-NEGOTIABLE INSTRUCTIONS
+
+**My working Gmail OTP verification must remain unchanged.**
+
+**My existing SQL files and MySQL database must remain unchanged unless I explicitly approve a proposed modification.**
+
+**My existing website design must remain intact.**
+
+**Do not add PHP files or use my previous PHP ZIP project.**
+
+**Do not recreate my system.**
+
+**Do not bypass registration, login, OTP verification, or dashboard authorization.**
+
+**Do not make changes before inspecting the actual code and presenting a plan for my approval.**
+
+My goal is to have a properly validated and secure boat rental reservation website that my professor can test, without breaking the features I have already completed.

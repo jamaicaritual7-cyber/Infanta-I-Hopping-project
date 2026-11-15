@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ boat.name }} | Infanta, I Hopping{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boats.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <a href="{{ url_for('boats.list_boats') }}" class="text-decoration-none">&larr; Back to boats</a>
+        <div class="row g-4 align-items-center mt-2">
+            <div class="col-lg-6">
+                <div class="boat-details-panel p-3">
+                    <img src="{{ boat.photograph_path or url_for('static', filename='images/boats/actual_boat_photo.avif') }}" class="img-fluid rounded-4" alt="{{ boat.name }}">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p class="eyebrow">Our boat</p>
+                <h1>{{ boat.name }}</h1>
+                <p class="lead">{{ boat.description or "A safe and reliable boat for island-hopping adventures." }}</p>
+                <p><strong>Fuel type:</strong> {{ boat.fuel_type }}</p>
+                <p><strong>Capacity:</strong> up to {{ boat.passenger_capacity }} passengers</p>
+                <p><strong>Status:</strong> {{ boat.availability_status|capitalize }}</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-primary" href="{{ url_for('booking.book_trip', boat_id=boat.id) }}">Book this boat</a>
+                    <a class="btn btn-outline-primary" href="{{ url_for('destinations.index') }}">Explore destinations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

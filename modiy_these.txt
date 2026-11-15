@@ -1,0 +1,625 @@
+# CODEX — FIX MY TOURISM BOOKING SYSTEM, TRIP DATE, AND INCOMPLETE DESTINATION PHOTOGRAPHS
+
+PROJECT: Infanta, I Hopping
+LOCATION: C:\Users\jamaica\Downloads\Infanta_Ihopping
+
+TECHNOLOGY: Python Flask, MySQL, HTML5, CSS3, Bootstrap 5, JavaScript
+
+## MAIN OBJECTIVE
+
+I want my existing website to feel like a professional tourism and island-hopping reservation platform.
+
+Improve the booking experience by studying the user experience patterns of established tourism booking websites such as:
+
+- Klook: https://www.klook.com/
+- GetYourGuide: https://www.getyourguide.com/
+- Viator: https://www.viator.com/
+- Booking.com: https://www.booking.com/
+
+Use them as references for booking flow, date selection, passenger selection, destination presentation, and confirmation design.
+
+DO NOT copy their source code, branding, copyrighted images, or exact interface.
+
+Adapt the best user experience patterns to my own Infanta, I Hopping system.
+
+This is an IMPLEMENTATION task, not just a recommendation or code audit.
+
+Do not rebuild my entire website.
+
+---
+
+# PART 1 — MAKE THE BOOKING PAGE TOURISM-FOCUSED
+
+Currently, I want the booking experience to feel more like booking an actual island-hopping trip.
+
+Improve the booking page to make it simple, attractive, and understandable for tourists.
+
+## BOOKING PAGE STRUCTURE
+
+Use a clean, tourism-inspired layout.
+
+### SECTION A — CHOOSE YOUR DESTINATION
+
+Display:
+- Destination name
+- Destination photograph
+- Municipality
+- Short description
+- Select Destination button
+
+If the visitor came from a destination's View Details page, automatically preselect that destination.
+
+Use real destinations from my existing database.
+
+Do not invent new destinations.
+
+### SECTION B — SELECT YOUR TRIP DATE
+
+Use a professional date picker.
+
+Display the label:
+
+"Trip Date"
+
+The visible date format must be:
+
+MM/DD/YYYY
+
+For example:
+
+12/02/2026
+
+Meaning December 2, 2026.
+
+Do not confuse month and day.
+
+Provide a calendar icon and a clickable date picker.
+
+Allow the user to select a date from the calendar or type the date manually.
+
+### SECTION C — NUMBER OF GUESTS
+
+Use a clean passenger selector.
+
+Display:
+
+"Number of Guests"
+
+Provide minus and plus controls.
+
+Minimum: 1 passenger.
+
+Maximum: Based on the selected boat's actual capacity.
+
+Do not allow zero or negative passengers.
+
+### SECTION D — CHOOSE YOUR BOAT
+
+Display actual available boats from MySQL.
+
+Each boat card should show:
+- Boat name
+- Boat photograph if available
+- Passenger capacity
+- Available amenities, if recorded
+- Actual listed price, if recorded
+- Select Boat button
+
+Do not invent prices, amenities, availability, or boat details.
+
+If pricing is not configured, display "Price upon confirmation" rather than a fake amount.
+
+### SECTION E — CONTACT INFORMATION
+
+Display:
+- Full Name
+- Email Address
+- Contact Number
+
+For logged-in customers, prefill existing verified account information.
+
+Allow appropriate corrections.
+
+Use the actual customer's account data.
+
+### SECTION F — BOOKING REVIEW
+
+Before submission, display a booking summary:
+
+- Destination
+- Trip Date
+- Number of Guests
+- Selected Boat
+- Customer Contact Information
+- Price, if known
+- Booking Status: Pending Approval
+
+Provide:
+- Back/Edit Booking
+- Submit Booking Request
+
+Do not label the reservation "Confirmed" before the admin approves it.
+
+### SECTION G — BOOKING SUCCESS
+
+After successful submission, display:
+
+"Your booking request has been submitted!"
+
+Explain that the boat operator will review the request.
+
+Show:
+- Booking reference
+- Destination
+- Trip date
+- Number of guests
+- Boat
+- Pending status
+
+Provide:
+- View My Bookings
+- Explore More Destinations
+
+Do not promise immediate approval.
+
+---
+
+# PART 2 — FIX THE TRIP DATE INPUT COMPLETELY
+
+THIS IS A HIGH-PRIORITY BUG.
+
+My current Trip Date input is not working properly.
+
+I want the familiar:
+
+MONTH / DAY / YEAR
+
+MM/DD/YYYY
+
+The month and day must accept two digits.
+
+Examples:
+
+01/05/2027
+02/14/2027
+11/25/2026
+12/02/2026
+
+Currently, the month and date fields are not accepting two digits correctly.
+
+Find and fix the actual cause.
+
+## DATE INPUT REQUIREMENTS
+
+1. Use a reliable date picker compatible with my existing Flask, Bootstrap and JavaScript setup.
+
+2. Prefer a proven date picker such as Flatpickr if the existing native date input cannot reliably provide the requested MM/DD/YYYY display and manual entry.
+
+3. Do not use a broken custom date mask that prevents users from typing two digits.
+
+4. Do not force a single digit for month or day.
+
+5. Allow manual entry in MM/DD/YYYY format.
+
+6. Allow calendar selection.
+
+7. Automatically format the date correctly.
+
+8. Validate real calendar dates.
+
+9. Reject invalid dates such as:
+   - 13/05/2027
+   - 02/30/2027
+   - 00/12/2027
+   - 11/00/2027
+
+10. Reject past trip dates.
+
+11. Handle today's date correctly using Asia/Manila timezone.
+
+12. Convert the displayed date to ISO YYYY-MM-DD for Flask/MySQL storage.
+
+13. Do not store ambiguous date strings.
+
+14. Preserve the selected date after a validation error.
+
+15. Ensure the date appears consistently in:
+   - Booking form
+   - Booking review
+   - Booking confirmation
+   - Customer dashboard
+   - Admin dashboard
+   - Booking details
+
+16. Use a proper date-only value for trip dates to avoid accidental one-day shifts from timezone conversion.
+
+17. Make the date picker usable on mobile and desktop.
+
+18. Check for duplicate event listeners, conflicting JavaScript libraries, incorrect maxlength, input masking bugs, and HTML input type conflicts.
+
+19. Test manual typing, pasting, calendar selection, leap years, and month/day boundaries.
+
+IMPORTANT:
+
+The date picker must actually work, not just look correct.
+
+Do not merely change the placeholder text.
+
+---
+
+# PART 3 — FIX THE MISSING DESTINATION PHOTOGRAPHS
+
+Several destinations still have missing photographs.
+
+These are the exact destinations I want you to prioritize:
+
+1. Bato Beach — Polillo, Quezon
+2. Pulong Kukok — Polillo Group of Islands, Quezon
+3. Baluti Island — Real, Quezon
+4. BIPCO Mangrove Eco-Park — Infanta, Quezon
+5. Dero Beach — Infanta, Quezon
+6. Sabangan Beach — Infanta, Quezon
+
+Also check every other destination in the existing database.
+
+## PHOTOGRAPHY REQUIREMENTS
+
+I want:
+- Beautiful island and beach scenery
+- No people
+- No tourists
+- No selfies
+- No crowds
+- No watermarks
+- Clear, sharp photographs
+- Natural lighting
+- Wide landscape composition
+- Authentic destination locations
+
+Do not use unrelated beach photographs.
+
+Do not use AI-generated photographs pretending to show real destinations.
+
+## IMAGE SOURCES
+
+### BATO BEACH
+
+https://www.flickr.com/photos/edseephotography/6080124647
+
+Find the actual photograph from the original source.
+
+Verify the exact location.
+
+### PULONG KUKOK
+
+https://polillotravelers.wordpress.com/2018/02/10/why-these-5-beaches-in-polillo-group-of-islands-should-be-your-next-summer-destination/
+
+Inspect the labeled Pulong Kukok photographs.
+
+Choose the best landscape image without people.
+
+### BALUTI ISLAND
+
+https://commons.wikimedia.org/wiki/File:A_view_of_Baluti_Cove..jpg
+
+https://www.morefunwithjuan.com/2022/08/real-quezon.html
+
+Replace the current Baluti Island photograph if a better verified people-free image is available.
+
+Confirm that Baluti Cove and the Baluti Island destination are correctly matched.
+
+### BIPCO MANGROVE ECO-PARK
+
+https://7641islands.ph/explore/how-each-quezon-town-appeals-to-different-travelers/
+
+https://calabarzon.depdev.gov.ph/wp-content/uploads/2022/04/REINA-TDP-as-of-March-17.pdf
+
+Use a photograph specifically identified as BIPCO Mangrove Eco-Park.
+
+### DERO BEACH
+
+Search specifically for:
+
+"DERO BEACH" "Balobo" "Infanta" "Quezon"
+
+Existing location lead:
+
+https://www.findglocal.com/PH/Infanta/173049-12/genre/199734546726648/Beach%2BResorts/2
+
+Find the original destination page or photographer if possible.
+
+### SABANGAN BEACH
+
+Search specifically for:
+
+"Sabangan Beach" "Infanta" "Quezon"
+
+Do not use Sabangan in Infanta, Pangasinan.
+
+Confirm the correct Quezon location.
+
+## IMPLEMENTATION
+
+For photographs whose exact location and reuse rights are verified:
+
+- Download the original image.
+- Save it locally under the existing Flask static directory.
+- Optimize it for website use.
+- Use descriptive filenames.
+- Update the destination card.
+- Update the View Details page.
+- Add descriptive alt text.
+- Preserve required source attribution.
+
+For images that cannot be verified, do not invent a substitute.
+
+Report the original image URL and the exact unresolved issue.
+
+Do not spend hours repeatedly searching for the same unavailable photograph.
+
+---
+
+# PART 4 — REMOVE TECHNICAL WARNINGS FROM TOURIST DESTINATION CARDS
+
+Currently, some destination cards display technical information such as:
+
+"Destination photograph pending"
+
+"No Suitable Image Found"
+
+"Location Needs Verification"
+
+"Review source"
+
+"Approx. 7.50 km / 4.10 NM straight-line distance"
+
+These messages make the website look unfinished.
+
+They should NOT appear in the public tourist interface.
+
+## NEW PUBLIC CARD DESIGN
+
+Each destination card should show:
+
+- Destination photograph, when available
+- Destination name
+- Municipality and province
+- Short, attractive but factual destination description
+- View Details button
+- Explore / Book Trip button where appropriate
+
+For a destination without a verified photograph, display a clean neutral scenic-style placeholder or tasteful graphic clearly treated as a placeholder, not a fabricated photo.
+
+Do not show internal verification statuses to tourists.
+
+Move image verification information to an admin-only management area or developer documentation.
+
+Do not remove the underlying source and verification records.
+
+## DISTANCE DISPLAY
+
+Remove straight-line distance and nautical-mile calculations from the public cards unless they serve a clearly explained purpose.
+
+Straight-line distance is not the same as actual boat travel distance.
+
+Do not invent travel duration or route distances.
+
+If reliable boat travel information is unavailable, omit it.
+
+---
+
+# PART 5 — IMPROVE DESTINATION DETAILS
+
+Each View Details page should have:
+
+- Large destination photograph
+- Destination name
+- Correct location
+- Description
+- Highlights or activities only when supported by real information
+- Boat booking entry point
+- Back to Destinations button
+
+Use a clear call-to-action:
+
+"Plan Your Island-Hopping Trip"
+
+Do not display technical image warnings.
+
+Do not invent attractions, activities, fees, or amenities.
+
+---
+
+# PART 6 — MAKE THE BOOKING EXPERIENCE FEEL PROFESSIONAL
+
+Use tourism booking UX patterns such as:
+
+- Clear progress steps
+- Attractive booking summary
+- Large destination photos
+- Simple passenger selection
+- Easy date selection
+- Clear boat choices
+- Mobile-friendly forms
+- Confirmation messages
+- Helpful error messages
+
+Suggested steps:
+
+1. Destination
+2. Date & Guests
+3. Choose Boat
+4. Your Details
+5. Review & Submit
+
+Keep the process easy and avoid unnecessary fields.
+
+Use existing routes and database models wherever possible.
+
+Do not create duplicate booking systems.
+
+---
+
+# PART 7 — PRESERVE MY EXISTING WORKING FEATURES
+
+DO NOT BREAK:
+
+- Flask backend
+- MySQL database
+- Customer registration
+- Gmail SMTP OTP verification
+- Customer login
+- Admin login
+- Customer dashboard
+- Admin dashboard
+- Existing reservations
+- Boat management
+- Reservation statuses
+- Profile management
+- Sessions and logout
+- CSRF protection
+- Existing validation
+- Existing website branding
+
+Do not reset my database.
+
+Do not modify my .env credentials.
+
+Do not introduce PHP.
+
+Do not create fake customers, boats, reservations, or prices.
+
+Do not perform destructive schema changes without approval.
+
+---
+
+# PART 8 — FOLLOW MY PROFESSOR'S FINAL PROJECT GUIDELINES
+
+While implementing these improvements, preserve compliance with all 13 required features:
+
+1. Original Logo & Branding
+2. Public Home Page
+3. Registration
+4. Login
+5. Web Security
+6. Session Management
+7. SMTP Email Integration
+8. Dashboard
+9. Profile Management
+10. CRUD Functionality
+11. Responsive UI
+12. Form Validation & Error Handling
+13. Object-Oriented Programming
+
+Prioritize:
+- Functional Suitability: 30%
+- Security & Reliability: 30%
+- Usability: 20%
+- Maintainability & Portability: 20%
+
+Do not sacrifice working core features for visual improvements.
+
+---
+
+# PART 9 — IMPLEMENT IN THIS ORDER
+
+Work efficiently.
+
+STEP 1:
+Inspect only the booking form, date picker code, destination templates, image mapping, and directly related Flask routes/models.
+
+STEP 2:
+FIX THE TRIP DATE BUG FIRST.
+
+STEP 3:
+Improve the tourism booking flow using existing functionality.
+
+STEP 4:
+Remove technical image statuses and straight-line distances from the public destination cards.
+
+STEP 5:
+Install verified, suitable destination photographs where available.
+
+STEP 6:
+Improve destination details pages and booking links.
+
+STEP 7:
+Test customer booking and admin reservation workflows.
+
+STEP 8:
+Verify mobile responsiveness.
+
+STEP 9:
+Provide a final implementation report.
+
+Do not spend excessive time searching the whole codebase.
+
+Do not stop after writing a plan.
+
+Make actual code changes.
+
+---
+
+# PART 10 — FINAL REPORT
+
+After implementation, provide:
+
+A. TRIP DATE FIX
+- Root cause
+- Files modified
+- Date picker used
+- Tests performed
+- Whether MM/DD/YYYY works correctly
+
+B. BOOKING EXPERIENCE
+- Improvements made
+- Booking flow
+- Customer experience changes
+- Admin workflow impact
+
+C. DESTINATION PHOTOGRAPHS
+For each destination:
+- Destination name
+- Exact location
+- Photo source
+- Local image path
+- Installed or pending
+- Reason if unresolved
+
+D. DESTINATION CARD CLEANUP
+Confirm that public cards no longer show:
+- No Suitable Image Found
+- Destination photograph pending
+- Location Needs Verification
+- Review source
+- Straight-line distance
+
+E. PROJECT SAFETY
+Confirm whether:
+- Existing login still works
+- OTP still works
+- Bookings save to MySQL
+- Admin can review bookings
+- Customer can see their own reservations
+- Existing records remain intact
+
+F. REMAINING ISSUES
+List any unresolved problems honestly.
+
+## FINAL INSTRUCTION
+
+My website must look and behave like a REAL TOURISM AND ISLAND-HOPPING BOOKING PLATFORM.
+
+I want visitors to feel excited about exploring Infanta and nearby islands.
+
+Make the booking process simple, beautiful, and reliable.
+
+Fix the MM/DD/YYYY date input completely.
+
+Improve the destination photographs.
+
+Remove developer-facing warnings from public pages.
+
+Preserve my existing system and professor-required features.
+
+THIS IS AN IMPLEMENTATION TASK. BEGIN WITH THE TRIP DATE BUG AND CONTINUE THROUGH THE BOOKING AND DESTINATION IMPROVEMENTS.

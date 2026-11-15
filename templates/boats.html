@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Our Boats | Infanta, I Hopping{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/boats.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="boat-page-hero py-5">
+    <div class="container">
+        <p class="eyebrow">Boat rental</p>
+        <h1>Choose your boat</h1>
+        <p class="lead">Browse the boats currently listed for Infanta island-hopping trips.</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        {% if boats %}
+        <div class="row g-4">
+            {% for boat in boats %}
+            <div class="col-md-6 col-lg-4">
+                <article class="boat-showcase-card h-100">
+                    <div class="boat-photo-wrap">
+                        <img src="{{ boat.photograph_path or url_for('static', filename='images/boats/actual_boat_photo.avif') }}" alt="{{ boat.name }}">
+                        <span class="boat-status">{{ boat.availability_status|capitalize }}</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-uppercase small text-muted mb-1">{{ boat.fuel_type }} boat</p>
+                        <h2 class="h4 mb-3">{{ boat.name }}</h2>
+                        <span class="boat-capacity">⚓ Up to {{ boat.passenger_capacity }} passengers</span>
+                        <p class="text-muted mt-3">{{ boat.description or "A safe and reliable boat for island-hopping adventures." }}</p>
+                        <a class="btn btn-primary w-100" href="{{ url_for('boats.boat_details', boat_id=boat.id) }}">View {{ boat.name }} details &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">No active boats are available yet.</div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

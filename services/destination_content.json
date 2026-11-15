@@ -1,0 +1,86 @@
+{
+  "Dero Beach": {
+    "tagline": "A quiet coastal escape in Infanta",
+    "about": "Dero Beach is a peaceful seaside destination in Infanta, Quezon, ideal for guests who want a slower island experience, open shoreline views, and time beside the sea.",
+    "highlights": ["Scenic coastal views", "Quiet shoreline atmosphere", "Relaxing island-hopping stop"],
+    "before_you_go": "Confirm weather and boat availability before departure. Bring sun protection, drinking water, and cash for local expenses.",
+    "location_display": "Balobo, Infanta, Quezon"
+  },
+  "BIPCO Mangrove Eco-Park": {
+    "tagline": "Explore Infanta's living coastal forest",
+    "about": "BIPCO Mangrove Eco-Park offers a nature-focused experience through mangrove habitats, waterways, and community-led ecotourism in Binonoan, Infanta, Quezon.",
+    "highlights": ["Mangrove forest scenery", "Calm coastal waterways", "Community-based ecotourism"],
+    "before_you_go": "Wear comfortable footwear and bring insect repellent, water, sun protection, and a camera. Follow local environmental guidelines.",
+    "location_display": "Binonoan, Infanta, Quezon"
+  },
+  "Sabangan Beach": {
+    "tagline": "A peaceful shoreline for a slower island day",
+    "about": "Sabangan is presented in the existing Quezon destination record as a coastal escape for guests looking for open water, shoreline scenery, and a calm day outdoors.",
+    "highlights": ["Open shoreline views", "Quiet seaside atmosphere", "Nature-focused day trip"],
+    "before_you_go": "Confirm the exact local access point and boat schedule before travelling. Bring water, sun protection, and a reusable bag for your belongings.",
+    "location_display": "Existing Quezon destination record; exact municipality requires confirmation"
+  },
+  "Gumatong Shoal": {
+    "tagline": "Clear water and reef scenery in Panukulan",
+    "about": "Gumatong Shoal is a marine destination in Panukulan, Quezon, suited to visitors who want to appreciate clear seawater, reef surroundings, and open coastal landscapes.",
+    "highlights": ["Clear seawater and shoal views", "Reef and marine scenery", "Open island-hopping landscape"],
+    "before_you_go": "Check sea conditions and boat availability. Use reef-safe practices, avoid standing on coral, and bring sun protection and drinking water.",
+    "location_display": "Panukulan, Quezon"
+  },
+  "Pulong Kukok": {
+    "tagline": "A scenic island stop in the Polillo group",
+    "about": "Pulong Kukok is a scenic island destination in the Polillo Group of Islands, offering visitors a quiet coastal setting and an inviting place to appreciate the sea.",
+    "highlights": ["Island and coastline views", "Peaceful swimming and sightseeing setting", "Memorable boat-trip scenery"],
+    "before_you_go": "Plan around tides and weather. Bring drinking water, sun protection, a dry bag, and any personal essentials you may need on the island.",
+    "location_display": "Polillo Group of Islands, Quezon"
+  },
+  "Sulok Beach": {
+    "tagline": "A beautiful coastal retreat near General Nakar",
+    "about": "Sulok Beach is a coastal destination in General Nakar, Quezon, where visitors can enjoy open shoreline scenery, sea air, and a relaxed island-hopping atmosphere.",
+    "highlights": ["Scenic beach and sea views", "Relaxed coastal atmosphere", "Nature-focused island stop"],
+    "before_you_go": "Check the weather and boat schedule before setting out. Bring water, sun protection, a dry bag, and leave no trace at the beach.",
+    "location_display": "General Nakar, Quezon"
+  },
+  "Bato Beach": {
+    "tagline": "A natural beach escape in Polillo",
+    "about": "Bato Beach is a coastal destination in the Polillo Group of Islands, offering a simple and scenic setting for guests who want to spend time by the water and explore Quezon's island landscapes.",
+    "highlights": ["Coastal rock and beach scenery", "Blue-water island views", "Relaxed sightseeing stop"],
+    "before_you_go": "Confirm the route, weather, and local access before travelling. Bring water, sun protection, and a reusable bag for personal items.",
+    "location_display": "Polillo Group of Islands, Quezon"
+  },
+  "Baluti Island": {
+    "tagline": "A bright island escape off Real, Quezon",
+    "about": "Baluti Island is a scenic island destination in Real, Quezon, known for its coastal landscapes, clear water, and peaceful setting for a day by the sea.",
+    "highlights": ["Island shoreline scenery", "Clear-water coastal views", "Peaceful day-trip atmosphere"],
+    "before_you_go": "Check the sea forecast and boat arrangements. Bring sun protection, drinking water, a dry bag, and pack out all waste.",
+    "location_display": "Real, Quezon"
+  },
+  "Tulaog Beach & Cave": {
+    "tagline": "Coastal scenery and a natural cave in General Nakar",
+    "about": "Tulaog Beach & Cave is a nature destination in General Nakar, Quezon, combining shoreline scenery with a distinctive cave experience for visitors exploring the coast.",
+    "highlights": ["Natural cave formation", "Beach and coastal views", "Adventure-focused island stop"],
+    "before_you_go": "Ask local boat operators about sea conditions and safe cave access. Wear secure footwear, bring a headlamp if recommended, and avoid entering unsafe areas.",
+    "location_display": "General Nakar, Quezon"
+  },
+  "Anilon Island": {
+    "tagline": "A quiet island landscape in Burdeos",
+    "about": "Anilon Island is a coastal destination in Burdeos, Quezon, offering open sea views and a peaceful island setting for guests travelling through the Polillo group.",
+    "highlights": ["Open island scenery", "Peaceful shoreline views", "Island-hopping photography"],
+    "before_you_go": "Confirm local access and sea conditions before departure. Bring water, sun protection, a dry bag, and respect the island environment.",
+    "location_display": "Burdeos, Quezon"
+  },
+  "Pinagbanderahan Beach Resort": {
+    "tagline": "Where Coastal Beauty Meets Island Adventure",
+    "about": "Discover Pinagbanderahan Beach Resort, a coastal getaway in Panukulan, Quezon, where peaceful seaside surroundings meet natural rock formations and beautiful ocean views. Located within the Polillo island group, this destination invites travelers to experience a quieter side of island life. Visitors can appreciate the shoreline, explore the resort's coastal scenery, and enjoy a relaxing escape with family or friends. With its natural landscape and connection to Panukulan's local attractions, Pinagbanderahan offers a memorable stop for tourists exploring Quezon's island destinations.",
+    "highlights": ["Beach and coastal scenery", "Natural rock formations", "Seaside photography", "Cottage relaxation, subject to availability", "Boat rides, when offered by the operator", "Nearby Pinagbanderahan lighthouse viewpoint, subject to access"],
+    "before_you_go": "Contact the resort or local operator to confirm current access, cottage availability, boat activities, rates, and weather conditions. The lighthouse is a separate attraction, and visiting it may require additional arrangements.",
+    "location_display": "Barangay San Juan, Panukulan, Quezon"
+  },
+  "Puting Bato Beach Camp": {
+    "tagline": "A coastal camping escape in Quezon",
+    "about": "Puting Bato Beach Camp is an existing destination record for a beach and camping experience in Quezon, suited to visitors who want a simple outdoor stay beside the sea.",
+    "highlights": ["Beach and coastal scenery", "Outdoor camping atmosphere", "Quiet nature escape"],
+    "before_you_go": "Confirm the exact camp identity, access, facilities, and booking arrangements before travelling. Bring personal supplies and follow local campsite rules.",
+    "location_display": "Existing destination record; precise camp identity requires confirmation"
+  }
+}

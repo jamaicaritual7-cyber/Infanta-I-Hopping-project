@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Trip | Infanta, I Hopping{% endblock %}
+
+{% block content %}
+<section class="page-hero py-5">
+    <div class="container">
+        <p class="eyebrow">Reservation request</p>
+        <h1>Book a trip</h1>
+        <p class="lead">Choose your destination, boat, date, and passenger count.</p>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% if selected_destination %}{% set selected_image = destination_image(selected_destination.name) %}<section class="booking-destination-card mb-4" aria-label="Selected destination"><div class="row g-0 align-items-stretch">{% if selected_image.local_path %}<div class="col-md-4"><img class="booking-destination-image" src="{{ url_for('static', filename=selected_image.local_path) }}" alt="{{ selected_destination.name }} in {{ selected_destination.municipality }}, {{ selected_destination.province }}"></div>{% endif %}<div class="col"><div class="p-4"><p class="eyebrow text-teal mb-1">YOUR DESTINATION</p><h2 class="h4 mb-1">{{ selected_destination.name }}</h2><p class="text-muted mb-2">{{ selected_destination.municipality }}, {{ selected_destination.province }}</p>{% if selected_destination.description %}<p class="small mb-0">{{ selected_destination.description }}</p>{% endif %}</div></div></div></section>{% endif %}
+                <form method="post" class="card border-0 shadow-sm p-4 p-md-5" id="booking-form" novalidate>
+                    {{ form.hidden_tag() }}
+                    <div class="alert alert-info booking-guidance" role="status"><strong>How it works:</strong> submit a request, then an authorized operator checks availability and confirms the trip. New requests remain Pending until reviewed.</div>
+                    <div class="row g-3">
+                        <div class="col-12">{{ form.destination_id.label(class="form-label") }}{{ form.destination_id(class="form-select") }}{% for error in form.destination_id.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+                        <div class="col-12"><label class="form-label">Choose your boat</label><div class="row g-3 booking-boat-options">{% for boat in boats %}<div class="col-md-6"><button type="button" class="booking-boat-card text-start w-100" data-boat-id="{{ boat.id }}" aria-pressed="{{ 'true' if form.boat_id.data == boat.id else 'false' }}">{% if boat.photograph_path %}<img src="{{ boat.photograph_path }}" alt="{{ boat.name }}">{% endif %}<span class="d-block fw-bold">{{ boat.name }}</span><small>Up to {{ boat.passenger_capacity }} guests · {{ boat.fuel_type }}</small>{% if boat.description %}<span class="d-block small text-muted mt-1">{{ boat.description|truncate(90, True) }}</span>{% endif %}<span class="d-block small text-teal mt-2">Price upon confirmation</span></button></div>{% else %}<div class="col-12"><p class="text-muted mb-0">No active boats are currently available.</p></div>{% endfor %}</div><div class="visually-hidden">{{ form.boat_id(class="form-select") }}</div>{% for error in form.boat_id.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+                        <div class="col-md-6">{{ form.trip_date.label(class="form-label") }}<div class="input-group"><span class="input-group-text" aria-hidden="true">📅</span>{{ form.trip_date(class="form-control", id="trip_date", type="text", placeholder="MM/DD/YYYY", autocomplete="off") }}</div><small class="text-muted d-block mt-1">Select or type the date as MM/DD/YYYY.</small>{% for error in form.trip_date.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+                        <div class="col-md-6">{{ form.passenger_count.label(class="form-label") }}{{ form.passenger_count(class="form-control", min="1", max="10") }}<small class="text-muted d-block mt-1">Maximum 10 passengers.</small>{% for error in form.passenger_count.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+                        <div class="col-12">{{ form.special_request.label(class="form-label") }}{{ form.special_request(class="form-control", rows="4", placeholder="Optional request or important details") }}{% for error in form.special_request.errors %}<small class="text-danger d-block">{{ error }}</small>{% endfor %}</div>
+                        <div class="col-12"><div class="booking-contact-summary"><strong>Contact information</strong><span>{{ current_user.full_name }}</span><span>{{ current_user.email }}</span><span>{{ current_user.contact_number }}</span><small>We’ll use your verified account details for this request.</small></div></div>
+                        <div class="col-12 pt-2">{{ form.submit(class="btn btn-primary w-100") }}</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

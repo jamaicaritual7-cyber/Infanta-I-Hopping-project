@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Admin Portal | Infanta, I Hopping{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/branding/infanta-mark.svg') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ui-polish.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body class="admin-body">
+<div class="admin-shell" id="adminShell">
+    <aside class="admin-sidebar" aria-label="Administrator navigation">
+        <div class="admin-brand"><img src="{{ url_for('static', filename='images/branding/infanta-mark.svg') }}" alt="" class="admin-brand-logo"><span><strong>Infanta</strong><small>ADMIN PORTAL</small></span></div>
+        <div class="admin-user-card"><span class="admin-avatar">{{ (current_user.full_name or 'A')[0]|upper }}</span><span><strong>{{ current_user.full_name }}</strong><small>Administrator</small></span></div>
+        <nav class="admin-nav">
+            <a class="admin-nav-link {% if request.endpoint == 'admin.dashboard' %}active{% endif %}" href="{{ url_for('admin.dashboard') }}"><span>▦</span>Dashboard</a>
+            <a class="admin-nav-link {% if request.endpoint and request.endpoint.startswith('admin.booking') %}active{% endif %}" href="{{ url_for('admin.bookings') }}"><span>▤</span>Reservations</a>
+            <a class="admin-nav-link {% if request.endpoint and request.endpoint.startswith('admin.boat') or request.endpoint in ['admin.create_boat', 'admin.edit_boat'] %}active{% endif %}" href="{{ url_for('admin.boats') }}"><span>⌁</span>Manage boats</a>
+            <a class="admin-nav-link {% if request.endpoint == 'admin.customers' %}active{% endif %}" href="{{ url_for('admin.customers') }}"><span>♙</span>Customers</a>
+            <a class="admin-nav-link {% if request.endpoint and request.endpoint.startswith('admin.inquir') %}active{% endif %}" href="{{ url_for('admin.inquiries') }}"><span>✉</span>Inquiries</a>
+            <a class="admin-nav-link {% if request.endpoint == 'admin.profile' %}active{% endif %}" href="{{ url_for('admin.profile') }}"><span>⚙</span>Settings / Profile</a>
+        </nav>
+        <div class="admin-sidebar-footer"><a class="admin-nav-link" href="{{ url_for('auth.logout') }}"><span>↪</span>Logout</a><small>Infanta, Quezon</small></div>
+    </aside>
+    <div class="admin-main">
+        <header class="admin-topbar"><button class="admin-menu-button" type="button" aria-label="Open navigation" aria-controls="adminShell" aria-expanded="false" data-admin-menu>☰</button><div><span class="admin-topbar-kicker">Operations center</span><h1>{% block page_heading %}Administrator dashboard{% endblock %}</h1></div><a class="admin-view-site" href="{{ url_for('home') }}">View website ↗</a></header>
+        <main class="admin-content">
+            {% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="alert alert-{{ category }} admin-alert">{{ message }}</div>{% endfor %}{% endwith %}
+            {% block admin_content %}{% endblock %}
+        </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+document.querySelector('[data-admin-menu]')?.addEventListener('click', function () {
+    const shell = document.getElementById('adminShell');
+    const open = shell.classList.toggle('sidebar-open');
+    this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+</script>
+</body>
+</html>

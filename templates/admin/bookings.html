@@ -1,0 +1,69 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Manage Bookings | Infanta, I Hopping{% endblock %}
+
+{% block page_heading %}Reservations{% endblock %}
+{% block admin_content %}
+        <p class="text-muted mb-4">Review customer requests, verify boat availability, and update the booking status.</p>
+        <div class="d-flex flex-wrap gap-2 mb-4" aria-label="Filter bookings by status">
+            <a class="btn btn-sm {% if not selected_status %}btn-primary{% else %}btn-outline-primary{% endif %}" href="{{ url_for('admin.bookings') }}">All</a>
+            {% for status in ['pending', 'confirmed', 'completed', 'cancelled'] %}
+            <a class="btn btn-sm {% if selected_status == status %}btn-primary{% else %}btn-outline-primary{% endif %}" href="{{ url_for('admin.bookings', status=status) }}">{{ status|title }}</a>
+            {% endfor %}
+        </div>
+        <div class="admin-panel"><div class="table-responsive">
+            <table class="table admin-table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Customer</th>
+                        <th>Destination</th>
+                        <th>Boat</th>
+                        <th>Trip date</th>
+                        <th>Passengers</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td><a href="{{ url_for('admin.booking_detail', booking_id=booking.id) }}">{{ booking.booking_reference }}</a></td>
+                        <td>
+                            <div>{{ booking.user.full_name }}</div>
+                            <small class="text-muted">{{ booking.user.email }}</small>
+                        </td>
+                        <td>{{ booking.destination.name }}</td>
+                        <td>{{ booking.boat.name }}</td>
+                        <td>{{ booking.trip_date.strftime('%m/%d/%Y') }}</td>
+                        <td>{{ booking.passenger_count }}</td>
+                        <td><span class="admin-badge {{ booking.status }}">{{ booking.status|replace('_', ' ')|title }}</span></td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1">
+                                {% for next_status, label in [
+                                    ('confirmed', 'Confirm'),
+                                    ('completed', 'Complete'),
+                                    ('cancelled', 'Cancel'),
+                                    ('pending', 'Reopen')
+                                ] %}
+                                {% if booking.status != next_status %}
+                                <form method="post" action="{{ url_for('admin.update_booking_status', booking_id=booking.id, status=next_status) }}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <button class="btn btn-sm {% if next_status == 'cancelled' %}btn-outline-danger{% else %}btn-outline-primary{% endif %}" type="submit">
+                                        {{ label }}
+                                    </button>
+                                </form>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center py-4">No booking requests yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div></div>
+{% endblock %}

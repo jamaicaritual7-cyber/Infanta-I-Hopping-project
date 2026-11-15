@@ -1,0 +1,36 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Booking {{ booking.booking_reference }} | Infanta, I Hopping{% endblock %}
+
+{% block page_heading %}Reservation {{ booking.booking_reference }}{% endblock %}
+{% block admin_content %}
+        <div class="admin-panel p-4 p-md-5">
+            <dl class="row mb-4">
+                <dt class="col-sm-4">Customer</dt>
+                <dd class="col-sm-8">{{ booking.user.full_name }}<br><span class="text-muted">{{ booking.user.email }} · {{ booking.user.contact_number }}</span></dd>
+                <dt class="col-sm-4">Destination</dt>
+                <dd class="col-sm-8">{{ booking.destination.name }}</dd>
+                <dt class="col-sm-4">Boat</dt>
+                <dd class="col-sm-8">{{ booking.boat.name }} (up to {{ booking.boat.passenger_capacity }} passengers)</dd>
+                <dt class="col-sm-4">Trip date</dt>
+                <dd class="col-sm-8">{{ booking.trip_date.strftime('%B %d, %Y') }}</dd>
+                <dt class="col-sm-4">Passengers</dt>
+                <dd class="col-sm-8">{{ booking.passenger_count }}</dd>
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">{{ booking.status|replace('_', ' ')|title }}</dd>
+                <dt class="col-sm-4">Additional request</dt>
+                <dd class="col-sm-8">{{ booking.special_request or 'None provided' }}</dd>
+            </dl>
+            <div class="d-flex flex-wrap gap-2">
+                {% for next_status, label in [('confirmed', 'Confirm'), ('completed', 'Complete'), ('cancelled', 'Cancel'), ('pending', 'Reopen')] %}
+                {% if booking.status != next_status %}
+                <form method="post" action="{{ url_for('admin.update_booking_status', booking_id=booking.id, status=next_status) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="btn {% if next_status == 'cancelled' %}btn-outline-danger{% else %}btn-outline-primary{% endif %}" type="submit">{{ label }}</button>
+                </form>
+                {% endif %}
+                {% endfor %}
+                <a class="btn btn-link" href="{{ url_for('admin.bookings') }}">Back to bookings</a>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}{{ heading }} | Infanta, I Hopping{% endblock %}
+
+{% block page_heading %}{{ heading }}{% endblock %}
+{% block admin_content %}
+        <form method="post" class="admin-panel p-4 p-md-5">
+            {{ form.hidden_tag() }}
+            <div class="row g-4">
+                <div class="col-md-6">
+                    {{ form.name.label(class="form-label") }}
+                    {{ form.name(class="form-control") }}
+                    {% for error in form.name.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-md-6">
+                    {{ form.fuel_type.label(class="form-label") }}
+                    {{ form.fuel_type(class="form-control") }}
+                    {% for error in form.fuel_type.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-md-6">
+                    {{ form.passenger_capacity.label(class="form-label") }}
+                    {{ form.passenger_capacity(class="form-control", min="1", max="1000") }}
+                    {% for error in form.passenger_capacity.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-md-6">
+                    {{ form.availability_status.label(class="form-label") }}
+                    {{ form.availability_status(class="form-select") }}
+                    {% for error in form.availability_status.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-12">
+                    {{ form.photograph_path.label(class="form-label") }}
+                    {{ form.photograph_path(class="form-control", placeholder="Optional static image path") }}
+                    {% for error in form.photograph_path.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-12">
+                    {{ form.description.label(class="form-label") }}
+                    {{ form.description(class="form-control", rows="4") }}
+                    {% for error in form.description.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-12 form-check ms-2">
+                    {{ form.is_active(class="form-check-input") }}
+                    {{ form.is_active.label(class="form-check-label") }}
+                </div>
+            </div>
+            <div class="d-flex gap-2 mt-4">
+                {{ form.submit(class="btn btn-primary") }}
+                <a class="btn btn-outline-secondary" href="{{ url_for('admin.boats') }}">Cancel</a>
+            </div>
+        </form>
+{% endblock %}

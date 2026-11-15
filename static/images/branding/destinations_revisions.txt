@@ -1,0 +1,528 @@
+# FINAL CODEX PROMPT — INFANTA, I HOPPING
+## Install My Saved Destination Photos and Add Complete Tourism Descriptions
+
+**PROJECT:** Infanta, I Hopping  
+**PROJECT FOLDER:** `C:\Users\jamaica\Downloads\Infanta_Ihopping`
+
+# 1. MAIN INSTRUCTIONS
+
+I want you to update my existing Infanta, I Hopping tourism website.
+
+There are TWO MAIN TASKS:
+
+**TASK 1:** Install the destination photographs that I have ALREADY SAVED inside my project folder.
+
+**TASK 2:** Add the complete tourism descriptions, taglines, What to Explore highlights, and Before You Go reminders provided in this prompt.
+
+IMPORTANT:
+
+- I have already prepared the tourism content.
+- Do not research the destinations again.
+- Do not generate replacement descriptions.
+- Do not add new destinations.
+- Do not ask me to upload my photographs again.
+- Do not rebuild my website.
+- Do not reset my MySQL database.
+- Make the actual code and database changes.
+
+Only modify the existing destinations that match the following list:
+
+1. Dero Beach
+2. BIPCO Mangrove Eco-Park
+3. Sabangan Island
+4. Gumatong Shoal
+5. Pulong Kukok
+6. Sulok Beach
+7. Bato Beach
+8. Baluti Island
+9. Tulaog Beach and Cave
+10. Anilon Island
+11. Puting Bato Beach Camp
+
+**DO NOT ADD:**
+- Kanaway Golden Beach
+- Lingayen Cove
+- Salibungot Golden Sand Beach
+- Little Boracay
+- Any other destination not already in my website
+
+# 2. INSTALL MY ALREADY SAVED DESTINATION PHOTOGRAPHS
+
+I HAVE ALREADY PLACED THE PHOTOGRAPHS OF THESE DESTINATIONS INSIDE MY INFANTA, I HOPPING PROJECT FOLDER:
+
+1. Dero Beach
+2. BIPCO Mangrove Eco-Park
+3. Sabangan Island
+4. Gumatong Shoal
+5. Pulong Kukok
+6. Sulok Beach
+
+THE PHOTOGRAPHS ALREADY HAVE FILENAMES.
+
+I DO NOT NEED TO UPLOAD THEM AGAIN.
+
+You have permission to locate and use these existing local image files for my project.
+
+## REQUIRED IMPLEMENTATION
+
+1. Search my existing project directory and image folders.
+2. Find the photographs using their actual filenames.
+3. Match each image with its corresponding destination.
+4. Check the file extension: JPG, JPEG, PNG, or WEBP.
+5. Preserve existing filenames where possible.
+6. Copy the files into the correct Flask static image directory if needed.
+7. Update the correct image references in MySQL or the existing image mapping.
+8. Display each image on its Explore Destinations card.
+9. Display the same image on its Destination Details page.
+10. Use the correct images in homepage featured destination cards when applicable.
+11. Fix broken image paths and browser caching issues.
+12. Verify the image URLs return HTTP 200 and display correctly.
+
+For Bato Beach, Baluti Island, Tulaog Beach and Cave, Anilon Island, and Puting Bato Beach Camp, preserve existing valid photographs. Do not replace them unnecessarily.
+
+Do not use random beach photographs.
+
+Do not confuse BIPCO Mangrove Eco-Park with AFFA Mangrove Eco-Park.
+
+Do not confuse Sabangan in Quezon with Sabangan Island in Pangasinan.
+
+# 3. COMPLETE DESTINATION CONTENT
+
+Use the content below exactly as provided, except for minor punctuation and formatting adjustments.
+
+The suggested taglines are original promotional lines for the website, not official slogans. Do not label them as official tourism slogans.
+
+---
+
+## DESTINATION 1 — DERO BEACH
+
+**Location:** Barangay Balobo, Infanta, Quezon
+
+**Tagline:**  
+"Where Infanta Meets the Sea"
+
+**About This Destination:**
+
+Discover Dero Beach, also known as Deru Beach, along the coast of Barangay Balobo in Infanta, Quezon. This seaside destination offers visitors a chance to appreciate the natural beauty of Infanta's coastline. With its open sea views and coastal surroundings, Dero Beach is a lovely destination for travelers who want to enjoy the quieter side of Quezon's coastal landscape. Whether you are taking photographs or simply admiring the shore, it offers another way to discover Infanta beyond its town center.
+
+**What to Explore:**
+- Coastal scenery
+- Shoreline photography
+- Seaside views
+- Natural coastal surroundings
+
+**Before You Go:**
+
+Confirm local access, weather conditions, and available facilities before visiting.
+
+---
+
+## DESTINATION 2 — BIPCO MANGROVE ECO-PARK
+
+**Location:** Barangay Binonoan, Infanta, Quezon
+
+**Tagline:**  
+"Where Mangroves Shelter a Thousand Wings"
+
+**About This Destination:**
+
+Discover one of Infanta's remarkable ecological attractions at BIPCO Mangrove Eco-Park. Managed by the Binonoan Producers Cooperative, this mangrove sanctuary is known for its fruit-eating bats and rich coastal ecosystem. The destination highlights the importance of mangrove conservation while introducing visitors to the natural beauty of Infanta. Its waterways, wildlife habitat, and community conservation efforts offer a meaningful experience for travelers interested in nature and environmental protection.
+
+**What to Explore:**
+- Mangrove forests
+- Fruit bat sanctuary
+- Mangrove waterways
+- Birdwatching and wildlife appreciation
+- Ecological boat tours, when operating
+- Community conservation initiatives
+
+**Before You Go:**
+
+Access may be restricted to protect wildlife. Confirm current visitor access and tour availability with local management before accepting bookings. Wildlife sightings are not guaranteed.
+
+---
+
+## DESTINATION 3 — SABANGAN ISLAND
+
+**Location:** Existing Quezon destination record; exact municipality requires confirmation
+
+**Tagline:**  
+"A Hidden Shore Worth Discovering"
+
+**About This Destination:**
+
+Discover Sabangan and the natural coastal scenery that makes lesser-known destinations worth exploring. Away from the usual crowded tourist spots, Sabangan invites visitors to appreciate the beauty of the shoreline and its surrounding environment. For travelers who enjoy discovering places beyond familiar attractions, this destination offers an opportunity to explore another side of Quezon's coastal landscape.
+
+**What to Explore:**
+- Coastal scenery
+- Shoreline photography
+- Natural surroundings
+- Scenic views
+
+**Before You Go:**
+
+Confirm the precise location, visitor access, and permitted activities before arranging a trip.
+
+**Important:** Do not identify this destination as Sabangan Island in Pangasinan. Preserve the existing Quezon destination record. Do not publish an unverified municipality as fact.
+
+---
+
+## DESTINATION 4 — GUMATONG SHOAL
+
+**Location:** Panukulan, Quezon
+
+**Tagline:**  
+"The Shoal That Speaks Before the Storm"
+
+**About This Destination:**
+
+Gumatong Shoal is a remarkable marine formation associated with the waters of Panukulan, Quezon. More than a scenic coastal attraction, it holds a special place in local fishing knowledge. The shoal helps break powerful waves, and local fishers have traditionally listened to the sounds created when waves strike its rocks as a sign of approaching storms. During suitable low-tide conditions, parts of its rocks and sand become visible in the surrounding waters. Gumatong reflects the connection between coastal communities, the sea, and traditional environmental knowledge.
+
+**What to Explore:**
+- Natural shoal formations
+- Rocks and sand visible at suitable tides
+- Coastal and marine scenery
+- Landscape photography
+- Traditional fishing and weather knowledge
+
+**Before You Go:**
+
+Coordinate with local guides and respect marine conservation rules. Do not promise snorkeling, diving, or unrestricted access.
+
+---
+
+## DESTINATION 5 — PULONG KUKOK
+
+**Location:** Polillo Group of Islands, Quezon
+
+**Known Alternative Names:** Cocooc Shoal; Snake Island
+
+**Tagline:**  
+"Where the Rocks Resemble a Rooster"
+
+**About This Destination:**
+
+Pulong Kukok is one of the Polillo island group's unusual natural attractions. Known for its white sandbar, clear waters, and two large rock formations resembling a rooster, the island has a character unlike an ordinary beach. Its name is connected to the sound of a rooster, while its alternative name, Snake Island, reflects the presence of sea snakes around its rocky habitat. Pulong Kukok offers visitors a memorable combination of island scenery, natural rock formations, and wildlife significance.
+
+**What to Explore:**
+- Rooster-shaped rock formations
+- White sandbar
+- Clear coastal waters
+- Island photography
+- Wildlife observation from a safe distance
+
+**Before You Go:**
+
+Sea snakes may be present. Do not approach or disturb wildlife. Visits should be coordinated with local operators and timed around safe sea and tidal conditions.
+
+---
+
+## DESTINATION 6 — SULOK BEACH
+
+**Location:** General Nakar, Quezon
+
+**Tagline:**  
+"Where Pebbles Meet the Pacific"
+
+**About This Destination:**
+
+Sulok Beach is a coastal destination in General Nakar known for its pebbly shoreline and natural rock formations. Unlike beaches famous for their powdery sand, Sulok offers a more rugged seaside landscape. Its combination of smooth pebbles, coastal scenery, and rocky formations creates an interesting setting for visitors who enjoy discovering the natural character of Quezon's Pacific-facing coast. It is especially appealing to travelers interested in photography, quiet coastal exploration, and appreciating the beauty of less-commercialized destinations.
+
+**What to Explore:**
+- Pebble shoreline
+- Rock formations
+- Coastal photography
+- Pacific-facing scenery
+- Relaxation by the shore
+
+**Before You Go:**
+
+Wear suitable footwear for rocky or pebbly ground and confirm local access and sea conditions.
+
+---
+
+## DESTINATION 7 — BATO BEACH
+
+**Location:** Polillo, Quezon
+
+**Tagline:**  
+"Discover Polillo's Rugged Coastal Beauty"
+
+**About This Destination:**
+
+Bato Beach introduces visitors to the rocky side of Polillo's coastal landscape. Known for its craggy shoreline and natural seaside formations, this destination offers a different experience from the island's white-sand beaches. Its rugged surroundings create opportunities to appreciate the beauty of the coast, observe natural rock formations, and capture scenic photographs. For travelers who enjoy exploring the varied landscapes of the Polillo group, Bato Beach is an interesting addition to an island itinerary.
+
+**What to Explore:**
+- Rocky coastline
+- Natural rock formations
+- Coastal views
+- Landscape photography
+
+**Before You Go:**
+
+Be cautious on slippery rocks and confirm safe access with local guides.
+
+---
+
+## DESTINATION 8 — BALUTI ISLAND
+
+**Location:** REINA coastal tourism circuit, Quezon
+
+**Tagline:**  
+"An Island Escape Along the REINA Coast"
+
+**About This Destination:**
+
+Baluti Island is among the coastal attractions associated with the Real, Infanta, and General Nakar tourism circuit in Quezon. Surrounded by natural seaside scenery, it offers an opportunity to appreciate the province's eastern coastline and explore destinations beyond the usual mainland beaches. The island forms part of a wider coastal tourism experience that introduces travelers to the natural landscapes of the REINA area.
+
+**What to Explore:**
+- Island scenery
+- Coastal views
+- Landscape photography
+- The wider REINA coastal tourism circuit
+
+**Before You Go:**
+
+Confirm the exact landing point, boat arrangements, and sea conditions with local operators.
+
+---
+
+## DESTINATION 9 — TULAOG BEACH AND CAVE
+
+**Location:** General Nakar, Quezon
+
+**Tagline:**  
+"Where Nature and Sacred Traditions Meet"
+
+**About This Destination:**
+
+Tulaog Beach and Cave is a remarkable coastal attraction in General Nakar where natural beauty meets the cultural heritage of the Dumagat community. The seaside cave is recognized as a sacred place associated with Indigenous spiritual traditions. Surrounded by dramatic coastal scenery and rock formations, Tulaog offers more than a picturesque destination. It is a place where visitors can appreciate the relationship between the land, the sea, and the traditions of the people who have long cared for the area.
+
+**What to Explore:**
+- Seaside cave
+- Coastal rock formations
+- Beach scenery
+- Dumagat cultural heritage
+- Nature photography
+
+**Before You Go:**
+
+Respect sacred spaces, Indigenous community guidance, and local access restrictions. Do not promote unsupervised entry into the cave.
+
+---
+
+## DESTINATION 10 — ANILON ISLAND
+
+**Location:** Burdeos, Quezon
+
+**Known Nickname:** "Boracay of Burdeos"
+
+**Tagline:**  
+"White Sands, Hidden Caves, and Island Wonders"
+
+**About This Destination:**
+
+Anilon Island is one of Burdeos's scenic coastal attractions, known for its white-sand shoreline, clear waters, and distinctive rock formations. Sometimes described as the Boracay of Burdeos, it offers visitors a beautiful combination of beach scenery and natural geological features. The island is also associated with caves and a tunnel-like rock formation, adding another point of interest for travelers who enjoy discovering unusual coastal landscapes. Its natural surroundings make it a memorable destination within the Polillo island group.
+
+**What to Explore:**
+- White-sand shoreline
+- Coastal rock formations
+- Anilon caves
+- Tunnel-like rock formation
+- Scenic island views
+
+**Before You Go:**
+
+Cave access and exploration should be arranged through knowledgeable local guides.
+
+---
+
+## DESTINATION 11 — PUTING BATO BEACH CAMP
+
+**Location:** Existing destination record; precise camp identity requires confirmation
+
+**Tagline:**  
+"Where White Stone Meets Clear Waters"
+
+**About This Destination:**
+
+Puting Bato is associated with the coastal landscapes of the Polillo island group, where striking rock formations and clear surrounding waters create a distinctive natural setting. Its rugged seaside scenery offers an interesting destination for travelers who appreciate island views, natural formations, and coastal photography. The destination highlights another side of Quezon's island attractions beyond the usual sandy beaches.
+
+**What to Explore:**
+- Coastal rock formations
+- Island scenery
+- Clear-water views
+- Landscape photography
+
+**Before You Go:**
+
+Confirm whether the existing Puting Bato Beach Camp record refers to Isla Puting Bato before publishing island-specific claims. Do not advertise camping facilities or services without confirmation.
+
+---
+
+# 4. APPLY THE CONTENT TO THE WEBSITE
+
+## A. EXPLORE DESTINATIONS PAGE
+
+Each existing destination card must display:
+
+1. Correct destination photograph
+2. Destination name
+3. Municipality and province, where verified
+4. Tagline
+5. Short description preview
+6. Explore Destination button
+
+Do not overcrowd the cards.
+
+Keep the cards visually attractive, professional, and easy to read.
+
+## B. DESTINATION DETAILS PAGE
+
+Each destination details page must display:
+
+1. Large destination photograph
+2. Destination name
+3. Verified location
+4. Tagline
+5. About This Destination
+6. What to Explore
+7. Before You Go
+8. Book a Trip button
+
+Make What to Explore visually appealing using simple icons and neatly arranged highlights.
+
+The visitor should immediately understand what makes each destination special.
+
+## C. HOMEPAGE
+
+Keep the current premium homepage design.
+
+If a destination is featured on the homepage, use its correct photograph, name, and tagline.
+
+Do not add destinations that do not exist in my database.
+
+Do not replace my current design with the older version.
+
+# 5. DATABASE REQUIREMENTS
+
+Use my existing MySQL destination records.
+
+Match destinations by their actual IDs and names.
+
+Do not insert duplicate records.
+
+If necessary, safely add fields for:
+
+- Tagline
+- Description
+- What to Explore highlights
+- Before You Go notes
+- Image filename or image path
+
+Use a minimal database migration and preserve existing data.
+
+The admin must still be able to edit destination information using the existing CRUD interface.
+
+Do not hardcode all descriptions exclusively inside HTML templates.
+
+Do not overwrite verified location information with an uncertain location.
+
+# 6. DESIGN REQUIREMENTS
+
+Preserve:
+
+- My original Infanta, I Hopping logo
+- Navy-blue and turquoise color palette
+- Premium tourism homepage design
+- Beautiful destination cards
+- Responsive Bootstrap 5 layout
+- Existing navigation
+- Booking buttons
+- Consistent typography and spacing
+
+Make the descriptions feel like part of a professional tourism booking website.
+
+Do not display developer-only warnings such as "Destination Photograph Pending" or "Review Source" on public cards.
+
+Keep unresolved verification issues visible to the administrator rather than presenting uncertain claims as facts.
+
+# 7. PRESERVE EXISTING FUNCTIONALITY
+
+Do not break or unnecessarily modify:
+
+- Flask backend
+- MySQL database
+- Customer registration and login
+- Admin login
+- Gmail SMTP OTP verification
+- Sessions and security
+- Boat rental management
+- Booking and reservation functionality
+- Customer dashboard
+- Admin dashboard
+- Profile management
+- CRUD operations
+- Existing users and reservations
+
+Do not introduce PHP.
+
+Do not reset my database.
+
+Do not rebuild the website.
+
+# 8. TEST THE IMPLEMENTATION
+
+After making the changes, verify:
+
+1. Dero Beach photo displays correctly.
+2. BIPCO Mangrove Eco-Park photo displays correctly.
+3. Sabangan Island photo displays correctly.
+4. Gumatong Shoal photo displays correctly.
+5. Pulong Kukok photo displays correctly.
+6. Sulok Beach photo displays correctly.
+7. Existing valid photos for the other destinations remain intact.
+8. All image URLs return HTTP 200.
+9. All 11 destination descriptions appear on the correct records.
+10. Every destination displays its correct tagline.
+11. What to Explore appears on the details pages.
+12. Before You Go appears on the details pages.
+13. Booking buttons still work.
+14. Admin destination editing still works.
+15. The existing logo and design remain unchanged.
+16. Both localhost and LAN addresses display the intended updated application.
+
+If a test cannot be completed, report it honestly.
+
+# 9. FINAL REPORT
+
+After implementing the changes, provide a table with:
+
+Destination | Photo Installed | Tagline Added | Description Added | Highlights Added | Verified
+
+Also report:
+
+- Image files found
+- Missing photographs, if any
+- Files modified
+- Database changes
+- Tests performed
+- Any unresolved destination information
+
+Do not claim that a photo or description was successfully installed unless you have verified it.
+
+# FINAL INSTRUCTION
+
+THIS PROMPT ALREADY CONTAINS ALL THE DESTINATION CONTENT.
+
+DO NOT RESEARCH THE DESTINATIONS AGAIN.
+
+DO NOT GENERATE REPLACEMENT DESCRIPTIONS.
+
+DO NOT ADD KANAWAY GOLDEN BEACH, LINGAYEN COVE, SALIBUNGOT GOLDEN SAND BEACH, OR ANY OTHER NEW DESTINATIONS.
+
+DO NOT ASK ME TO UPLOAD MY EXISTING PHOTOGRAPHS AGAIN.
+
+YOUR TASK IS TO IMPLEMENT THESE EXACT UPDATES ON MY EXISTING 11 DESTINATIONS.
+
+START BY LOCATING AND INSTALLING MY SAVED PHOTOGRAPHS, THEN UPDATE THE DESCRIPTIONS AND VERIFY THE WEBSITE.

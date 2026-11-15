@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Customer Dashboard | Infanta, I Hopping{% endblock %}
+{% block content %}
+<section class="page-hero py-5"><div class="container"><p class="eyebrow">Welcome back</p><h1>{{ current_user.full_name }}</h1><p class="lead">Manage your Infanta island-hopping reservations.</p></div></section>
+<section class="py-5"><div class="container">
+    <div class="row g-3 mb-4 customer-stat-grid" aria-label="Your booking summary">
+        <div class="col-6 col-lg-3"><div class="card border-0 shadow-sm p-3 h-100"><small class="text-muted">Total bookings</small><strong class="display-6 text-navy">{{ booking_counts.total }}</strong></div></div>
+        <div class="col-6 col-lg-3"><div class="card border-0 shadow-sm p-3 h-100"><small class="text-muted">Pending review</small><strong class="display-6 text-warning">{{ booking_counts.pending }}</strong></div></div>
+        <div class="col-6 col-lg-3"><div class="card border-0 shadow-sm p-3 h-100"><small class="text-muted">Confirmed</small><strong class="display-6 text-success">{{ booking_counts.confirmed }}</strong></div></div>
+        <div class="col-6 col-lg-3"><div class="card border-0 shadow-sm p-3 h-100"><small class="text-muted">Completed</small><strong class="display-6 text-primary">{{ booking_counts.completed }}</strong></div></div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-4"><h2 class="h3 mb-0">Recent bookings</h2><a class="btn btn-primary" href="/booking/book">Book a trip</a></div>
+    {% if bookings %}<div class="table-responsive card border-0 shadow-sm"><table class="table align-middle mb-0"><thead><tr><th>Reference</th><th>Destination</th><th>Date</th><th>Status</th></tr></thead><tbody>
+    {% for booking in bookings %}<tr><td><a href="{{ url_for('booking.booking_summary', booking_id=booking.id) }}">{{ booking.booking_reference }}</a></td><td>{{ booking.destination.name }}</td><td>{{ booking.trip_date.strftime('%m/%d/%Y') }}</td><td><span class="badge {% if booking.status == 'confirmed' %}text-bg-success{% elif booking.status == 'cancelled' %}text-bg-danger{% elif booking.status == 'completed' %}text-bg-primary{% else %}text-bg-warning{% endif %}">{{ booking.status|replace('_', ' ')|title }}</span></td></tr>{% endfor %}
+    </tbody></table></div><a class="d-inline-block mt-3" href="/customer/bookings">View all bookings &rarr;</a>
+    {% else %}<div class="card border-0 shadow-sm p-5 text-center"><h3 class="h4">No bookings yet</h3><p class="text-muted">Your reservation requests will appear here.</p><a class="btn btn-primary mx-auto" href="/booking/book">Start a booking</a></div>{% endif %}
+</div></section>
+{% endblock %}

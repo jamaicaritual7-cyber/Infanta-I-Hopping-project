@@ -1,0 +1,366 @@
+# FINAL CODEX PROMPT — COMPLETE ALL DESTINATION PHOTOGRAPHS
+
+## PROJECT INFORMATION
+
+**Project:** Infanta, I Hopping — Boat Rental, Island-Hopping Reservation and Tourism Management System
+
+**Project folder:**
+C:\Users\jamaica\Downloads\Infanta_Ihopping
+
+**Technology stack:**
+Python Flask, Flask-SQLAlchemy, MySQL, HTML5, CSS3, Bootstrap 5, and JavaScript.
+
+## MAIN OBJECTIVE
+
+I want you to fix and complete ALL destination photographs in my existing tourism website.
+
+Currently, my Explore Destinations page displays navy, turquoise, and gold gradient placeholders instead of actual destination photographs.
+
+I want every destination card to display a beautiful, authentic, high-quality photograph of its EXACT location.
+
+This is a tourism website intended to attract visitors to Infanta, Quezon, and nearby island destinations.
+
+The photography should make visitors interested in exploring the destination and booking an island-hopping trip.
+
+**IMPORTANT: This is an actual implementation task. Do not stop after inspecting or testing. Replace the placeholders with suitable photographs wherever the exact location and reuse rights can be established.**
+
+---
+
+## PHASE 1 — INSPECT MY EXISTING DESTINATIONS
+
+Inspect my existing Flask routes, destination templates, static folders, JavaScript, and MySQL destination records.
+
+Identify every destination currently displayed on my website.
+
+Do not rely only on the destinations listed below if additional cards exist.
+
+Do not remove, rename, or overwrite existing destination records without my approval.
+
+### A. INFANTA AND NEARBY DESTINATIONS
+
+**1. Sulok Beach — General Nakar, Quezon**
+
+Photo reference:
+https://jazzmineee.home.blog/2018/09/21/sulok-beach/
+
+Find the best authentic photograph showing the actual Sulok Beach coastline, preferably with a wide scenic view.
+
+**2. Tulaog Beach & Cave — General Nakar, Quezon**
+
+Photo reference:
+https://calabarzon.depdev.gov.ph/wp-content/uploads/2022/04/REINA-TDP-as-of-March-17.pdf
+
+Find a photograph showing the actual Tulaog Cave or its coastal surroundings. Verify that the photographed attraction corresponds to the card.
+
+**3. BIPCO Mangrove Eco-Park — Infanta, Quezon**
+
+Photo reference:
+https://calabarzon.depdev.gov.ph/wp-content/uploads/2022/04/REINA-TDP-as-of-March-17.pdf
+
+Additional photo:
+https://commons.wikimedia.org/wiki/File:Mangroves_in_rural_parts_of_Infanta%2C_Quezon.jpg
+
+Prioritize an actual BIPCO Mangrove Eco-Park photograph showing its mangroves, waterways, boats, or viewing facilities.
+
+Do not use a generic Infanta mangrove photograph and label it BIPCO unless the location is confirmed.
+
+**4. Dero Beach — Infanta, Quezon**
+
+Photo search:
+https://www.google.com/search?tbm=isch&q=Dero+Beach+Infanta+Quezon
+
+Find the best photograph of the actual Dero Beach coastline.
+
+Confirm the exact location before using it.
+
+**5. Sabangan Beach — Infanta, Quezon**
+
+Photo search:
+https://www.google.com/search?tbm=isch&q=Sabangan+Beach+Infanta+Quezon
+
+Find an authentic photograph showing Sabangan Beach in Infanta, not another place with the same name.
+
+### B. POLILLO DESTINATIONS
+
+**6. Bato Beach — Polillo Group of Islands, Quezon**
+
+Original photo:
+https://www.flickr.com/photos/edseephotography/6080124647
+
+Find a high-resolution photograph of the actual Bato Beach.
+
+Verify its municipality and reuse terms.
+
+**7. Pulong Kukok — Polillo Group of Islands, Quezon**
+
+Photo references:
+https://polillotravelers.wordpress.com/2018/02/10/why-these-5-beaches-in-polillo-group-of-islands-should-be-your-next-summer-destination/
+
+https://mindtrip.ai/attraction/luzon/pulong-kukok/at-JXpkspVX
+
+Select the best authentic photograph showing Pulong Kukok's coastline, beach, or island scenery.
+
+Confirm its actual municipality.
+
+### C. PANUKULAN DESTINATIONS
+
+**8. Gumatong Shoal — Panukulan, Quezon**
+
+Research photo reference:
+https://jmds.upou.edu.ph/index.php/journal/article/download/26/26
+
+Photo search:
+https://www.google.com/search?tbm=isch&q=Gumatong+Shoal+Panukulan+Quezon
+
+Find a verified photograph showing the actual shoal or reef environment.
+
+Prefer an attractive wide-angle coastal or aerial photograph if an authentic one exists.
+
+**9. Pinagbanderahan Beach Resort — Panukulan, Quezon**
+
+Photo search:
+https://www.google.com/search?tbm=isch&q=Pinagbanderahan+Beach+Resort+Panukulan+Quezon
+
+Find the resort's actual beachfront or coastal scenery.
+
+Verify the resort name and exact location.
+
+### D. BURDEOS DESTINATIONS
+
+**10. Anilon Island — Burdeos, Quezon**
+
+Photo reference:
+https://kapampangantraveller.com/2026/03/09/burdeos-quezon-province-tourist-spots/
+
+Find the most attractive authentic Anilon Island photograph, preferably showing its shoreline, water, and surrounding island landscape.
+
+**11. Puting Bato Beach Camp — Burdeos, Quezon**
+
+Photo references:
+https://beachanatic.blogspot.com/2026/04/island-hopping-in-burdeos.html
+
+https://mindtrip.ai/attraction/panukulan-luzon/puting-bato-beach-camp/at-HrJRxnHh
+
+Verify the correct municipality and confirm whether the pictured Puting Bato location is the exact Beach Camp shown on my website.
+
+Do not confuse different places with similar names.
+
+### E. REAL, QUEZON
+
+**12. Baluti Island — Real, Quezon**
+
+Photo reference:
+https://commons.wikimedia.org/wiki/Category:Real,_Quezon
+
+Photo search:
+https://www.google.com/search?tbm=isch&q=Baluti+Island+Baluti+Cove+Real+Quezon
+
+Find a verified photograph of the actual attraction.
+
+Do not automatically assume that Baluti Cove and Baluti Island are the same location.
+
+### F. JOMALIG DESTINATIONS
+
+Inspect ALL Jomalig destinations in my existing website and complete their photographs individually.
+
+Use these sources:
+
+**Kanaway Golden Beach:**
+https://commons.wikimedia.org/wiki/File:Kanaway_Golden_Beach_at_Jomalig_Island.jpg
+
+**Jomalig golden beach scenery:**
+https://commons.wikimedia.org/wiki/File:Golden_Paradise_of_the_South_East.jpg
+
+**Lingayen Cove:**
+https://commons.wikimedia.org/wiki/File:Lingayen_Cove.jpg
+
+**Little Boracay of Luzon:**
+https://commons.wikimedia.org/wiki/File:Little_Boracay_of_Luzon.jpg
+
+**Additional Jomalig photography:**
+https://commons.wikimedia.org/wiki/Category:Jomalig
+
+Find every other Jomalig destination in my project and select an authentic photograph for its exact location.
+
+Do not use the same Jomalig photograph for unrelated attractions.
+
+---
+
+## PHASE 2 — CHOOSE THE BEST PHOTOGRAPH FOR EACH DESTINATION
+
+I want a beautiful, professional tourism website.
+
+Prioritize photographs with:
+
+1. High resolution and sharp image quality.
+2. Wide landscape composition.
+3. Attractive natural lighting.
+4. Beautiful water, coastline, beaches, mangroves, or recognizable landmarks.
+5. Natural and realistic colors.
+6. Clear, unobstructed scenery.
+7. Strong visual composition that attracts tourists.
+8. Suitable framing for website destination cards.
+9. A distinct visual identity for each destination.
+10. Authentic location information.
+
+Do not choose blurry, heavily pixelated, watermarked, or unrelated photographs.
+
+Do not generate fictional destination images using AI.
+
+Do not falsely label a photograph of another beach as the requested destination.
+
+For schoolwork, prioritize openly licensed photographs and sources that clearly allow reuse. A Google Images result alone is not proof of permission.
+
+If a photograph has no established reuse permission, keep it as a research candidate rather than publishing it automatically.
+
+## PHASE 3 — DOWNLOAD AND ORGANIZE THE IMAGES
+
+For verified photographs with appropriate reuse rights:
+
+- Download a suitable high-resolution version.
+- Optimize the image for web performance.
+- Prefer WebP or JPEG where appropriate.
+- Use descriptive filenames.
+- Store images locally in the existing Flask static directory.
+- Preserve photographer attribution and required license information.
+- Avoid hotlinking images from unrelated websites.
+- Do not overwrite existing assets unnecessarily.
+
+Suggested folder structure, only if compatible with the current project:
+
+static/images/destinations/
+    infanta/
+    general-nakar/
+    polillo/
+    panukulan/
+    burdeos/
+    real/
+    jomalig/
+
+## PHASE 4 — REPLACE THE GRADIENT PLACEHOLDERS
+
+Inspect the current Explore Destinations page.
+
+Replace the existing gradient-only image sections with actual verified destination photographs.
+
+Keep the current design:
+
+- Navy blue
+- Turquoise
+- Aqua
+- White
+- Existing fonts
+- Existing navigation
+- Existing card structure
+- Existing View Details buttons
+- Existing destination information
+
+Use consistent image sizes and responsive styling.
+
+Apply appropriate object-fit: cover and object-position settings so the important part of each photograph remains visible.
+
+Add lazy loading for destination cards where appropriate.
+
+Make sure images display correctly on desktop and mobile.
+
+## PHASE 5 — UPDATE VIEW DETAILS PAGES
+
+When a visitor clicks View Details, display the correct destination photograph and information.
+
+Ensure the destination image matches the card.
+
+Do not invent travel times, prices, routes, or availability.
+
+Preserve existing working booking links and functionality.
+
+## PHASE 6 — VERIFY DESTINATION ACCURACY
+
+For every destination:
+
+- Confirm its official or commonly documented name.
+- Confirm its municipality and province.
+- Confirm the photograph depicts that location.
+- Confirm the original image source.
+- Check the reuse license or permission.
+- Record the photographer or copyright owner when available.
+
+If a location is uncertain, report the issue.
+
+Do not silently change destination names or municipalities without confirming the correction.
+
+## PHASE 7 — PRESERVE MY EXISTING SYSTEM
+
+DO NOT BREAK OR MODIFY UNNECESSARILY:
+
+- Flask authentication
+- Customer registration
+- Gmail OTP verification
+- Customer login
+- Admin login
+- Admin Dashboard
+- Booking system
+- Reservation status management
+- MySQL database
+- Existing customer records
+- Existing boat information
+- Form validation
+- Existing branding
+
+Do not introduce PHP.
+
+Do not reset the database.
+
+Do not modify my .env credentials.
+
+Do not perform database migrations without approval.
+
+## PHASE 8 — COMPLETE THE ACTUAL IMPLEMENTATION
+
+This is NOT a testing-only task.
+
+I want real photographs integrated into the actual website.
+
+Inspect the existing project, identify the destination image placeholders, research the photographs, and implement all verified, usable images.
+
+If web access or image downloads are unavailable, explain the limitation instead of inventing sources or pretending the images were installed.
+
+Do not spend the entire session repeating unrelated regression tests.
+
+## PHASE 9 — FINAL REPORT
+
+After completing the implementation, give me a COMPLETE table:
+
+Destination Name | Municipality | Selected Photograph | Original Source URL | Photographer/License | Local File Path | Status
+
+For every destination, use one of these statuses:
+
+- VERIFIED AND INSTALLED
+- PHOTO FOUND — PERMISSION REQUIRED
+- LOCATION NEEDS VERIFICATION
+- NO SUITABLE PHOTO FOUND
+
+Also tell me:
+
+1. How many destinations exist in my project.
+2. How many destination photographs were successfully installed.
+3. Which destinations still need photographs.
+4. Which files were modified.
+5. Whether all destination cards display correctly.
+6. Whether View Details images work.
+7. Whether my original website design was preserved.
+
+## FINAL INSTRUCTION
+
+My goal is to create a visually attractive, credible tourism website that showcases the REAL beauty of Infanta, Quezon, and nearby island destinations.
+
+I want every destination to have its OWN beautiful, authentic photograph.
+
+Do not substitute random tropical beaches.
+
+Do not remove any destinations.
+
+Do not redesign my entire website.
+
+**Complete every safely installable destination photograph, preserve my working system, and clearly report anything that remains unresolved.**
+
+BEGIN IMPLEMENTATION NOW.

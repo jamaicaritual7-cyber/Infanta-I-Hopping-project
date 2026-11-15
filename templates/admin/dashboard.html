@@ -1,0 +1,52 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Admin Dashboard | Infanta, I Hopping{% endblock %}
+
+{% block page_heading %}Dashboard overview{% endblock %}
+{% block admin_content %}
+        <div class="row g-3 mb-4">
+            {% for label, value, color in [
+                ('Total reservations', stats.total, ''),
+                ('Pending reservations', stats.pending, 'admin-stat-accent'),
+                ('Approved reservations', stats.confirmed, 'admin-stat-accent'),
+                ('Completed reservations', stats.completed, 'admin-stat-accent')
+            ] %}
+            <div class="col-sm-6 col-xl-3">
+                <div class="admin-stat-card">
+                    <span class="admin-stat-label">{{ label }}</span>
+                    <strong class="admin-stat-value {{ color }}">{{ value }}</strong>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="admin-panel">
+            <div class="admin-panel-header"><h2>Recent reservations</h2><a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.bookings') }}">View all</a></div>
+            <div class="table-responsive"><table class="table admin-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Customer</th>
+                        <th>Destination</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td><a href="{{ url_for('admin.booking_detail', booking_id=booking.id) }}">{{ booking.booking_reference }}</a></td>
+                        <td>{{ booking.user.full_name }}</td>
+                        <td>{{ booking.destination.name }}</td>
+                        <td>{{ booking.trip_date.strftime('%b %d, %Y') }}</td>
+                        <td><span class="admin-badge {{ booking.status }}">{{ booking.status|replace('_', ' ')|title }}</span></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center py-4">No booking requests yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+{% endblock %}
